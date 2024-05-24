@@ -16,5 +16,20 @@ namespace TakeHiro
         {
 
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoginPage_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPwd_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
