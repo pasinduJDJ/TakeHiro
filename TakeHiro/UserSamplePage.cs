@@ -16,5 +16,20 @@ namespace TakeHiro
         {
             InitializeComponent();
         }
+
+        private void btnBookNow_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UserSamplePage_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
