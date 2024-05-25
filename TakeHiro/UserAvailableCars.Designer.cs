@@ -70,6 +70,7 @@
             // 
             // btnAvailableCar
             // 
+            btnAvailableCar.BackColor = Color.Black;
             btnAvailableCar.FlatAppearance.BorderSize = 0;
             btnAvailableCar.FlatAppearance.MouseOverBackColor = Color.FromArgb(11, 12, 12);
             btnAvailableCar.FlatStyle = FlatStyle.Flat;
@@ -87,7 +88,7 @@
             btnAvailableCar.Size = new Size(206, 54);
             btnAvailableCar.TabIndex = 8;
             btnAvailableCar.Text = "Available Cars";
-            btnAvailableCar.UseVisualStyleBackColor = true;
+            btnAvailableCar.UseVisualStyleBackColor = false;
             // 
             // btnAvailabelDriver
             // 
@@ -213,12 +214,13 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { carid, carmodel, platenumber });
             dataGridView1.Location = new Point(219, 121);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(416, 386);
+            dataGridView1.Size = new Size(449, 386);
             dataGridView1.TabIndex = 14;
             // 
             // carid
@@ -226,21 +228,18 @@
             carid.HeaderText = "Car ID";
             carid.MinimumWidth = 6;
             carid.Name = "carid";
-            carid.Width = 125;
             // 
             // carmodel
             // 
             carmodel.HeaderText = "Car Model";
             carmodel.MinimumWidth = 6;
             carmodel.Name = "carmodel";
-            carmodel.Width = 125;
             // 
             // platenumber
             // 
             platenumber.HeaderText = "Plate Number";
             platenumber.MinimumWidth = 6;
             platenumber.Name = "platenumber";
-            platenumber.Width = 125;
             // 
             // label1
             // 
@@ -259,9 +258,9 @@
             panel3.BorderStyle = BorderStyle.Fixed3D;
             panel3.Controls.Add(lblDriversCount);
             panel3.Controls.Add(label1);
-            panel3.Location = new Point(661, 121);
+            panel3.Location = new Point(691, 121);
             panel3.Name = "panel3";
-            panel3.Size = new Size(272, 65);
+            panel3.Size = new Size(244, 88);
             panel3.TabIndex = 16;
             // 
             // lblDriversCount
@@ -269,11 +268,12 @@
             lblDriversCount.AutoSize = true;
             lblDriversCount.Font = new Font("Nirmala UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDriversCount.ForeColor = Color.Black;
-            lblDriversCount.Location = new Point(210, 20);
+            lblDriversCount.Location = new Point(179, 36);
             lblDriversCount.Name = "lblDriversCount";
             lblDriversCount.Size = new Size(60, 41);
             lblDriversCount.TabIndex = 8;
             lblDriversCount.Text = " 24";
+            lblDriversCount.Click += lblDriversCount_Click;
             // 
             // UserAvailableCars
             // 

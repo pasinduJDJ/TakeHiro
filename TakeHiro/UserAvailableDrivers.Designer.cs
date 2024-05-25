@@ -91,6 +91,7 @@
             // 
             // btnAvailabelDriver
             // 
+            btnAvailabelDriver.BackColor = Color.Black;
             btnAvailabelDriver.FlatAppearance.BorderSize = 0;
             btnAvailabelDriver.FlatAppearance.MouseOverBackColor = Color.FromArgb(11, 12, 12);
             btnAvailabelDriver.FlatStyle = FlatStyle.Flat;
@@ -108,7 +109,7 @@
             btnAvailabelDriver.Size = new Size(206, 54);
             btnAvailabelDriver.TabIndex = 7;
             btnAvailabelDriver.Text = "Available Drivers";
-            btnAvailabelDriver.UseVisualStyleBackColor = true;
+            btnAvailabelDriver.UseVisualStyleBackColor = false;
             // 
             // btnBookNow
             // 
@@ -213,12 +214,13 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { driverid, drivername, contactno });
             dataGridView1.Location = new Point(228, 125);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(416, 386);
+            dataGridView1.Size = new Size(446, 386);
             dataGridView1.TabIndex = 8;
             // 
             // driverid
@@ -226,21 +228,18 @@
             driverid.HeaderText = "Driver ID";
             driverid.MinimumWidth = 6;
             driverid.Name = "driverid";
-            driverid.Width = 125;
             // 
             // drivername
             // 
             drivername.HeaderText = "Driver Name";
             drivername.MinimumWidth = 6;
             drivername.Name = "drivername";
-            drivername.Width = 125;
             // 
             // contactno
             // 
             contactno.HeaderText = "Contact Number";
             contactno.MinimumWidth = 6;
             contactno.Name = "contactno";
-            contactno.Width = 125;
             // 
             // label1
             // 
@@ -259,9 +258,9 @@
             panel3.BorderStyle = BorderStyle.Fixed3D;
             panel3.Controls.Add(lblDriversCount);
             panel3.Controls.Add(label1);
-            panel3.Location = new Point(670, 125);
+            panel3.Location = new Point(691, 125);
             panel3.Name = "panel3";
-            panel3.Size = new Size(272, 65);
+            panel3.Size = new Size(244, 88);
             panel3.TabIndex = 10;
             // 
             // lblDriversCount
@@ -269,7 +268,7 @@
             lblDriversCount.AutoSize = true;
             lblDriversCount.Font = new Font("Nirmala UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDriversCount.ForeColor = Color.Black;
-            lblDriversCount.Location = new Point(217, 13);
+            lblDriversCount.Location = new Point(185, 32);
             lblDriversCount.Name = "lblDriversCount";
             lblDriversCount.Size = new Size(52, 41);
             lblDriversCount.TabIndex = 8;

@@ -41,6 +41,9 @@
             label1 = new Label();
             label2 = new Label();
             dataGridView1 = new DataGridView();
+            carid = new DataGridViewTextBoxColumn();
+            carmodel = new DataGridViewTextBoxColumn();
+            platenumber = new DataGridViewTextBoxColumn();
             panel1 = new Panel();
             btnAvailableCar = new FontAwesome.Sharp.IconButton();
             btnAvailabelDriver = new FontAwesome.Sharp.IconButton();
@@ -51,9 +54,6 @@
             lblUserID = new Label();
             imgUser = new PictureBox();
             panel2 = new Panel();
-            carid = new DataGridViewTextBoxColumn();
-            carmodel = new DataGridViewTextBoxColumn();
-            platenumber = new DataGridViewTextBoxColumn();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -192,6 +192,27 @@
             dataGridView1.Size = new Size(416, 386);
             dataGridView1.TabIndex = 11;
             // 
+            // carid
+            // 
+            carid.HeaderText = "Car ID";
+            carid.MinimumWidth = 6;
+            carid.Name = "carid";
+            carid.Width = 125;
+            // 
+            // carmodel
+            // 
+            carmodel.HeaderText = "Car Model";
+            carmodel.MinimumWidth = 6;
+            carmodel.Name = "carmodel";
+            carmodel.Width = 125;
+            // 
+            // platenumber
+            // 
+            platenumber.HeaderText = "Plate Number";
+            platenumber.MinimumWidth = 6;
+            platenumber.Name = "platenumber";
+            platenumber.Width = 125;
+            // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(42, 46, 52);
@@ -249,6 +270,7 @@
             // 
             // btnBookNow
             // 
+            btnBookNow.BackColor = Color.Black;
             btnBookNow.FlatAppearance.BorderSize = 0;
             btnBookNow.FlatAppearance.MouseOverBackColor = Color.FromArgb(11, 12, 12);
             btnBookNow.FlatStyle = FlatStyle.Flat;
@@ -266,7 +288,7 @@
             btnBookNow.Size = new Size(206, 54);
             btnBookNow.TabIndex = 2;
             btnBookNow.Text = "Book Now";
-            btnBookNow.UseVisualStyleBackColor = true;
+            btnBookNow.UseVisualStyleBackColor = false;
             // 
             // btnClose
             // 
@@ -337,27 +359,6 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(962, 65);
             panel2.TabIndex = 10;
-            // 
-            // carid
-            // 
-            carid.HeaderText = "Car ID";
-            carid.MinimumWidth = 6;
-            carid.Name = "carid";
-            carid.Width = 125;
-            // 
-            // carmodel
-            // 
-            carmodel.HeaderText = "Car Model";
-            carmodel.MinimumWidth = 6;
-            carmodel.Name = "carmodel";
-            carmodel.Width = 125;
-            // 
-            // platenumber
-            // 
-            platenumber.HeaderText = "Plate Number";
-            platenumber.MinimumWidth = 6;
-            platenumber.Name = "platenumber";
-            platenumber.Width = 125;
             // 
             // UserBookNowPage2
             // 

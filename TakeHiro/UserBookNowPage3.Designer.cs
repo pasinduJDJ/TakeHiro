@@ -153,6 +153,7 @@
             // 
             // btnBookNow
             // 
+            btnBookNow.BackColor = Color.Black;
             btnBookNow.FlatAppearance.BorderSize = 0;
             btnBookNow.FlatAppearance.MouseOverBackColor = Color.FromArgb(11, 12, 12);
             btnBookNow.FlatStyle = FlatStyle.Flat;
@@ -170,7 +171,7 @@
             btnBookNow.Size = new Size(206, 54);
             btnBookNow.TabIndex = 2;
             btnBookNow.Text = "Book Now";
-            btnBookNow.UseVisualStyleBackColor = true;
+            btnBookNow.UseVisualStyleBackColor = false;
             // 
             // label3
             // 

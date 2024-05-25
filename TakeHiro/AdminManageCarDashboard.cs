@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace TakeHiro
 {
-    public partial class UserAvailableCars : Form
+    public partial class AdminManageCarDashboard : Form
     {
-        public UserAvailableCars()
+        public AdminManageCarDashboard()
         {
             InitializeComponent();
-        }
-
-        private void UserAvailableCars_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblDriversCount_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
