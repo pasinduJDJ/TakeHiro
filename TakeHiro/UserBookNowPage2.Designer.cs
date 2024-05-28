@@ -40,10 +40,7 @@
             lblDriversCount = new Label();
             label1 = new Label();
             label2 = new Label();
-            dataGridView1 = new DataGridView();
-            carid = new DataGridViewTextBoxColumn();
-            carmodel = new DataGridViewTextBoxColumn();
-            platenumber = new DataGridViewTextBoxColumn();
+            tblAllDrivers = new DataGridView();
             panel1 = new Panel();
             btnAvailableCar = new FontAwesome.Sharp.IconButton();
             btnAvailabelDriver = new FontAwesome.Sharp.IconButton();
@@ -56,7 +53,7 @@
             panel2 = new Panel();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)tblAllDrivers).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)imgUser).BeginInit();
@@ -182,36 +179,14 @@
             label2.TabIndex = 12;
             label2.Text = "Availabel Cars";
             // 
-            // dataGridView1
+            // tblAllDrivers
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { carid, carmodel, platenumber });
-            dataGridView1.Location = new Point(221, 133);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(416, 386);
-            dataGridView1.TabIndex = 11;
-            // 
-            // carid
-            // 
-            carid.HeaderText = "Car ID";
-            carid.MinimumWidth = 6;
-            carid.Name = "carid";
-            carid.Width = 125;
-            // 
-            // carmodel
-            // 
-            carmodel.HeaderText = "Car Model";
-            carmodel.MinimumWidth = 6;
-            carmodel.Name = "carmodel";
-            carmodel.Width = 125;
-            // 
-            // platenumber
-            // 
-            platenumber.HeaderText = "Plate Number";
-            platenumber.MinimumWidth = 6;
-            platenumber.Name = "platenumber";
-            platenumber.Width = 125;
+            tblAllDrivers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            tblAllDrivers.Location = new Point(221, 133);
+            tblAllDrivers.Name = "tblAllDrivers";
+            tblAllDrivers.RowHeadersWidth = 51;
+            tblAllDrivers.Size = new Size(416, 386);
+            tblAllDrivers.TabIndex = 11;
             // 
             // panel1
             // 
@@ -374,7 +349,7 @@
             Controls.Add(panel4);
             Controls.Add(panel3);
             Controls.Add(label2);
-            Controls.Add(dataGridView1);
+            Controls.Add(tblAllDrivers);
             Controls.Add(panel1);
             Controls.Add(panel2);
             Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -386,7 +361,7 @@
             panel4.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)tblAllDrivers).EndInit();
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)imgUser).EndInit();
@@ -409,10 +384,7 @@
         private Label lblDriversCount;
         private Label label1;
         private Label label2;
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn carid;
-        private DataGridViewTextBoxColumn carmodel;
-        private DataGridViewTextBoxColumn platenumber;
+        private DataGridView tblAllDrivers;
         private Panel panel1;
         private FontAwesome.Sharp.IconButton btnAvailableCar;
         private FontAwesome.Sharp.IconButton btnAvailabelDriver;

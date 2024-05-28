@@ -40,10 +40,7 @@
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
             label2 = new Label();
-            dataGridView1 = new DataGridView();
-            driverid = new DataGridViewTextBoxColumn();
-            drivername = new DataGridViewTextBoxColumn();
-            contactno = new DataGridViewTextBoxColumn();
+            tblAllDrivers = new DataGridView();
             label1 = new Label();
             panel3 = new Panel();
             lblDriversCount = new Label();
@@ -51,7 +48,7 @@
             ((System.ComponentModel.ISupportInitialize)imgUser).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)tblAllDrivers).BeginInit();
             panel3.SuspendLayout();
             SuspendLayout();
             // 
@@ -216,34 +213,15 @@
             label2.TabIndex = 9;
             label2.Text = "Availabel Drivers";
             // 
-            // dataGridView1
+            // tblAllDrivers
             // 
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { driverid, drivername, contactno });
-            dataGridView1.Location = new Point(228, 125);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(446, 386);
-            dataGridView1.TabIndex = 8;
-            // 
-            // driverid
-            // 
-            driverid.HeaderText = "Driver ID";
-            driverid.MinimumWidth = 6;
-            driverid.Name = "driverid";
-            // 
-            // drivername
-            // 
-            drivername.HeaderText = "Driver Name";
-            drivername.MinimumWidth = 6;
-            drivername.Name = "drivername";
-            // 
-            // contactno
-            // 
-            contactno.HeaderText = "Contact Number";
-            contactno.MinimumWidth = 6;
-            contactno.Name = "contactno";
+            tblAllDrivers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            tblAllDrivers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            tblAllDrivers.Location = new Point(228, 125);
+            tblAllDrivers.Name = "tblAllDrivers";
+            tblAllDrivers.RowHeadersWidth = 51;
+            tblAllDrivers.Size = new Size(446, 386);
+            tblAllDrivers.TabIndex = 8;
             // 
             // label1
             // 
@@ -284,7 +262,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(960, 540);
             Controls.Add(label2);
-            Controls.Add(dataGridView1);
+            Controls.Add(tblAllDrivers);
             Controls.Add(panel3);
             Controls.Add(panel1);
             Controls.Add(panel2);
@@ -298,7 +276,7 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)tblAllDrivers).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ResumeLayout(false);
@@ -318,10 +296,7 @@
         private Panel panel2;
         private PictureBox pictureBox1;
         private Label label2;
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn driverid;
-        private DataGridViewTextBoxColumn drivername;
-        private DataGridViewTextBoxColumn contactno;
+        private DataGridView tblAllDrivers;
         private Label label1;
         private Panel panel3;
         private Label lblDriversCount;

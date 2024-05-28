@@ -20,11 +20,29 @@ namespace TakeHiro
             InitializeComponent();
             _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
 
+            LoadCarData();
+
             // Initialize ComboBox items
             cmbAvailability.Items.Add("True");
             cmbAvailability.Items.Add("False");
             cmbAvailability.SelectedIndex = 0;
         }
+        private void LoadCarData()
+        {
+            try
+            {
+                // Retrieve all car data from the database
+                DataTable carData = _dbHelper.GetAllCars();
+
+                // Bind car data to DataGridView
+                tblAllDrivers.DataSource = carData;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while loading car data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
         private void btnAddNewCar_Click(object sender, EventArgs e)
         {

@@ -44,9 +44,6 @@
             label8 = new Label();
             label2 = new Label();
             tblAllDrivers = new DataGridView();
-            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
             label7 = new Label();
             btnClose = new Button();
             btnLogOut = new Button();
@@ -227,7 +224,6 @@
             // 
             tblAllDrivers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tblAllDrivers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tblAllDrivers.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6 });
             tblAllDrivers.Location = new Point(353, 122);
             tblAllDrivers.Name = "tblAllDrivers";
             tblAllDrivers.RowHeadersWidth = 51;
@@ -235,24 +231,6 @@
             tblAllDrivers.StandardTab = true;
             tblAllDrivers.TabIndex = 21;
             tblAllDrivers.CellContentClick += tblAllDrivers_CellContentClick;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            dataGridViewTextBoxColumn4.HeaderText = "Driver ID";
-            dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            dataGridViewTextBoxColumn5.HeaderText = "Model";
-            dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            dataGridViewTextBoxColumn6.HeaderText = "Plate Number";
-            dataGridViewTextBoxColumn6.MinimumWidth = 6;
-            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
             // label7
             // 
@@ -525,9 +503,6 @@
         private Label label8;
         private Label label2;
         private DataGridView tblAllDrivers;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private Label label7;
         private Button btnClose;
         private Button btnLogOut;

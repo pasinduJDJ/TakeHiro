@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminOrderManageDashboard));
-            tblCompleteOrder = new DataGridView();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
             tblOrder = new DataGridView();
             orderid = new DataGridViewTextBoxColumn();
             customerid = new DataGridViewTextBoxColumn();
@@ -50,7 +46,6 @@
             label2 = new Label();
             label1 = new Label();
             pictureBox2 = new PictureBox();
-            label6 = new Label();
             panel2 = new Panel();
             btnClose = new Button();
             btnLogOut = new Button();
@@ -74,10 +69,6 @@
             txtCarID = new TextBox();
             label10 = new Label();
             label12 = new Label();
-            label13 = new Label();
-            label16 = new Label();
-            panel6 = new Panel();
-            ((System.ComponentModel.ISupportInitialize)tblCompleteOrder).BeginInit();
             ((System.ComponentModel.ISupportInitialize)tblOrder).BeginInit();
             panel7.SuspendLayout();
             panel4.SuspendLayout();
@@ -87,48 +78,17 @@
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             panel5.SuspendLayout();
-            panel6.SuspendLayout();
             SuspendLayout();
-            // 
-            // tblCompleteOrder
-            // 
-            tblCompleteOrder.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            tblCompleteOrder.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tblCompleteOrder.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3 });
-            tblCompleteOrder.Location = new Point(315, 500);
-            tblCompleteOrder.Name = "tblCompleteOrder";
-            tblCompleteOrder.RowHeadersWidth = 51;
-            tblCompleteOrder.Size = new Size(613, 231);
-            tblCompleteOrder.StandardTab = true;
-            tblCompleteOrder.TabIndex = 14;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewTextBoxColumn1.HeaderText = "Order ID";
-            dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            dataGridViewTextBoxColumn2.HeaderText = "Customer ID ";
-            dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            dataGridViewTextBoxColumn3.HeaderText = "Driver ID";
-            dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
             // tblOrder
             // 
             tblOrder.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tblOrder.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             tblOrder.Columns.AddRange(new DataGridViewColumn[] { orderid, customerid, driverid });
-            tblOrder.Location = new Point(315, 221);
+            tblOrder.Location = new Point(332, 267);
             tblOrder.Name = "tblOrder";
             tblOrder.RowHeadersWidth = 51;
-            tblOrder.Size = new Size(613, 231);
+            tblOrder.Size = new Size(613, 236);
             tblOrder.StandardTab = true;
             tblOrder.TabIndex = 12;
             // 
@@ -154,7 +114,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(315, 192);
+            label5.Location = new Point(321, 218);
             label5.Name = "label5";
             label5.Size = new Size(82, 23);
             label5.TabIndex = 11;
@@ -190,9 +150,9 @@
             label18.ForeColor = Color.Black;
             label18.Location = new Point(14, 13);
             label18.Name = "label18";
-            label18.Size = new Size(159, 23);
+            label18.Size = new Size(61, 23);
             label18.TabIndex = 0;
-            label18.Text = "Compeleted Orders";
+            label18.Text = "Orders";
             // 
             // label11
             // 
@@ -294,16 +254,6 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.AutoSize;
             pictureBox2.TabIndex = 0;
             pictureBox2.TabStop = false;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(315, 474);
-            label6.Name = "label6";
-            label6.Size = new Size(138, 23);
-            label6.TabIndex = 13;
-            label6.Text = "Complete Ordrs";
             // 
             // panel2
             // 
@@ -466,7 +416,7 @@
             panel3.Controls.Add(txtDriverID);
             panel3.Controls.Add(label7);
             panel3.Controls.Add(label3);
-            panel3.Location = new Point(976, 192);
+            panel3.Location = new Point(989, 207);
             panel3.Name = "panel3";
             panel3.Size = new Size(351, 265);
             panel3.TabIndex = 17;
@@ -536,7 +486,7 @@
             panel5.Controls.Add(txtCarID);
             panel5.Controls.Add(label10);
             panel5.Controls.Add(label12);
-            panel5.Location = new Point(976, 474);
+            panel5.Location = new Point(989, 489);
             panel5.Name = "panel5";
             panel5.Size = new Size(351, 265);
             panel5.TabIndex = 18;
@@ -597,53 +547,17 @@
             label12.TabIndex = 0;
             label12.Text = "Car Availability";
             // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.BackColor = Color.Transparent;
-            label13.Font = new Font("Nirmala UI", 14F);
-            label13.ForeColor = Color.White;
-            label13.Location = new Point(201, 41);
-            label13.Name = "label13";
-            label13.Size = new Size(40, 32);
-            label13.TabIndex = 4;
-            label13.Text = "38";
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.Font = new Font("Nirmala UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label16.ForeColor = Color.White;
-            label16.Location = new Point(13, 11);
-            label16.Name = "label16";
-            label16.Size = new Size(75, 25);
-            label16.TabIndex = 0;
-            label16.Text = "Orders :";
-            // 
-            // panel6
-            // 
-            panel6.BackColor = Color.FromArgb(42, 46, 52);
-            panel6.Controls.Add(label13);
-            panel6.Controls.Add(label16);
-            panel6.Location = new Point(993, 82);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(260, 87);
-            panel6.TabIndex = 19;
-            // 
             // AdminOrderManageDashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1366, 768);
-            Controls.Add(panel6);
             Controls.Add(panel5);
             Controls.Add(panel3);
-            Controls.Add(tblCompleteOrder);
             Controls.Add(tblOrder);
             Controls.Add(label5);
             Controls.Add(panel7);
             Controls.Add(panel4);
-            Controls.Add(label6);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -651,7 +565,6 @@
             Name = "AdminOrderManageDashboard";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AdminOrderManageDashboard";
-            ((System.ComponentModel.ISupportInitialize)tblCompleteOrder).EndInit();
             ((System.ComponentModel.ISupportInitialize)tblOrder).EndInit();
             panel7.ResumeLayout(false);
             panel7.PerformLayout();
@@ -666,18 +579,11 @@
             panel3.PerformLayout();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
-            panel6.ResumeLayout(false);
-            panel6.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private DataGridView tblCompleteOrder;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private DataGridView tblOrder;
         private DataGridViewTextBoxColumn orderid;
         private DataGridViewTextBoxColumn customerid;
@@ -695,7 +601,6 @@
         private Label label2;
         private Label label1;
         private PictureBox pictureBox2;
-        private Label label6;
         private Panel panel2;
         private Button btnClose;
         private Button btnLogOut;
@@ -719,8 +624,5 @@
         private TextBox txtCarID;
         private Label label10;
         private Label label12;
-        private Label label13;
-        private Label label16;
-        private Panel panel6;
     }
 }

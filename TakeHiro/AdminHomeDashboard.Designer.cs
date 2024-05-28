@@ -41,9 +41,6 @@
             label1 = new Label();
             pictureBox2 = new PictureBox();
             panel3 = new Panel();
-            panel7 = new Panel();
-            label15 = new Label();
-            label18 = new Label();
             panel6 = new Panel();
             label11 = new Label();
             label14 = new Label();
@@ -64,21 +61,14 @@
             customerid = new DataGridViewTextBoxColumn();
             driverid = new DataGridViewTextBoxColumn();
             tblCompleteOrder = new DataGridView();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
             label6 = new Label();
             tblAllDrivers = new DataGridView();
-            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
             label7 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel3.SuspendLayout();
-            panel7.SuspendLayout();
             panel6.SuspendLayout();
             panel5.SuspendLayout();
             panel4.SuspendLayout();
@@ -262,7 +252,6 @@
             // panel3
             // 
             panel3.BackColor = Color.White;
-            panel3.Controls.Add(panel7);
             panel3.Controls.Add(panel6);
             panel3.Controls.Add(panel5);
             panel3.Controls.Add(panel4);
@@ -272,47 +261,14 @@
             panel3.Size = new Size(972, 175);
             panel3.TabIndex = 2;
             // 
-            // panel7
-            // 
-            panel7.BackColor = Color.FromArgb(228, 182, 26);
-            panel7.Controls.Add(label15);
-            panel7.Controls.Add(label18);
-            panel7.Location = new Point(707, 54);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(193, 87);
-            panel7.TabIndex = 7;
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.BackColor = Color.Transparent;
-            label15.Font = new Font("Nirmala UI", 14F);
-            label15.ForeColor = Color.Black;
-            label15.Location = new Point(133, 41);
-            label15.Name = "label15";
-            label15.Size = new Size(40, 32);
-            label15.TabIndex = 4;
-            label15.Text = "12";
-            // 
-            // label18
-            // 
-            label18.AutoSize = true;
-            label18.Font = new Font("Nirmala UI", 10F);
-            label18.ForeColor = Color.Black;
-            label18.Location = new Point(14, 13);
-            label18.Name = "label18";
-            label18.Size = new Size(159, 23);
-            label18.TabIndex = 0;
-            label18.Text = "Compeleted Orders";
-            // 
             // panel6
             // 
             panel6.BackColor = Color.FromArgb(42, 46, 52);
             panel6.Controls.Add(label11);
             panel6.Controls.Add(label14);
-            panel6.Location = new Point(478, 54);
+            panel6.Location = new Point(645, 54);
             panel6.Name = "panel6";
-            panel6.Size = new Size(193, 87);
+            panel6.Size = new Size(253, 87);
             panel6.TabIndex = 6;
             // 
             // label11
@@ -321,7 +277,7 @@
             label11.BackColor = Color.Transparent;
             label11.Font = new Font("Nirmala UI", 14F);
             label11.ForeColor = Color.White;
-            label11.Location = new Point(138, 41);
+            label11.Location = new Point(190, 41);
             label11.Name = "label11";
             label11.Size = new Size(40, 32);
             label11.TabIndex = 4;
@@ -345,9 +301,9 @@
             panel5.Controls.Add(lblRegisteredCars);
             panel5.Controls.Add(label9);
             panel5.Controls.Add(label10);
-            panel5.Location = new Point(251, 54);
+            panel5.Location = new Point(337, 54);
             panel5.Name = "panel5";
-            panel5.Size = new Size(193, 87);
+            panel5.Size = new Size(253, 87);
             panel5.TabIndex = 5;
             // 
             // lblAvailabelCars
@@ -356,7 +312,7 @@
             lblAvailabelCars.BackColor = Color.Transparent;
             lblAvailabelCars.Font = new Font("Nirmala UI", 9F);
             lblAvailabelCars.ForeColor = Color.Black;
-            lblAvailabelCars.Location = new Point(135, 50);
+            lblAvailabelCars.Location = new Point(151, 50);
             lblAvailabelCars.Name = "lblAvailabelCars";
             lblAvailabelCars.Size = new Size(25, 20);
             lblAvailabelCars.TabIndex = 4;
@@ -368,7 +324,7 @@
             lblRegisteredCars.BackColor = Color.Transparent;
             lblRegisteredCars.Font = new Font("Nirmala UI", 9F);
             lblRegisteredCars.ForeColor = Color.Black;
-            lblRegisteredCars.Location = new Point(135, 17);
+            lblRegisteredCars.Location = new Point(151, 17);
             lblRegisteredCars.Name = "lblRegisteredCars";
             lblRegisteredCars.Size = new Size(25, 20);
             lblRegisteredCars.TabIndex = 3;
@@ -379,7 +335,7 @@
             label9.AutoSize = true;
             label9.Font = new Font("Nirmala UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label9.ForeColor = Color.Black;
-            label9.Location = new Point(15, 50);
+            label9.Location = new Point(31, 50);
             label9.Name = "label9";
             label9.Size = new Size(104, 17);
             label9.TabIndex = 1;
@@ -390,7 +346,7 @@
             label10.AutoSize = true;
             label10.Font = new Font("Nirmala UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label10.ForeColor = Color.Black;
-            label10.Location = new Point(15, 17);
+            label10.Location = new Point(31, 17);
             label10.Name = "label10";
             label10.Size = new Size(108, 17);
             label10.TabIndex = 0;
@@ -405,7 +361,7 @@
             panel4.Controls.Add(label2);
             panel4.Location = new Point(24, 54);
             panel4.Name = "panel4";
-            panel4.Size = new Size(193, 87);
+            panel4.Size = new Size(253, 87);
             panel4.TabIndex = 1;
             // 
             // lblAvailabelDrivers
@@ -414,7 +370,7 @@
             lblAvailabelDrivers.BackColor = Color.Transparent;
             lblAvailabelDrivers.Font = new Font("Nirmala UI", 9F);
             lblAvailabelDrivers.ForeColor = Color.White;
-            lblAvailabelDrivers.Location = new Point(135, 50);
+            lblAvailabelDrivers.Location = new Point(162, 50);
             lblAvailabelDrivers.Name = "lblAvailabelDrivers";
             lblAvailabelDrivers.Size = new Size(25, 20);
             lblAvailabelDrivers.TabIndex = 4;
@@ -426,7 +382,7 @@
             lblRegisteredDrivers.BackColor = Color.Transparent;
             lblRegisteredDrivers.Font = new Font("Nirmala UI", 9F);
             lblRegisteredDrivers.ForeColor = Color.White;
-            lblRegisteredDrivers.Location = new Point(135, 17);
+            lblRegisteredDrivers.Location = new Point(162, 17);
             lblRegisteredDrivers.Name = "lblRegisteredDrivers";
             lblRegisteredDrivers.Size = new Size(25, 20);
             lblRegisteredDrivers.TabIndex = 3;
@@ -438,7 +394,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Nirmala UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(15, 50);
+            label4.Location = new Point(33, 50);
             label4.Name = "label4";
             label4.Size = new Size(119, 17);
             label4.TabIndex = 1;
@@ -449,7 +405,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Nirmala UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(15, 17);
+            label2.Location = new Point(33, 17);
             label2.Name = "label2";
             label2.Size = new Size(123, 17);
             label2.TabIndex = 0;
@@ -509,31 +465,13 @@
             // 
             tblCompleteOrder.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tblCompleteOrder.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tblCompleteOrder.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3 });
             tblCompleteOrder.Location = new Point(853, 351);
             tblCompleteOrder.Name = "tblCompleteOrder";
             tblCompleteOrder.RowHeadersWidth = 51;
             tblCompleteOrder.Size = new Size(450, 158);
             tblCompleteOrder.StandardTab = true;
             tblCompleteOrder.TabIndex = 6;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewTextBoxColumn1.HeaderText = "Order ID";
-            dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            dataGridViewTextBoxColumn2.HeaderText = "Customer ID ";
-            dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            dataGridViewTextBoxColumn3.HeaderText = "Driver ID";
-            dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            tblCompleteOrder.CellContentClick += tblCompleteOrder_CellContentClick;
             // 
             // label6
             // 
@@ -541,40 +479,21 @@
             label6.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.Location = new Point(853, 304);
             label6.Name = "label6";
-            label6.Size = new Size(138, 23);
+            label6.Size = new Size(68, 23);
             label6.TabIndex = 5;
-            label6.Text = "Complete Ordrs";
+            label6.Text = "All cars";
             label6.Click += label6_Click;
             // 
             // tblAllDrivers
             // 
             tblAllDrivers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tblAllDrivers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tblAllDrivers.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6 });
             tblAllDrivers.Location = new Point(853, 580);
             tblAllDrivers.Name = "tblAllDrivers";
             tblAllDrivers.RowHeadersWidth = 51;
             tblAllDrivers.Size = new Size(450, 158);
             tblAllDrivers.StandardTab = true;
             tblAllDrivers.TabIndex = 8;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            dataGridViewTextBoxColumn4.HeaderText = "Driver ID";
-            dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            dataGridViewTextBoxColumn5.HeaderText = "Name";
-            dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            dataGridViewTextBoxColumn6.HeaderText = "Tp Number";
-            dataGridViewTextBoxColumn6.MinimumWidth = 6;
-            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
             // label7
             // 
@@ -614,8 +533,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            panel7.ResumeLayout(false);
-            panel7.PerformLayout();
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
             panel5.ResumeLayout(false);
@@ -649,9 +566,6 @@
         private Label lblRegisteredDrivers;
         private Label label4;
         private Label label2;
-        private Panel panel7;
-        private Label label15;
-        private Label label18;
         private Panel panel6;
         private Label label11;
         private Label label14;
@@ -666,14 +580,8 @@
         private DataGridViewTextBoxColumn customerid;
         private DataGridViewTextBoxColumn driverid;
         private DataGridView tblCompleteOrder;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private Label label6;
         private DataGridView tblAllDrivers;
         private Label label7;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
     }
 }

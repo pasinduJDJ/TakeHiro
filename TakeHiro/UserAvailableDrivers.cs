@@ -12,9 +12,28 @@ namespace TakeHiro
 {
     public partial class UserAvailableDrivers : Form
     {
+        private DatabaseHelper _dbHelper;
         public UserAvailableDrivers()
         {
             InitializeComponent();
+            _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
+
+            LoadDriverData();
+        }
+        private void LoadDriverData()
+        {
+            try
+            {
+                // Retrieve all Driver data from the database
+                DataTable driverData = _dbHelper.GetAllDrivers();
+
+                // Bind Driver data to DataGridView
+                tblAllDrivers.DataSource = driverData;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while loading Driver data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnBookNow_Click(object sender, EventArgs e)

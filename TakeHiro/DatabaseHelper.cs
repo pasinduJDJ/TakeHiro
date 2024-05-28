@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -74,5 +75,36 @@ namespace TakeHiro
         {
             throw new NotImplementedException();
         }
+
+        // Retrieve all car data
+        public DataTable GetAllCars()
+        {
+            DataTable dt = new DataTable();
+            using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                string query = "SELECT * FROM Car";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            return dt;
+        }
+        // Retrieve all car data
+        public DataTable GetAllDrivers()
+        {
+            DataTable dtD = new DataTable();
+            using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                string query = "SELECT * FROM Driver";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                da.Fill(dtD);
+            }
+            return dtD;
+        }
+
+
     }
 }

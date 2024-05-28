@@ -39,10 +39,7 @@
             btnBookNow = new FontAwesome.Sharp.IconButton();
             btnClose = new Button();
             btnLogOut = new Button();
-            dataGridView1 = new DataGridView();
-            driverid = new DataGridViewTextBoxColumn();
-            drivername = new DataGridViewTextBoxColumn();
-            contactno = new DataGridViewTextBoxColumn();
+            tblAllDrivers = new DataGridView();
             label2 = new Label();
             panel3 = new Panel();
             lblDriversCount = new Label();
@@ -58,7 +55,7 @@
             ((System.ComponentModel.ISupportInitialize)imgUser).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)tblAllDrivers).BeginInit();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
             SuspendLayout();
@@ -214,36 +211,14 @@
             btnLogOut.UseVisualStyleBackColor = false;
             btnLogOut.Click += btnLogOut_Click;
             // 
-            // dataGridView1
+            // tblAllDrivers
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { driverid, drivername, contactno });
-            dataGridView1.Location = new Point(221, 133);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(416, 386);
-            dataGridView1.TabIndex = 4;
-            // 
-            // driverid
-            // 
-            driverid.HeaderText = "Driver ID";
-            driverid.MinimumWidth = 6;
-            driverid.Name = "driverid";
-            driverid.Width = 125;
-            // 
-            // drivername
-            // 
-            drivername.HeaderText = "Driver Name";
-            drivername.MinimumWidth = 6;
-            drivername.Name = "drivername";
-            drivername.Width = 125;
-            // 
-            // contactno
-            // 
-            contactno.HeaderText = "Contact Number";
-            contactno.MinimumWidth = 6;
-            contactno.Name = "contactno";
-            contactno.Width = 125;
+            tblAllDrivers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            tblAllDrivers.Location = new Point(221, 133);
+            tblAllDrivers.Name = "tblAllDrivers";
+            tblAllDrivers.RowHeadersWidth = 51;
+            tblAllDrivers.Size = new Size(416, 386);
+            tblAllDrivers.TabIndex = 4;
             // 
             // label2
             // 
@@ -375,7 +350,7 @@
             Controls.Add(panel4);
             Controls.Add(panel3);
             Controls.Add(label2);
-            Controls.Add(dataGridView1);
+            Controls.Add(tblAllDrivers);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -389,7 +364,7 @@
             ((System.ComponentModel.ISupportInitialize)imgUser).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)tblAllDrivers).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel4.ResumeLayout(false);
@@ -410,10 +385,7 @@
         private FontAwesome.Sharp.IconButton btnBookNow;
         private Button btnClose;
         private Button btnLogOut;
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn driverid;
-        private DataGridViewTextBoxColumn drivername;
-        private DataGridViewTextBoxColumn contactno;
+        private DataGridView tblAllDrivers;
         private Label label2;
         private Panel panel3;
         private Label label1;

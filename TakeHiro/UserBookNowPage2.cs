@@ -13,9 +13,29 @@ namespace TakeHiro
 {
     public partial class UserBookNowPage2 : Form
     {
+        private DatabaseHelper _dbHelper;
         public UserBookNowPage2()
         {
             InitializeComponent();
+            _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
+
+            LoadCarData();
+        }
+
+        private void LoadCarData()
+        {
+            try
+            {
+                // Retrieve all car data from the database
+                DataTable carData = _dbHelper.GetAllCars();
+
+                // Bind car data to DataGridView
+                tblAllDrivers.DataSource = carData;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while loading car data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnBookNow_Click(object sender, EventArgs e)

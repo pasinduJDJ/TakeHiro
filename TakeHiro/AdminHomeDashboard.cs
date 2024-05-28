@@ -12,9 +12,46 @@ namespace TakeHiro
 {
     public partial class AdminHomeDashboard : Form
     {
+        private DatabaseHelper _dbHelper;
         public AdminHomeDashboard()
         {
             InitializeComponent();
+            _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
+
+            LoadCarData();
+            LoadDriverData();
+        }
+
+        private void LoadCarData()
+        {
+            try
+            {
+                // Retrieve all car data from the database
+                DataTable carData = _dbHelper.GetAllCars();
+
+                // Bind car data to DataGridView
+                tblCompleteOrder.DataSource = carData;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while loading car data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void LoadDriverData()
+        {
+            try
+            {
+                // Retrieve all Driver data from the database
+                DataTable driverData = _dbHelper.GetAllDrivers();
+
+                // Bind Driver data to DataGridView
+                tblAllDrivers.DataSource = driverData;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while loading Driver data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -63,6 +100,11 @@ namespace TakeHiro
             LoginPage form1 = new LoginPage();
             form1.Show();
             this.Hide();
+        }
+
+        private void tblCompleteOrder_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

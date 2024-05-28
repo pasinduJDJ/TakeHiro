@@ -18,10 +18,28 @@ namespace TakeHiro
             InitializeComponent();
             _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
 
+
+            LoadDriverData();
             // Initialize ComboBox items
             cmbAvailability.Items.Add("True");
             cmbAvailability.Items.Add("False");
             cmbAvailability.SelectedIndex = 0;
+        }
+
+        private void LoadDriverData()
+        {
+            try
+            {
+                // Retrieve all Driver data from the database
+                DataTable driverData = _dbHelper.GetAllDrivers();
+
+                // Bind Driver data to DataGridView
+                tblAllDrivers.DataSource = driverData;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while loading Driver data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnAddNewDriver_Click(object sender, EventArgs e)

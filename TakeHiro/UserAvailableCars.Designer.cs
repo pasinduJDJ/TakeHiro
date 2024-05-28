@@ -40,10 +40,7 @@
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
             label2 = new Label();
-            dataGridView1 = new DataGridView();
-            carid = new DataGridViewTextBoxColumn();
-            carmodel = new DataGridViewTextBoxColumn();
-            platenumber = new DataGridViewTextBoxColumn();
+            tblCompleteOrder = new DataGridView();
             label1 = new Label();
             panel3 = new Panel();
             lblDriversCount = new Label();
@@ -51,7 +48,7 @@
             ((System.ComponentModel.ISupportInitialize)imgUser).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)tblCompleteOrder).BeginInit();
             panel3.SuspendLayout();
             SuspendLayout();
             // 
@@ -216,34 +213,15 @@
             label2.TabIndex = 15;
             label2.Text = "Availabel Cars";
             // 
-            // dataGridView1
+            // tblCompleteOrder
             // 
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { carid, carmodel, platenumber });
-            dataGridView1.Location = new Point(219, 121);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(449, 386);
-            dataGridView1.TabIndex = 14;
-            // 
-            // carid
-            // 
-            carid.HeaderText = "Car ID";
-            carid.MinimumWidth = 6;
-            carid.Name = "carid";
-            // 
-            // carmodel
-            // 
-            carmodel.HeaderText = "Car Model";
-            carmodel.MinimumWidth = 6;
-            carmodel.Name = "carmodel";
-            // 
-            // platenumber
-            // 
-            platenumber.HeaderText = "Plate Number";
-            platenumber.MinimumWidth = 6;
-            platenumber.Name = "platenumber";
+            tblCompleteOrder.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            tblCompleteOrder.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            tblCompleteOrder.Location = new Point(219, 121);
+            tblCompleteOrder.Name = "tblCompleteOrder";
+            tblCompleteOrder.RowHeadersWidth = 51;
+            tblCompleteOrder.Size = new Size(449, 386);
+            tblCompleteOrder.TabIndex = 14;
             // 
             // label1
             // 
@@ -285,7 +263,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(960, 540);
             Controls.Add(label2);
-            Controls.Add(dataGridView1);
+            Controls.Add(tblCompleteOrder);
             Controls.Add(panel3);
             Controls.Add(panel1);
             Controls.Add(panel2);
@@ -300,7 +278,7 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)tblCompleteOrder).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ResumeLayout(false);
@@ -320,10 +298,7 @@
         private Panel panel2;
         private PictureBox pictureBox1;
         private Label label2;
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn carid;
-        private DataGridViewTextBoxColumn carmodel;
-        private DataGridViewTextBoxColumn platenumber;
+        private DataGridView tblCompleteOrder;
         private Label label1;
         private Panel panel3;
         private Label lblDriversCount;
