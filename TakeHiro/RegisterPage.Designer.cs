@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterPage));
-            txtbtnSignIn = new Button();
             label4 = new Label();
             label3 = new Label();
             txtConatact = new TextBox();
@@ -43,29 +42,19 @@
             label6 = new Label();
             txtPwd = new TextBox();
             btnSignUP = new Button();
+            label7 = new Label();
+            txtLocation = new TextBox();
+            linkBtnSignIn = new LinkLabel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // txtbtnSignIn
-            // 
-            txtbtnSignIn.Font = new Font("Arial Narrow", 10.2F);
-            txtbtnSignIn.ForeColor = Color.FromArgb(228, 182, 26);
-            txtbtnSignIn.ImeMode = ImeMode.NoControl;
-            txtbtnSignIn.Location = new Point(667, 462);
-            txtbtnSignIn.Margin = new Padding(2);
-            txtbtnSignIn.Name = "txtbtnSignIn";
-            txtbtnSignIn.Size = new Size(94, 29);
-            txtbtnSignIn.TabIndex = 16;
-            txtbtnSignIn.Text = "Sign In";
-            txtbtnSignIn.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Arial", 10.2F);
             label4.ImeMode = ImeMode.NoControl;
-            label4.Location = new Point(548, 467);
+            label4.Location = new Point(548, 487);
             label4.Name = "label4";
             label4.Size = new Size(114, 19);
             label4.TabIndex = 15;
@@ -76,7 +65,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Arial", 10.2F);
             label3.ImeMode = ImeMode.NoControl;
-            label3.Location = new Point(546, 178);
+            label3.Location = new Point(546, 156);
             label3.Name = "label3";
             label3.Size = new Size(137, 19);
             label3.TabIndex = 13;
@@ -87,10 +76,10 @@
             // 
             txtConatact.BackColor = Color.White;
             txtConatact.BorderStyle = BorderStyle.FixedSingle;
-            txtConatact.Font = new Font("Arial", 12F);
-            txtConatact.Location = new Point(546, 200);
+            txtConatact.Font = new Font("Nirmala UI", 9F);
+            txtConatact.Location = new Point(546, 178);
             txtConatact.Name = "txtConatact";
-            txtConatact.Size = new Size(240, 30);
+            txtConatact.Size = new Size(240, 27);
             txtConatact.TabIndex = 12;
             // 
             // label2
@@ -98,7 +87,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Arial", 10.2F);
             label2.ImeMode = ImeMode.NoControl;
-            label2.Location = new Point(546, 113);
+            label2.Location = new Point(546, 91);
             label2.Name = "label2";
             label2.Size = new Size(91, 19);
             label2.TabIndex = 11;
@@ -109,10 +98,10 @@
             // 
             txtFullName.BackColor = Color.White;
             txtFullName.BorderStyle = BorderStyle.FixedSingle;
-            txtFullName.Font = new Font("Arial", 12F);
-            txtFullName.Location = new Point(546, 135);
+            txtFullName.Font = new Font("Nirmala UI", 9F);
+            txtFullName.Location = new Point(546, 113);
             txtFullName.Name = "txtFullName";
-            txtFullName.Size = new Size(240, 30);
+            txtFullName.Size = new Size(240, 27);
             txtFullName.TabIndex = 10;
             // 
             // label1
@@ -120,7 +109,7 @@
             label1.Font = new Font("Arial", 16.2F, FontStyle.Bold);
             label1.ForeColor = Color.Black;
             label1.ImeMode = ImeMode.NoControl;
-            label1.Location = new Point(602, 57);
+            label1.Location = new Point(602, 35);
             label1.Name = "label1";
             label1.Size = new Size(129, 34);
             label1.TabIndex = 8;
@@ -152,7 +141,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Arial", 10.2F);
             label5.ImeMode = ImeMode.NoControl;
-            label5.Location = new Point(546, 246);
+            label5.Location = new Point(546, 224);
             label5.Name = "label5";
             label5.Size = new Size(154, 19);
             label5.TabIndex = 18;
@@ -163,10 +152,10 @@
             // 
             txtUser.BackColor = Color.White;
             txtUser.BorderStyle = BorderStyle.FixedSingle;
-            txtUser.Font = new Font("Arial", 12F);
-            txtUser.Location = new Point(546, 268);
+            txtUser.Font = new Font("Nirmala UI", 9F);
+            txtUser.Location = new Point(546, 246);
             txtUser.Name = "txtUser";
-            txtUser.Size = new Size(240, 30);
+            txtUser.Size = new Size(240, 27);
             txtUser.TabIndex = 17;
             // 
             // label6
@@ -174,7 +163,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Arial", 10.2F);
             label6.ImeMode = ImeMode.NoControl;
-            label6.Location = new Point(546, 317);
+            label6.Location = new Point(546, 295);
             label6.Name = "label6";
             label6.Size = new Size(144, 19);
             label6.TabIndex = 20;
@@ -185,10 +174,10 @@
             // 
             txtPwd.BackColor = Color.White;
             txtPwd.BorderStyle = BorderStyle.FixedSingle;
-            txtPwd.Font = new Font("Arial", 12F);
-            txtPwd.Location = new Point(546, 339);
+            txtPwd.Font = new Font("Nirmala UI", 9F);
+            txtPwd.Location = new Point(546, 317);
             txtPwd.Name = "txtPwd";
-            txtPwd.Size = new Size(240, 30);
+            txtPwd.Size = new Size(240, 27);
             txtPwd.TabIndex = 19;
             // 
             // btnSignUP
@@ -197,23 +186,65 @@
             btnSignUP.Font = new Font("Arial", 10.2F);
             btnSignUP.ForeColor = Color.White;
             btnSignUP.ImeMode = ImeMode.NoControl;
-            btnSignUP.Location = new Point(546, 395);
+            btnSignUP.Location = new Point(546, 438);
             btnSignUP.Name = "btnSignUP";
             btnSignUP.Size = new Size(242, 39);
             btnSignUP.TabIndex = 14;
             btnSignUP.Text = "Sign Up";
             btnSignUP.UseVisualStyleBackColor = false;
+            btnSignUP.Click += btnSignUP_Click;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Arial", 10.2F);
+            label7.ImeMode = ImeMode.NoControl;
+            label7.Location = new Point(548, 364);
+            label7.Name = "label7";
+            label7.Size = new Size(81, 19);
+            label7.TabIndex = 22;
+            label7.Text = "Location :";
+            label7.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // txtLocation
+            // 
+            txtLocation.BackColor = Color.White;
+            txtLocation.BorderStyle = BorderStyle.FixedSingle;
+            txtLocation.Font = new Font("Nirmala UI", 9F);
+            txtLocation.Location = new Point(548, 386);
+            txtLocation.Name = "txtLocation";
+            txtLocation.Size = new Size(240, 27);
+            txtLocation.TabIndex = 21;
+            // 
+            // linkBtnSignIn
+            // 
+            linkBtnSignIn.ActiveLinkColor = Color.White;
+            linkBtnSignIn.AutoSize = true;
+            linkBtnSignIn.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            linkBtnSignIn.ForeColor = Color.FromArgb(228, 182, 26);
+            linkBtnSignIn.LinkArea = new LinkArea(0, 0);
+            linkBtnSignIn.LinkColor = Color.FromArgb(228, 182, 26);
+            linkBtnSignIn.LinkVisited = true;
+            linkBtnSignIn.Location = new Point(668, 486);
+            linkBtnSignIn.Name = "linkBtnSignIn";
+            linkBtnSignIn.Size = new Size(54, 20);
+            linkBtnSignIn.TabIndex = 23;
+            linkBtnSignIn.Text = "Sign In";
+            linkBtnSignIn.VisitedLinkColor = Color.FromArgb(228, 182, 26);
+            linkBtnSignIn.LinkClicked += linkBtnSignIn_LinkClicked;
             // 
             // RegisterPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(960, 540);
+            Controls.Add(linkBtnSignIn);
+            Controls.Add(label7);
+            Controls.Add(txtLocation);
             Controls.Add(label6);
             Controls.Add(txtPwd);
             Controls.Add(label5);
             Controls.Add(txtUser);
-            Controls.Add(txtbtnSignIn);
             Controls.Add(label4);
             Controls.Add(btnSignUP);
             Controls.Add(label3);
@@ -224,6 +255,7 @@
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "RegisterPage";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "RegisterPage";
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -232,8 +264,6 @@
         }
 
         #endregion
-
-        private Button txtbtnSignIn;
         private Label label4;
         private Label label3;
         private TextBox txtConatact;
@@ -247,5 +277,8 @@
         private Label label6;
         private TextBox txtPwd;
         private Button btnSignUP;
+        private Label label7;
+        private TextBox txtLocation;
+        private LinkLabel linkBtnSignIn;
     }
 }

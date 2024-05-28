@@ -38,7 +38,7 @@
             txtPwd = new TextBox();
             btnSignIn = new Button();
             label4 = new Label();
-            txtbtnSignUp = new Button();
+            linkBtnSignUp = new LinkLabel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -95,25 +95,30 @@
             btnSignIn.ForeColor = Color.White;
             btnSignIn.Name = "btnSignIn";
             btnSignIn.UseVisualStyleBackColor = false;
+            btnSignIn.Click += btnSignIn_Click;
             // 
             // label4
             // 
             resources.ApplyResources(label4, "label4");
             label4.Name = "label4";
             // 
-            // txtbtnSignUp
+            // linkBtnSignUp
             // 
-            resources.ApplyResources(txtbtnSignUp, "txtbtnSignUp");
-            txtbtnSignUp.ForeColor = Color.FromArgb(228, 182, 26);
-            txtbtnSignUp.Name = "txtbtnSignUp";
-            txtbtnSignUp.UseVisualStyleBackColor = true;
+            linkBtnSignUp.ActiveLinkColor = Color.White;
+            resources.ApplyResources(linkBtnSignUp, "linkBtnSignUp");
+            linkBtnSignUp.ForeColor = Color.FromArgb(228, 182, 26);
+            linkBtnSignUp.LinkColor = Color.FromArgb(228, 182, 26);
+            linkBtnSignUp.LinkVisited = true;
+            linkBtnSignUp.Name = "linkBtnSignUp";
+            linkBtnSignUp.VisitedLinkColor = Color.FromArgb(228, 182, 26);
+            linkBtnSignUp.LinkClicked += linkBtnSignUp_LinkClicked;
             // 
             // LoginPage
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            Controls.Add(txtbtnSignUp);
+            Controls.Add(linkBtnSignUp);
             Controls.Add(label4);
             Controls.Add(btnSignIn);
             Controls.Add(label3);
@@ -142,6 +147,6 @@
         private TextBox txtPwd;
         private Button btnSignIn;
         private Label label4;
-        private Button txtbtnSignUp;
+        private LinkLabel linkBtnSignUp;
     }
 }

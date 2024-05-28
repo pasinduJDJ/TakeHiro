@@ -31,5 +31,24 @@ namespace TakeHiro
         {
 
         }
+
+        private void btnSignIn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtbtnSignUp_Click(object sender, EventArgs e)
+        {
+            RegisterPage Fomr1 = new RegisterPage();
+            Fomr1.Show();
+            this.Hide();
+        }
+
+        private void linkBtnSignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            RegisterPage Fomr1 = new RegisterPage();
+            Fomr1.Show();
+            this.Hide();
+        }
     }
 }

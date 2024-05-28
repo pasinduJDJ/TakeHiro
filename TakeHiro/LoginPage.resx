@@ -117,41 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
-    <value>pictureBox1</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-4, -2</value>
-  </data>
-  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>368, 545</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0CAYAAADL1t+KAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -264,6 +230,7 @@
   <data name="pictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>Zoom</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="pictureBox1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
@@ -278,6 +245,27 @@
   </data>
   <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-4, -2</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>368, 545</value>
+  </data>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
   <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial, 16.2pt, style=Bold</value>
@@ -310,13 +298,13 @@
     <value>7</value>
   </data>
   <data name="txtName.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 12pt</value>
+    <value>Nirmala UI, 9pt</value>
   </data>
   <data name="txtName.Location" type="System.Drawing.Point, System.Drawing">
     <value>545, 201</value>
   </data>
   <data name="txtName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>240, 30</value>
+    <value>240, 27</value>
   </data>
   <data name="txtName.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -397,13 +385,13 @@
     <value>3</value>
   </data>
   <data name="txtPwd.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 12pt</value>
+    <value>Nirmala UI, 9pt</value>
   </data>
   <data name="txtPwd.Location" type="System.Drawing.Point, System.Drawing">
     <value>545, 276</value>
   </data>
   <data name="txtPwd.Size" type="System.Drawing.Size, System.Drawing">
-    <value>240, 30</value>
+    <value>240, 27</value>
   </data>
   <data name="txtPwd.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -480,35 +468,37 @@
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="txtbtnSignUp.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial Narrow, 10.2pt</value>
+  <data name="linkBtnSignUp.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="txtbtnSignUp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>700, 398</value>
+  <data name="linkBtnSignUp.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Nirmala UI, 9pt</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="txtbtnSignUp.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+  <data name="linkBtnSignUp.LinkArea" type="System.Windows.Forms.LinkArea, System.Windows.Forms">
+    <value>0, 0</value>
   </data>
-  <data name="txtbtnSignUp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>94, 29</value>
+  <data name="linkBtnSignUp.Location" type="System.Drawing.Point, System.Drawing">
+    <value>711, 403</value>
   </data>
-  <data name="txtbtnSignUp.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+  <data name="linkBtnSignUp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 20</value>
   </data>
-  <data name="txtbtnSignUp.Text" xml:space="preserve">
-    <value>Sign UP</value>
+  <data name="linkBtnSignUp.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
   </data>
-  <data name="&gt;&gt;txtbtnSignUp.Name" xml:space="preserve">
-    <value>txtbtnSignUp</value>
+  <data name="linkBtnSignUp.Text" xml:space="preserve">
+    <value>Sign Up</value>
   </data>
-  <data name="&gt;&gt;txtbtnSignUp.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;linkBtnSignUp.Name" xml:space="preserve">
+    <value>linkBtnSignUp</value>
   </data>
-  <data name="&gt;&gt;txtbtnSignUp.Parent" xml:space="preserve">
+  <data name="&gt;&gt;linkBtnSignUp.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;linkBtnSignUp.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;txtbtnSignUp.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;linkBtnSignUp.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -526,6 +516,7 @@
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Sans Serif Collection, 11.999999pt</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>7, 7, 7, 7</value>
   </data>
