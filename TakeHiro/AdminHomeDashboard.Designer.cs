@@ -57,9 +57,6 @@
             label3 = new Label();
             label5 = new Label();
             tblOrder = new DataGridView();
-            orderid = new DataGridViewTextBoxColumn();
-            customerid = new DataGridViewTextBoxColumn();
-            driverid = new DataGridViewTextBoxColumn();
             tblCompleteOrder = new DataGridView();
             label6 = new Label();
             tblAllDrivers = new DataGridView();
@@ -256,7 +253,7 @@
             panel3.Controls.Add(panel5);
             panel3.Controls.Add(panel4);
             panel3.Controls.Add(label3);
-            panel3.Location = new Point(331, 95);
+            panel3.Location = new Point(336, 85);
             panel3.Name = "panel3";
             panel3.Size = new Size(972, 175);
             panel3.TabIndex = 2;
@@ -425,7 +422,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(336, 304);
+            label5.Location = new Point(338, 289);
             label5.Name = "label5";
             label5.Size = new Size(82, 23);
             label5.TabIndex = 3;
@@ -435,37 +432,18 @@
             // 
             tblOrder.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tblOrder.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tblOrder.Columns.AddRange(new DataGridViewColumn[] { orderid, customerid, driverid });
-            tblOrder.Location = new Point(343, 351);
+            tblOrder.Location = new Point(338, 315);
             tblOrder.Name = "tblOrder";
             tblOrder.RowHeadersWidth = 51;
-            tblOrder.Size = new Size(450, 387);
+            tblOrder.Size = new Size(948, 201);
             tblOrder.StandardTab = true;
             tblOrder.TabIndex = 4;
-            // 
-            // orderid
-            // 
-            orderid.HeaderText = "Order ID";
-            orderid.MinimumWidth = 6;
-            orderid.Name = "orderid";
-            // 
-            // customerid
-            // 
-            customerid.HeaderText = "Customer ID ";
-            customerid.MinimumWidth = 6;
-            customerid.Name = "customerid";
-            // 
-            // driverid
-            // 
-            driverid.HeaderText = "Driver ID";
-            driverid.MinimumWidth = 6;
-            driverid.Name = "driverid";
             // 
             // tblCompleteOrder
             // 
             tblCompleteOrder.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tblCompleteOrder.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tblCompleteOrder.Location = new Point(853, 351);
+            tblCompleteOrder.Location = new Point(355, 580);
             tblCompleteOrder.Name = "tblCompleteOrder";
             tblCompleteOrder.RowHeadersWidth = 51;
             tblCompleteOrder.Size = new Size(450, 158);
@@ -477,7 +455,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(853, 304);
+            label6.Location = new Point(355, 554);
             label6.Name = "label6";
             label6.Size = new Size(68, 23);
             label6.TabIndex = 5;
@@ -499,7 +477,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(853, 540);
+            label7.Location = new Point(853, 554);
             label7.Name = "label7";
             label7.Size = new Size(94, 23);
             label7.TabIndex = 7;
@@ -576,9 +554,6 @@
         private Label label10;
         private Label label5;
         private DataGridView tblOrder;
-        private DataGridViewTextBoxColumn orderid;
-        private DataGridViewTextBoxColumn customerid;
-        private DataGridViewTextBoxColumn driverid;
         private DataGridView tblCompleteOrder;
         private Label label6;
         private DataGridView tblAllDrivers;

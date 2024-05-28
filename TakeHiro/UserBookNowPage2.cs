@@ -14,18 +14,25 @@ namespace TakeHiro
     public partial class UserBookNowPage2 : Form
     {
         private DatabaseHelper _dbHelper;
-        public UserBookNowPage2(string driverID, string driverName)
+        private string _driverTp;
+        public UserBookNowPage2(string driverID, string driverName, string drivernumber)
         {
             InitializeComponent();
             _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
 
             LoadCarData();
 
+            _driverTp = drivernumber;
             lblDriverID.Text = driverID;
-            lblDriverName.Text = driverName;    
+            lblDriverName.Text = driverName;
 
             tblAllDrivers.CellClick += new DataGridViewCellEventHandler(dgvCars_CellClick);
             btnSubCar.Click += new EventHandler(btnPassData_Click);
+        }
+
+        public string DriverTp
+        {
+            get { return _driverTp; }
         }
 
         private void LoadCarData()
@@ -39,6 +46,28 @@ namespace TakeHiro
             {
                 MessageBox.Show($"An error occurred while loading car data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private void dgvCars_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = tblAllDrivers.Rows[e.RowIndex];
+                txtCarModel.Text = row.Cells["Model"].Value.ToString();
+                txtPlateNumber.Text = row.Cells["PlateNumber"].Value.ToString();
+                lblCarID.Text = row.Cells["CarID"].Value.ToString();
+            }
+        }
+        private void btnPassData_Click(object sender, EventArgs e)
+        {
+            string carModel = txtCarModel.Text;
+            string carNumber = txtPlateNumber.Text;
+            string driverId = lblDriverID.Text;
+            string driverName = lblDriverName.Text;
+            string carId = lblCarID.Text;
+
+            UserBookNowPage3 nextForm = new UserBookNowPage3(carModel, carNumber, carId, driverId, driverName, _driverTp);
+            nextForm.Show();
+            this.Hide();
         }
 
         private void btnBookNow_Click(object sender, EventArgs e)
@@ -73,31 +102,17 @@ namespace TakeHiro
             form1.Show();
             this.Hide();
         }
-        private void dgvCars_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = tblAllDrivers.Rows[e.RowIndex];
-                txtCarModel.Text = row.Cells["Model"].Value.ToString();
-                txtPlateNumber.Text = row.Cells["PlateNumber"].Value.ToString();
-            }
-        }
-        private void btnPassData_Click(object sender, EventArgs e)
-        {
-            string carModel = txtCarModel.Text;
-            string carNumber = txtPlateNumber.Text;
-            string driverId = lblDriverID.Text;
-            string driverName=lblDriverName.Text;
 
-            UserBookNowPage3 nextForm = new UserBookNowPage3(carModel, carNumber, driverId, driverName);
-            nextForm.Show();
-            this.Hide();
-        }
 
 
         private void tblAllDrivers_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
+        }
+
+        private void btnSubCar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

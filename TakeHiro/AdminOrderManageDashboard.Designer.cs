@@ -30,9 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminOrderManageDashboard));
             tblOrder = new DataGridView();
-            orderid = new DataGridViewTextBoxColumn();
-            customerid = new DataGridViewTextBoxColumn();
-            driverid = new DataGridViewTextBoxColumn();
             label5 = new Label();
             panel7 = new Panel();
             label15 = new Label();
@@ -84,31 +81,12 @@
             // 
             tblOrder.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tblOrder.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tblOrder.Columns.AddRange(new DataGridViewColumn[] { orderid, customerid, driverid });
             tblOrder.Location = new Point(332, 267);
             tblOrder.Name = "tblOrder";
             tblOrder.RowHeadersWidth = 51;
             tblOrder.Size = new Size(613, 236);
             tblOrder.StandardTab = true;
             tblOrder.TabIndex = 12;
-            // 
-            // orderid
-            // 
-            orderid.HeaderText = "Order ID";
-            orderid.MinimumWidth = 6;
-            orderid.Name = "orderid";
-            // 
-            // customerid
-            // 
-            customerid.HeaderText = "Customer ID ";
-            customerid.MinimumWidth = 6;
-            customerid.Name = "customerid";
-            // 
-            // driverid
-            // 
-            driverid.HeaderText = "Driver ID";
-            driverid.MinimumWidth = 6;
-            driverid.Name = "driverid";
             // 
             // label5
             // 
@@ -585,9 +563,6 @@
 
         #endregion
         private DataGridView tblOrder;
-        private DataGridViewTextBoxColumn orderid;
-        private DataGridViewTextBoxColumn customerid;
-        private DataGridViewTextBoxColumn driverid;
         private Label label5;
         private Panel panel7;
         private Label label15;

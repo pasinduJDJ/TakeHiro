@@ -45,6 +45,8 @@
             lblDriversCount = new Label();
             label1 = new Label();
             panel4 = new Panel();
+            txtContactNumber = new TextBox();
+            label6 = new Label();
             btnSubDriver = new Button();
             txtDriverName = new TextBox();
             label5 = new Label();
@@ -267,6 +269,8 @@
             // panel4
             // 
             panel4.BackColor = Color.White;
+            panel4.Controls.Add(txtContactNumber);
+            panel4.Controls.Add(label6);
             panel4.Controls.Add(btnSubDriver);
             panel4.Controls.Add(txtDriverName);
             panel4.Controls.Add(label5);
@@ -276,8 +280,26 @@
             panel4.ImeMode = ImeMode.Off;
             panel4.Location = new Point(667, 218);
             panel4.Name = "panel4";
-            panel4.Size = new Size(267, 265);
+            panel4.Size = new Size(267, 301);
             panel4.TabIndex = 8;
+            // 
+            // txtContactNumber
+            // 
+            txtContactNumber.BorderStyle = BorderStyle.FixedSingle;
+            txtContactNumber.Location = new Point(16, 215);
+            txtContactNumber.Name = "txtContactNumber";
+            txtContactNumber.Size = new Size(222, 27);
+            txtContactNumber.TabIndex = 7;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Nirmala UI", 8F);
+            label6.Location = new Point(16, 192);
+            label6.Name = "label6";
+            label6.Size = new Size(152, 19);
+            label6.TabIndex = 6;
+            label6.Text = "Driver Contact Number";
             // 
             // btnSubDriver
             // 
@@ -286,13 +308,14 @@
             btnSubDriver.FlatStyle = FlatStyle.Flat;
             btnSubDriver.Font = new Font("Nirmala UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSubDriver.ForeColor = Color.White;
-            btnSubDriver.Location = new Point(16, 206);
+            btnSubDriver.Location = new Point(16, 255);
             btnSubDriver.Margin = new Padding(0);
             btnSubDriver.Name = "btnSubDriver";
             btnSubDriver.Size = new Size(222, 37);
             btnSubDriver.TabIndex = 5;
             btnSubDriver.Text = "Select Car";
             btnSubDriver.UseVisualStyleBackColor = false;
+            btnSubDriver.Click += btnSubDriver_Click;
             // 
             // txtDriverName
             // 
@@ -397,5 +420,7 @@
         private TextBox txtDriverName;
         private Label label5;
         private TextBox txtDriverID;
+        private TextBox txtContactNumber;
+        private Label label6;
     }
 }

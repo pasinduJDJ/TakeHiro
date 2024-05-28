@@ -59,5 +59,6 @@ namespace TakeHiro
             form1.Show();
             this.Hide();
         }
+
     }
 }

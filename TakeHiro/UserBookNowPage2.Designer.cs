@@ -30,6 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserBookNowPage2));
             panel4 = new Panel();
+            lblCarID = new Label();
+            lblDriverName = new Label();
+            lblDriverID = new Label();
+            label7 = new Label();
+            label6 = new Label();
             btnSubCar = new Button();
             txtPlateNumber = new TextBox();
             label5 = new Label();
@@ -51,10 +56,6 @@
             lblUserID = new Label();
             imgUser = new PictureBox();
             panel2 = new Panel();
-            label6 = new Label();
-            label7 = new Label();
-            lblDriverID = new Label();
-            lblDriverName = new Label();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tblAllDrivers).BeginInit();
@@ -67,6 +68,7 @@
             // panel4
             // 
             panel4.BackColor = Color.White;
+            panel4.Controls.Add(lblCarID);
             panel4.Controls.Add(lblDriverName);
             panel4.Controls.Add(lblDriverID);
             panel4.Controls.Add(label7);
@@ -83,6 +85,55 @@
             panel4.Size = new Size(267, 301);
             panel4.TabIndex = 14;
             // 
+            // lblCarID
+            // 
+            lblCarID.AutoSize = true;
+            lblCarID.Font = new Font("Nirmala UI", 8F);
+            lblCarID.Location = new Point(159, 49);
+            lblCarID.Name = "lblCarID";
+            lblCarID.Size = new Size(41, 19);
+            lblCarID.TabIndex = 10;
+            lblCarID.Text = "0000";
+            // 
+            // lblDriverName
+            // 
+            lblDriverName.AutoSize = true;
+            lblDriverName.Font = new Font("Nirmala UI", 8F);
+            lblDriverName.Location = new Point(115, 77);
+            lblDriverName.Name = "lblDriverName";
+            lblDriverName.Size = new Size(0, 19);
+            lblDriverName.TabIndex = 9;
+            // 
+            // lblDriverID
+            // 
+            lblDriverID.AutoSize = true;
+            lblDriverID.Font = new Font("Nirmala UI", 8F);
+            lblDriverID.Location = new Point(92, 49);
+            lblDriverID.Name = "lblDriverID";
+            lblDriverID.Size = new Size(41, 19);
+            lblDriverID.TabIndex = 8;
+            lblDriverID.Text = "0000";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Nirmala UI", 8F);
+            label7.Location = new Point(16, 77);
+            label7.Name = "label7";
+            label7.Size = new Size(93, 19);
+            label7.TabIndex = 7;
+            label7.Text = "Driver Name :";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Nirmala UI", 8F);
+            label6.Location = new Point(16, 49);
+            label6.Name = "label6";
+            label6.Size = new Size(71, 19);
+            label6.TabIndex = 6;
+            label6.Text = "Driver ID :";
+            // 
             // btnSubCar
             // 
             btnSubCar.BackColor = Color.FromArgb(42, 46, 52);
@@ -97,6 +148,7 @@
             btnSubCar.TabIndex = 5;
             btnSubCar.Text = "Destination";
             btnSubCar.UseVisualStyleBackColor = false;
+            btnSubCar.Click += btnSubCar_Click;
             // 
             // txtPlateNumber
             // 
@@ -324,9 +376,9 @@
             lblUserID.ForeColor = Color.White;
             lblUserID.Location = new Point(769, 24);
             lblUserID.Name = "lblUserID";
-            lblUserID.Size = new Size(119, 20);
+            lblUserID.Size = new Size(109, 20);
             lblUserID.TabIndex = 2;
-            lblUserID.Text = "+94 76 706 6455";
+            lblUserID.Text = "94 76 706 6455";
             // 
             // imgUser
             // 
@@ -348,45 +400,6 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(962, 65);
             panel2.TabIndex = 10;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Nirmala UI", 8F);
-            label6.Location = new Point(16, 49);
-            label6.Name = "label6";
-            label6.Size = new Size(71, 19);
-            label6.TabIndex = 6;
-            label6.Text = "Driver ID :";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Nirmala UI", 8F);
-            label7.Location = new Point(16, 77);
-            label7.Name = "label7";
-            label7.Size = new Size(93, 19);
-            label7.TabIndex = 7;
-            label7.Text = "Driver Name :";
-            // 
-            // lblDriverID
-            // 
-            lblDriverID.AutoSize = true;
-            lblDriverID.Font = new Font("Nirmala UI", 8F);
-            lblDriverID.Location = new Point(92, 49);
-            lblDriverID.Name = "lblDriverID";
-            lblDriverID.Size = new Size(41, 19);
-            lblDriverID.TabIndex = 8;
-            lblDriverID.Text = "0000";
-            // 
-            // lblDriverName
-            // 
-            lblDriverName.AutoSize = true;
-            lblDriverName.Font = new Font("Nirmala UI", 8F);
-            lblDriverName.Location = new Point(115, 77);
-            lblDriverName.Name = "lblDriverName";
-            lblDriverName.Size = new Size(0, 19);
-            lblDriverName.TabIndex = 9;
             // 
             // UserBookNowPage2
             // 
@@ -447,5 +460,6 @@
         private Label lblDriverID;
         private Label label7;
         private Label label6;
+        private Label lblCarID;
     }
 }

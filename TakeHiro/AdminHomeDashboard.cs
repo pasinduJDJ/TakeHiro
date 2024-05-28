@@ -20,6 +20,7 @@ namespace TakeHiro
 
             LoadCarData();
             LoadDriverData();
+            LoadOrderData();
         }
 
         private void LoadCarData()
@@ -51,6 +52,21 @@ namespace TakeHiro
             catch (Exception ex)
             {
                 MessageBox.Show($"An error occurred while loading Driver data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void LoadOrderData()
+        {
+            try
+            {
+                // Retrieve all Driver data from the database
+                DataTable orderdata = _dbHelper.GetAllOrders();
+
+                // Bind Driver data to DataGridView
+                tblOrder.DataSource = orderdata;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while loading Order data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

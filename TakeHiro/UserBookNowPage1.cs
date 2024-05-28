@@ -20,10 +20,7 @@ namespace TakeHiro
 
             LoadDriverData();
 
-            // Wire up the CellClick event handler
             tblAllDrivers.CellClick += new DataGridViewCellEventHandler(dgvCars_CellClick);
-
-            // Wire up the button click event handler
             btnSubDriver.Click += new EventHandler(btnPassData_Click);
         }
         private void dgvCars_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -33,14 +30,16 @@ namespace TakeHiro
                 DataGridViewRow row = tblAllDrivers.Rows[e.RowIndex];
                 txtDriverID.Text = row.Cells["DriverID"].Value.ToString();
                 txtDriverName.Text = row.Cells["Name"].Value.ToString();
+                txtContactNumber.Text = row.Cells["ContactNumber"].Value.ToString();
             }
         }
         private void btnPassData_Click(object sender, EventArgs e)
         {
             string driverID = txtDriverID.Text;
             string drivername = txtDriverName.Text;
+            string drivernumber = txtContactNumber.Text;
 
-            UserBookNowPage2 nextForm = new UserBookNowPage2(driverID, drivername);
+            UserBookNowPage2 nextForm = new UserBookNowPage2(driverID, drivername, drivernumber);
             nextForm.Show();
             this.Hide();
         }
@@ -49,10 +48,7 @@ namespace TakeHiro
         {
             try
             {
-                // Retrieve all Driver data from the database
                 DataTable driverData = _dbHelper.GetAllDrivers();
-
-                // Bind Driver data to DataGridView
                 tblAllDrivers.DataSource = driverData;
             }
             catch (Exception ex)
@@ -100,6 +96,11 @@ namespace TakeHiro
             LoginPage form1 = new LoginPage();
             form1.Show();
             this.Hide();
+        }
+
+        private void btnSubDriver_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

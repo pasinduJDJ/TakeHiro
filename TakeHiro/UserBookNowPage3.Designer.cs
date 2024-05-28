@@ -31,14 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserBookNowPage3));
             btnPlaceOrder = new Button();
             label5 = new Label();
-            txtCarModel = new TextBox();
             label4 = new Label();
             btnAvailableCar = new FontAwesome.Sharp.IconButton();
             btnAvailabelDriver = new FontAwesome.Sharp.IconButton();
             btnBookNow = new FontAwesome.Sharp.IconButton();
-            label3 = new Label();
-            panel4 = new Panel();
-            txtPlateNumber = new TextBox();
             btnClose = new Button();
             panel1 = new Panel();
             btnLogOut = new Button();
@@ -47,23 +43,28 @@
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
             panel3 = new Panel();
-            txtContactNumber = new TextBox();
+            lblCarNumber = new Label();
+            label3 = new Label();
+            lblCarModel = new Label();
+            lblContactNumber = new Label();
+            lblDriverName = new Label();
             label1 = new Label();
-            txtDriverName = new TextBox();
             label2 = new Label();
             label6 = new Label();
             btnHome = new Button();
             panel5 = new Panel();
+            txtLocation = new TextBox();
+            label7 = new Label();
             txtDestination = new TextBox();
             label8 = new Label();
-            label9 = new Label();
-            panel4.SuspendLayout();
+            pictureBox2 = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)imgUser).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
             panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // btnPlaceOrder
@@ -73,41 +74,35 @@
             btnPlaceOrder.FlatStyle = FlatStyle.Flat;
             btnPlaceOrder.Font = new Font("Nirmala UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnPlaceOrder.ForeColor = Color.White;
-            btnPlaceOrder.Location = new Point(703, 469);
+            btnPlaceOrder.Location = new Point(630, 469);
             btnPlaceOrder.Margin = new Padding(0);
             btnPlaceOrder.Name = "btnPlaceOrder";
-            btnPlaceOrder.Size = new Size(222, 37);
+            btnPlaceOrder.Size = new Size(295, 37);
             btnPlaceOrder.TabIndex = 5;
             btnPlaceOrder.Text = "Place Order";
             btnPlaceOrder.UseVisualStyleBackColor = false;
+            btnPlaceOrder.Click += btnPlaceOrder_Click;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Nirmala UI", 8F);
-            label5.Location = new Point(16, 126);
+            label5.Location = new Point(16, 222);
             label5.Name = "label5";
-            label5.Size = new Size(84, 19);
+            label5.Size = new Size(91, 19);
             label5.TabIndex = 3;
-            label5.Text = "Car Number";
-            // 
-            // txtCarModel
-            // 
-            txtCarModel.BorderStyle = BorderStyle.FixedSingle;
-            txtCarModel.Location = new Point(16, 85);
-            txtCarModel.Name = "txtCarModel";
-            txtCarModel.Size = new Size(290, 27);
-            txtCarModel.TabIndex = 2;
+            label5.Text = "Car Number :";
+            label5.Click += label5_Click;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Nirmala UI", 8F);
-            label4.Location = new Point(16, 62);
+            label4.Location = new Point(16, 192);
             label4.Name = "label4";
-            label4.Size = new Size(73, 19);
+            label4.Size = new Size(80, 19);
             label4.TabIndex = 1;
-            label4.Text = "Car Model";
+            label4.Text = "Car Model :";
             // 
             // btnAvailableCar
             // 
@@ -176,38 +171,6 @@
             btnBookNow.UseVisualStyleBackColor = false;
             btnBookNow.Click += btnBookNow_Click;
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Nirmala UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(16, 18);
-            label3.Name = "label3";
-            label3.Size = new Size(147, 25);
-            label3.TabIndex = 0;
-            label3.Text = "Select Car Details";
-            // 
-            // panel4
-            // 
-            panel4.BackColor = Color.White;
-            panel4.Controls.Add(txtPlateNumber);
-            panel4.Controls.Add(label5);
-            panel4.Controls.Add(txtCarModel);
-            panel4.Controls.Add(label4);
-            panel4.Controls.Add(label3);
-            panel4.ImeMode = ImeMode.Off;
-            panel4.Location = new Point(593, 92);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(332, 205);
-            panel4.TabIndex = 17;
-            // 
-            // txtPlateNumber
-            // 
-            txtPlateNumber.BorderStyle = BorderStyle.FixedSingle;
-            txtPlateNumber.Location = new Point(16, 149);
-            txtPlateNumber.Name = "txtPlateNumber";
-            txtPlateNumber.Size = new Size(290, 27);
-            txtPlateNumber.TabIndex = 4;
-            // 
             // btnClose
             // 
             btnClose.BackColor = Color.FromArgb(233, 234, 236);
@@ -259,9 +222,9 @@
             lblUserID.ForeColor = Color.White;
             lblUserID.Location = new Point(769, 24);
             lblUserID.Name = "lblUserID";
-            lblUserID.Size = new Size(119, 20);
+            lblUserID.Size = new Size(109, 20);
             lblUserID.TabIndex = 2;
-            lblUserID.Text = "+94 76 706 6455";
+            lblUserID.Text = "94 76 706 6455";
             // 
             // imgUser
             // 
@@ -297,42 +260,81 @@
             // panel3
             // 
             panel3.BackColor = Color.White;
-            panel3.Controls.Add(txtContactNumber);
+            panel3.Controls.Add(lblCarNumber);
+            panel3.Controls.Add(label3);
+            panel3.Controls.Add(lblCarModel);
+            panel3.Controls.Add(label5);
+            panel3.Controls.Add(lblContactNumber);
+            panel3.Controls.Add(lblDriverName);
+            panel3.Controls.Add(label4);
             panel3.Controls.Add(label1);
-            panel3.Controls.Add(txtDriverName);
             panel3.Controls.Add(label2);
             panel3.Controls.Add(label6);
             panel3.ImeMode = ImeMode.Off;
-            panel3.Location = new Point(238, 92);
+            panel3.Location = new Point(238, 69);
             panel3.Name = "panel3";
-            panel3.Size = new Size(331, 205);
+            panel3.Size = new Size(331, 268);
             panel3.TabIndex = 18;
             // 
-            // txtContactNumber
+            // lblCarNumber
             // 
-            txtContactNumber.BorderStyle = BorderStyle.FixedSingle;
-            txtContactNumber.Location = new Point(16, 149);
-            txtContactNumber.Name = "txtContactNumber";
-            txtContactNumber.Size = new Size(283, 27);
-            txtContactNumber.TabIndex = 4;
+            lblCarNumber.AutoSize = true;
+            lblCarNumber.Font = new Font("Nirmala UI", 8F);
+            lblCarNumber.Location = new Point(108, 222);
+            lblCarNumber.Name = "lblCarNumber";
+            lblCarNumber.Size = new Size(91, 19);
+            lblCarNumber.TabIndex = 12;
+            lblCarNumber.Text = "Car Number :";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Nirmala UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(16, 151);
+            label3.Name = "label3";
+            label3.Size = new Size(147, 25);
+            label3.TabIndex = 11;
+            label3.Text = "Select Car Details";
+            // 
+            // lblCarModel
+            // 
+            lblCarModel.AutoSize = true;
+            lblCarModel.Font = new Font("Nirmala UI", 8F);
+            lblCarModel.Location = new Point(102, 192);
+            lblCarModel.Name = "lblCarModel";
+            lblCarModel.Size = new Size(73, 19);
+            lblCarModel.TabIndex = 10;
+            lblCarModel.Text = "Car Model";
+            // 
+            // lblContactNumber
+            // 
+            lblContactNumber.AutoSize = true;
+            lblContactNumber.Font = new Font("Nirmala UI", 8F);
+            lblContactNumber.Location = new Point(140, 96);
+            lblContactNumber.Name = "lblContactNumber";
+            lblContactNumber.Size = new Size(111, 19);
+            lblContactNumber.TabIndex = 8;
+            lblContactNumber.Text = "Contact Number";
+            // 
+            // lblDriverName
+            // 
+            lblDriverName.AutoSize = true;
+            lblDriverName.Font = new Font("Nirmala UI", 8F);
+            lblDriverName.Location = new Point(113, 62);
+            lblDriverName.Name = "lblDriverName";
+            lblDriverName.Size = new Size(86, 19);
+            lblDriverName.TabIndex = 7;
+            lblDriverName.Text = "Driver Name";
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Nirmala UI", 8F);
-            label1.Location = new Point(16, 126);
+            label1.Location = new Point(16, 95);
             label1.Name = "label1";
-            label1.Size = new Size(111, 19);
+            label1.Size = new Size(118, 19);
             label1.TabIndex = 3;
-            label1.Text = "Contact Number";
-            // 
-            // txtDriverName
-            // 
-            txtDriverName.BorderStyle = BorderStyle.FixedSingle;
-            txtDriverName.Location = new Point(16, 85);
-            txtDriverName.Name = "txtDriverName";
-            txtDriverName.Size = new Size(283, 27);
-            txtDriverName.TabIndex = 2;
+            label1.Text = "Contact Number :";
             // 
             // label2
             // 
@@ -340,9 +342,9 @@
             label2.Font = new Font("Nirmala UI", 8F);
             label2.Location = new Point(16, 62);
             label2.Name = "label2";
-            label2.Size = new Size(86, 19);
+            label2.Size = new Size(93, 19);
             label2.TabIndex = 1;
-            label2.Text = "Driver Name";
+            label2.Text = "Driver Name :";
             // 
             // label6
             // 
@@ -361,30 +363,50 @@
             btnHome.FlatStyle = FlatStyle.Flat;
             btnHome.Font = new Font("Nirmala UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnHome.ForeColor = Color.White;
-            btnHome.Location = new Point(703, 419);
+            btnHome.Location = new Point(630, 419);
             btnHome.Margin = new Padding(0);
             btnHome.Name = "btnHome";
-            btnHome.Size = new Size(222, 37);
+            btnHome.Size = new Size(295, 37);
             btnHome.TabIndex = 19;
             btnHome.Text = "Back To Home";
             btnHome.UseVisualStyleBackColor = false;
+            btnHome.Click += btnHome_Click;
             // 
             // panel5
             // 
             panel5.BackColor = Color.White;
+            panel5.Controls.Add(txtLocation);
+            panel5.Controls.Add(label7);
             panel5.Controls.Add(txtDestination);
             panel5.Controls.Add(label8);
-            panel5.Controls.Add(label9);
             panel5.ImeMode = ImeMode.Off;
-            panel5.Location = new Point(238, 323);
+            panel5.Location = new Point(238, 353);
             panel5.Name = "panel5";
-            panel5.Size = new Size(331, 152);
+            panel5.Size = new Size(331, 153);
             panel5.TabIndex = 19;
+            // 
+            // txtLocation
+            // 
+            txtLocation.BorderStyle = BorderStyle.FixedSingle;
+            txtLocation.Location = new Point(16, 107);
+            txtLocation.Name = "txtLocation";
+            txtLocation.Size = new Size(283, 27);
+            txtLocation.TabIndex = 4;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Nirmala UI", 8F);
+            label7.Location = new Point(16, 84);
+            label7.Name = "label7";
+            label7.Size = new Size(61, 19);
+            label7.TabIndex = 3;
+            label7.Text = "Location";
             // 
             // txtDestination
             // 
             txtDestination.BorderStyle = BorderStyle.FixedSingle;
-            txtDestination.Location = new Point(16, 85);
+            txtDestination.Location = new Point(16, 47);
             txtDestination.Name = "txtDestination";
             txtDestination.Size = new Size(283, 27);
             txtDestination.TabIndex = 2;
@@ -393,40 +415,39 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Nirmala UI", 8F);
-            label8.Location = new Point(16, 62);
+            label8.Location = new Point(16, 24);
             label8.Name = "label8";
             label8.Size = new Size(116, 19);
             label8.TabIndex = 1;
             label8.Text = "Input Destination";
             // 
-            // label9
+            // pictureBox2
             // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Nirmala UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.Location = new Point(16, 18);
-            label9.Name = "label9";
-            label9.Size = new Size(102, 25);
-            label9.TabIndex = 0;
-            label9.Text = "Destination";
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(681, 123);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(191, 196);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 3;
+            pictureBox2.TabStop = false;
             // 
             // UserBookNowPage3
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(960, 540);
+            Controls.Add(pictureBox2);
             Controls.Add(panel5);
             Controls.Add(btnHome);
             Controls.Add(btnPlaceOrder);
             Controls.Add(panel3);
-            Controls.Add(panel4);
             Controls.Add(panel1);
             Controls.Add(panel2);
             Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.None;
             Name = "UserBookNowPage3";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "UserBookNowPage3";
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)imgUser).EndInit();
             panel2.ResumeLayout(false);
@@ -436,6 +457,7 @@
             panel3.PerformLayout();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 
@@ -443,14 +465,10 @@
 
         private Button btnPlaceOrder;
         private Label label5;
-        private TextBox txtCarModel;
         private Label label4;
         private FontAwesome.Sharp.IconButton btnAvailableCar;
         private FontAwesome.Sharp.IconButton btnAvailabelDriver;
         private FontAwesome.Sharp.IconButton btnBookNow;
-        private Label label3;
-        private Panel panel4;
-        private TextBox txtPlateNumber;
         private Button btnClose;
         private Panel panel1;
         private Button btnLogOut;
@@ -459,15 +477,20 @@
         private Panel panel2;
         private PictureBox pictureBox1;
         private Panel panel3;
-        private TextBox txtContactNumber;
         private Label label1;
-        private TextBox txtDriverName;
         private Label label2;
         private Label label6;
         private Button btnHome;
         private Panel panel5;
         private TextBox txtDestination;
         private Label label8;
-        private Label label9;
+        private Label lblContactNumber;
+        private Label lblDriverName;
+        private Label lblCarModel;
+        private Label lblCarNumber;
+        private Label label3;
+        private PictureBox pictureBox2;
+        private TextBox txtLocation;
+        private Label label7;
     }
 }
