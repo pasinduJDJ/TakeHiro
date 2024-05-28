@@ -138,6 +138,7 @@
             btnAvailableCar.TabIndex = 8;
             btnAvailableCar.Text = "Available Cars";
             btnAvailableCar.UseVisualStyleBackColor = true;
+            btnAvailableCar.Click += btnAvailableCar_Click;
             // 
             // btnAvailabelDriver
             // 
@@ -159,6 +160,7 @@
             btnAvailabelDriver.TabIndex = 7;
             btnAvailabelDriver.Text = "Available Drivers";
             btnAvailabelDriver.UseVisualStyleBackColor = true;
+            btnAvailabelDriver.Click += btnAvailabelDriver_Click;
             // 
             // btnBookNow
             // 
@@ -195,6 +197,7 @@
             btnClose.TabIndex = 6;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
             // 
             // btnLogOut
             // 
@@ -209,6 +212,7 @@
             btnLogOut.TabIndex = 2;
             btnLogOut.Text = "Log Out ";
             btnLogOut.UseVisualStyleBackColor = false;
+            btnLogOut.Click += btnLogOut_Click;
             // 
             // dataGridView1
             // 

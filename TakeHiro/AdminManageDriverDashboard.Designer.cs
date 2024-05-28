@@ -46,24 +46,22 @@
             dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
             label7 = new Label();
             panel3 = new Panel();
+            btnAddNewDriver = new Button();
+            btnSubmitChnages = new Button();
+            btnRemoveDriver = new Button();
+            txtDriverName = new TextBox();
+            cmbAvailability = new ComboBox();
+            label4 = new Label();
+            txtContactNumber = new TextBox();
+            label5 = new Label();
+            label8 = new Label();
+            label2 = new Label();
             panel6 = new Panel();
             label11 = new Label();
             label14 = new Label();
             panel7 = new Panel();
             label15 = new Label();
             label18 = new Label();
-            label2 = new Label();
-            label8 = new Label();
-            txtDriverID = new TextBox();
-            label3 = new Label();
-            cmbDriverAva = new ComboBox();
-            label4 = new Label();
-            txtContactNumber = new TextBox();
-            label5 = new Label();
-            txtDriverName = new TextBox();
-            btnRemoveDriver = new Button();
-            btnSubmitChnages = new Button();
-            btnAddNewDriver = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -98,6 +96,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(279, 770);
             panel1.TabIndex = 11;
+            panel1.Paint += panel1_Paint;
             // 
             // btnClose
             // 
@@ -112,6 +111,7 @@
             btnClose.TabIndex = 8;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
             // 
             // btnLogOut
             // 
@@ -126,6 +126,7 @@
             btnLogOut.TabIndex = 7;
             btnLogOut.Text = "Log Out ";
             btnLogOut.UseVisualStyleBackColor = false;
+            btnLogOut.Click += btnLogOut_Click;
             // 
             // iconButton2
             // 
@@ -147,6 +148,7 @@
             iconButton2.TabIndex = 4;
             iconButton2.Text = "Manage Cars";
             iconButton2.UseVisualStyleBackColor = false;
+            iconButton2.Click += iconButton2_Click;
             // 
             // iconButton1
             // 
@@ -189,6 +191,7 @@
             btnManageOrders.TabIndex = 2;
             btnManageOrders.Text = "Manage Orders";
             btnManageOrders.UseVisualStyleBackColor = false;
+            btnManageOrders.Click += btnManageOrders_Click;
             // 
             // btnDashBoard
             // 
@@ -210,6 +213,7 @@
             btnDashBoard.TabIndex = 1;
             btnDashBoard.Text = "Dashboard";
             btnDashBoard.UseVisualStyleBackColor = false;
+            btnDashBoard.Click += btnDashBoard_Click;
             // 
             // panel2
             // 
@@ -287,18 +291,114 @@
             panel3.Controls.Add(btnSubmitChnages);
             panel3.Controls.Add(btnRemoveDriver);
             panel3.Controls.Add(txtDriverName);
-            panel3.Controls.Add(cmbDriverAva);
+            panel3.Controls.Add(cmbAvailability);
             panel3.Controls.Add(label4);
             panel3.Controls.Add(txtContactNumber);
             panel3.Controls.Add(label5);
             panel3.Controls.Add(label8);
-            panel3.Controls.Add(txtDriverID);
-            panel3.Controls.Add(label3);
             panel3.Controls.Add(label2);
             panel3.Location = new Point(353, 404);
             panel3.Name = "panel3";
             panel3.Size = new Size(728, 338);
             panel3.TabIndex = 15;
+            // 
+            // btnAddNewDriver
+            // 
+            btnAddNewDriver.BackColor = Color.FromArgb(42, 46, 52);
+            btnAddNewDriver.FlatStyle = FlatStyle.Flat;
+            btnAddNewDriver.ForeColor = Color.White;
+            btnAddNewDriver.Location = new Point(398, 190);
+            btnAddNewDriver.Name = "btnAddNewDriver";
+            btnAddNewDriver.Size = new Size(302, 40);
+            btnAddNewDriver.TabIndex = 30;
+            btnAddNewDriver.Text = "Add New Driver";
+            btnAddNewDriver.UseVisualStyleBackColor = false;
+            btnAddNewDriver.Click += btnAddNewDriver_Click;
+            // 
+            // btnSubmitChnages
+            // 
+            btnSubmitChnages.BackColor = Color.FromArgb(42, 46, 52);
+            btnSubmitChnages.FlatStyle = FlatStyle.Flat;
+            btnSubmitChnages.ForeColor = Color.White;
+            btnSubmitChnages.Location = new Point(398, 236);
+            btnSubmitChnages.Name = "btnSubmitChnages";
+            btnSubmitChnages.Size = new Size(302, 40);
+            btnSubmitChnages.TabIndex = 29;
+            btnSubmitChnages.Text = "Submit Chnages";
+            btnSubmitChnages.UseVisualStyleBackColor = false;
+            // 
+            // btnRemoveDriver
+            // 
+            btnRemoveDriver.BackColor = Color.FromArgb(42, 46, 52);
+            btnRemoveDriver.FlatStyle = FlatStyle.Flat;
+            btnRemoveDriver.ForeColor = Color.White;
+            btnRemoveDriver.Location = new Point(398, 282);
+            btnRemoveDriver.Name = "btnRemoveDriver";
+            btnRemoveDriver.Size = new Size(302, 40);
+            btnRemoveDriver.TabIndex = 28;
+            btnRemoveDriver.Text = "Remove Driver";
+            btnRemoveDriver.UseVisualStyleBackColor = false;
+            // 
+            // txtDriverName
+            // 
+            txtDriverName.BorderStyle = BorderStyle.FixedSingle;
+            txtDriverName.Location = new Point(16, 93);
+            txtDriverName.Name = "txtDriverName";
+            txtDriverName.Size = new Size(302, 30);
+            txtDriverName.TabIndex = 27;
+            // 
+            // cmbAvailability
+            // 
+            cmbAvailability.FormattingEnabled = true;
+            cmbAvailability.Location = new Point(16, 236);
+            cmbAvailability.Name = "cmbAvailability";
+            cmbAvailability.Size = new Size(302, 31);
+            cmbAvailability.TabIndex = 26;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(16, 211);
+            label4.Name = "label4";
+            label4.Size = new Size(141, 23);
+            label4.TabIndex = 25;
+            label4.Text = "Driver Availability";
+            // 
+            // txtContactNumber
+            // 
+            txtContactNumber.BorderStyle = BorderStyle.FixedSingle;
+            txtContactNumber.Location = new Point(16, 165);
+            txtContactNumber.Name = "txtContactNumber";
+            txtContactNumber.Size = new Size(302, 30);
+            txtContactNumber.TabIndex = 24;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(16, 139);
+            label5.Name = "label5";
+            label5.Size = new Size(188, 23);
+            label5.TabIndex = 23;
+            label5.Text = "Driver Contact Number";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(16, 67);
+            label8.Name = "label8";
+            label8.Size = new Size(106, 23);
+            label8.TabIndex = 21;
+            label8.Text = "Driver Name";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Nirmala UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(16, 13);
+            label2.Name = "label2";
+            label2.Size = new Size(215, 25);
+            label2.TabIndex = 18;
+            label2.Text = "Driver Application Form";
             // 
             // panel6
             // 
@@ -366,120 +466,6 @@
             label18.TabIndex = 0;
             label18.Text = "Availabel Drivers";
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Nirmala UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(16, 13);
-            label2.Name = "label2";
-            label2.Size = new Size(215, 25);
-            label2.TabIndex = 18;
-            label2.Text = "Driver Application Form";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(17, 122);
-            label8.Name = "label8";
-            label8.Size = new Size(106, 23);
-            label8.TabIndex = 21;
-            label8.Text = "Driver Name";
-            // 
-            // txtDriverID
-            // 
-            txtDriverID.BorderStyle = BorderStyle.FixedSingle;
-            txtDriverID.Location = new Point(17, 76);
-            txtDriverID.Name = "txtDriverID";
-            txtDriverID.Size = new Size(302, 30);
-            txtDriverID.TabIndex = 20;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(17, 50);
-            label3.Name = "label3";
-            label3.Size = new Size(77, 23);
-            label3.TabIndex = 19;
-            label3.Text = "Driver ID";
-            // 
-            // cmbDriverAva
-            // 
-            cmbDriverAva.FormattingEnabled = true;
-            cmbDriverAva.Location = new Point(17, 291);
-            cmbDriverAva.Name = "cmbDriverAva";
-            cmbDriverAva.Size = new Size(302, 31);
-            cmbDriverAva.TabIndex = 26;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(17, 266);
-            label4.Name = "label4";
-            label4.Size = new Size(141, 23);
-            label4.TabIndex = 25;
-            label4.Text = "Driver Availability";
-            // 
-            // txtContactNumber
-            // 
-            txtContactNumber.BorderStyle = BorderStyle.FixedSingle;
-            txtContactNumber.Location = new Point(17, 220);
-            txtContactNumber.Name = "txtContactNumber";
-            txtContactNumber.Size = new Size(302, 30);
-            txtContactNumber.TabIndex = 24;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(17, 194);
-            label5.Name = "label5";
-            label5.Size = new Size(188, 23);
-            label5.TabIndex = 23;
-            label5.Text = "Driver Contact Number";
-            // 
-            // txtDriverName
-            // 
-            txtDriverName.BorderStyle = BorderStyle.FixedSingle;
-            txtDriverName.Location = new Point(17, 148);
-            txtDriverName.Name = "txtDriverName";
-            txtDriverName.Size = new Size(302, 30);
-            txtDriverName.TabIndex = 27;
-            // 
-            // btnRemoveDriver
-            // 
-            btnRemoveDriver.BackColor = Color.FromArgb(42, 46, 52);
-            btnRemoveDriver.FlatStyle = FlatStyle.Flat;
-            btnRemoveDriver.ForeColor = Color.White;
-            btnRemoveDriver.Location = new Point(398, 282);
-            btnRemoveDriver.Name = "btnRemoveDriver";
-            btnRemoveDriver.Size = new Size(302, 40);
-            btnRemoveDriver.TabIndex = 28;
-            btnRemoveDriver.Text = "Remove Driver";
-            btnRemoveDriver.UseVisualStyleBackColor = false;
-            // 
-            // btnSubmitChnages
-            // 
-            btnSubmitChnages.BackColor = Color.FromArgb(42, 46, 52);
-            btnSubmitChnages.FlatStyle = FlatStyle.Flat;
-            btnSubmitChnages.ForeColor = Color.White;
-            btnSubmitChnages.Location = new Point(398, 236);
-            btnSubmitChnages.Name = "btnSubmitChnages";
-            btnSubmitChnages.Size = new Size(302, 40);
-            btnSubmitChnages.TabIndex = 29;
-            btnSubmitChnages.Text = "Submit Chnages";
-            btnSubmitChnages.UseVisualStyleBackColor = false;
-            // 
-            // btnAddNewDriver
-            // 
-            btnAddNewDriver.BackColor = Color.FromArgb(42, 46, 52);
-            btnAddNewDriver.FlatStyle = FlatStyle.Flat;
-            btnAddNewDriver.ForeColor = Color.White;
-            btnAddNewDriver.Location = new Point(398, 190);
-            btnAddNewDriver.Name = "btnAddNewDriver";
-            btnAddNewDriver.Size = new Size(302, 40);
-            btnAddNewDriver.TabIndex = 30;
-            btnAddNewDriver.Text = "Add New Driver";
-            btnAddNewDriver.UseVisualStyleBackColor = false;
-            // 
             // AdminManageDriverDashboard
             // 
             AutoScaleDimensions = new SizeF(9F, 23F);
@@ -540,13 +526,11 @@
         private Label label15;
         private Label label18;
         private TextBox txtDriverName;
-        private ComboBox cmbDriverAva;
+        private ComboBox cmbAvailability;
         private Label label4;
         private TextBox txtContactNumber;
         private Label label5;
         private Label label8;
-        private TextBox txtDriverID;
-        private Label label3;
         private Button btnAddNewDriver;
         private Button btnSubmitChnages;
         private Button btnRemoveDriver;

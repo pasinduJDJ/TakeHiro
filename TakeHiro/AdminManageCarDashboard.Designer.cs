@@ -37,15 +37,16 @@
             btnRemoveCar = new Button();
             panel3 = new Panel();
             txtCarModel = new TextBox();
-            cmbCarAva = new ComboBox();
+            cmbAvailability = new ComboBox();
             label4 = new Label();
             txtCarNumber = new TextBox();
             label5 = new Label();
             label8 = new Label();
-            txtCarID = new TextBox();
-            label3 = new Label();
             label2 = new Label();
             tblAllDrivers = new DataGridView();
+            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
             label7 = new Label();
             btnClose = new Button();
             btnLogOut = new Button();
@@ -61,9 +62,7 @@
             lblAvaCars = new Label();
             label18 = new Label();
             panel2 = new Panel();
-            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
+            mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
             panel6.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tblAllDrivers).BeginInit();
@@ -118,6 +117,7 @@
             btnAddNewCar.TabIndex = 30;
             btnAddNewCar.Text = "Add New Car";
             btnAddNewCar.UseVisualStyleBackColor = false;
+            btnAddNewCar.Click += btnAddNewCar_Click;
             // 
             // btnSubmitChnages
             // 
@@ -150,39 +150,38 @@
             panel3.Controls.Add(btnSubmitChnages);
             panel3.Controls.Add(btnRemoveCar);
             panel3.Controls.Add(txtCarModel);
-            panel3.Controls.Add(cmbCarAva);
+            panel3.Controls.Add(cmbAvailability);
             panel3.Controls.Add(label4);
             panel3.Controls.Add(txtCarNumber);
             panel3.Controls.Add(label5);
             panel3.Controls.Add(label8);
-            panel3.Controls.Add(txtCarID);
-            panel3.Controls.Add(label3);
             panel3.Controls.Add(label2);
             panel3.Location = new Point(353, 404);
             panel3.Name = "panel3";
             panel3.Size = new Size(728, 338);
             panel3.TabIndex = 22;
+            panel3.Paint += panel3_Paint;
             // 
             // txtCarModel
             // 
             txtCarModel.BorderStyle = BorderStyle.FixedSingle;
-            txtCarModel.Location = new Point(17, 148);
+            txtCarModel.Location = new Point(16, 93);
             txtCarModel.Name = "txtCarModel";
             txtCarModel.Size = new Size(302, 27);
             txtCarModel.TabIndex = 27;
             // 
-            // cmbCarAva
+            // cmbAvailability
             // 
-            cmbCarAva.FormattingEnabled = true;
-            cmbCarAva.Location = new Point(17, 291);
-            cmbCarAva.Name = "cmbCarAva";
-            cmbCarAva.Size = new Size(302, 28);
-            cmbCarAva.TabIndex = 26;
+            cmbAvailability.FormattingEnabled = true;
+            cmbAvailability.Location = new Point(16, 236);
+            cmbAvailability.Name = "cmbAvailability";
+            cmbAvailability.Size = new Size(302, 28);
+            cmbAvailability.TabIndex = 26;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(17, 266);
+            label4.Location = new Point(16, 211);
             label4.Name = "label4";
             label4.Size = new Size(127, 20);
             label4.TabIndex = 25;
@@ -191,7 +190,7 @@
             // txtCarNumber
             // 
             txtCarNumber.BorderStyle = BorderStyle.FixedSingle;
-            txtCarNumber.Location = new Point(17, 220);
+            txtCarNumber.Location = new Point(16, 165);
             txtCarNumber.Name = "txtCarNumber";
             txtCarNumber.Size = new Size(302, 27);
             txtCarNumber.TabIndex = 24;
@@ -199,7 +198,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(17, 194);
+            label5.Location = new Point(16, 139);
             label5.Name = "label5";
             label5.Size = new Size(126, 20);
             label5.TabIndex = 23;
@@ -208,28 +207,11 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(17, 122);
+            label8.Location = new Point(16, 67);
             label8.Name = "label8";
             label8.Size = new Size(78, 20);
             label8.TabIndex = 21;
             label8.Text = "Car Model";
-            // 
-            // txtCarID
-            // 
-            txtCarID.BorderStyle = BorderStyle.FixedSingle;
-            txtCarID.Location = new Point(17, 76);
-            txtCarID.Name = "txtCarID";
-            txtCarID.Size = new Size(302, 27);
-            txtCarID.TabIndex = 20;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(17, 50);
-            label3.Name = "label3";
-            label3.Size = new Size(50, 20);
-            label3.TabIndex = 19;
-            label3.Text = "Car ID";
             // 
             // label2
             // 
@@ -252,6 +234,25 @@
             tblAllDrivers.Size = new Size(954, 250);
             tblAllDrivers.StandardTab = true;
             tblAllDrivers.TabIndex = 21;
+            tblAllDrivers.CellContentClick += tblAllDrivers_CellContentClick;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            dataGridViewTextBoxColumn4.HeaderText = "Driver ID";
+            dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            dataGridViewTextBoxColumn5.HeaderText = "Model";
+            dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            dataGridViewTextBoxColumn6.HeaderText = "Plate Number";
+            dataGridViewTextBoxColumn6.MinimumWidth = 6;
+            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
             // label7
             // 
@@ -276,6 +277,7 @@
             btnClose.TabIndex = 8;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
             // 
             // btnLogOut
             // 
@@ -290,6 +292,7 @@
             btnLogOut.TabIndex = 7;
             btnLogOut.Text = "Log Out ";
             btnLogOut.UseVisualStyleBackColor = false;
+            btnLogOut.Click += btnLogOut_Click;
             // 
             // iconButton2
             // 
@@ -332,6 +335,7 @@
             iconButton1.TabIndex = 3;
             iconButton1.Text = "Manage Drivers";
             iconButton1.UseVisualStyleBackColor = false;
+            iconButton1.Click += iconButton1_Click;
             // 
             // btnManageOrders
             // 
@@ -353,6 +357,7 @@
             btnManageOrders.TabIndex = 2;
             btnManageOrders.Text = "Manage Orders";
             btnManageOrders.UseVisualStyleBackColor = false;
+            btnManageOrders.Click += btnManageOrders_Click;
             // 
             // btnDashBoard
             // 
@@ -374,6 +379,7 @@
             btnDashBoard.TabIndex = 1;
             btnDashBoard.Text = "Dashboard";
             btnDashBoard.UseVisualStyleBackColor = false;
+            btnDashBoard.Click += btnDashBoard_Click;
             // 
             // panel1
             // 
@@ -462,23 +468,12 @@
             panel2.Size = new Size(1090, 64);
             panel2.TabIndex = 19;
             // 
-            // dataGridViewTextBoxColumn4
+            // mySqlCommand1
             // 
-            dataGridViewTextBoxColumn4.HeaderText = "Driver ID";
-            dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            dataGridViewTextBoxColumn5.HeaderText = "Model";
-            dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            dataGridViewTextBoxColumn6.HeaderText = "Plate Number";
-            dataGridViewTextBoxColumn6.MinimumWidth = 6;
-            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            mySqlCommand1.CacheAge = 0;
+            mySqlCommand1.Connection = null;
+            mySqlCommand1.EnableCaching = false;
+            mySqlCommand1.Transaction = null;
             // 
             // AdminManageCarDashboard
             // 
@@ -523,13 +518,11 @@
         private Button btnRemoveCar;
         private Panel panel3;
         private TextBox txtCarModel;
-        private ComboBox cmbCarAva;
+        private ComboBox cmbAvailability;
         private Label label4;
         private TextBox txtCarNumber;
         private Label label5;
         private Label label8;
-        private TextBox txtCarID;
-        private Label label3;
         private Label label2;
         private DataGridView tblAllDrivers;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
@@ -550,5 +543,6 @@
         private Label lblAvaCars;
         private Label label18;
         private Panel panel2;
+        private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
     }
 }

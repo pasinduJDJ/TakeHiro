@@ -20,6 +20,7 @@ namespace TakeHiro
         {
             return new MySqlConnection(_connectionString);
         }
+        // Save Customer Details 
         public void SaveCustomer(string customerName, string contactNumber, string location, string username, string password)
         {
             using (MySqlConnection conn = GetConnection())
@@ -35,6 +36,43 @@ namespace TakeHiro
 
                 cmd.ExecuteNonQuery();
             }
+        }
+
+        // Save Driver Details 
+        public void SaveDriver(string name, string contactNumber, bool availability)
+        {
+            using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                string query = "INSERT INTO Driver (Name, ContactNumber, Availability) VALUES (@Name, @ContactNumber, @Availability)";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Name", name);
+                cmd.Parameters.AddWithValue("@ContactNumber", contactNumber);
+                cmd.Parameters.AddWithValue("@Availability", availability);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        // Save Car Details 
+        public void SaveCar(string model, string plateNumber, bool availability)
+        {
+            using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                string query = "INSERT INTO Car (Model, PlateNumber, Availability) VALUES (@Model, @PlateNumber, @Availability)";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Model", model);
+                cmd.Parameters.AddWithValue("@PlateNumber", plateNumber);
+                cmd.Parameters.AddWithValue("@Availability", availability);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        internal void SaveCar()
+        {
+            throw new NotImplementedException();
         }
     }
 }

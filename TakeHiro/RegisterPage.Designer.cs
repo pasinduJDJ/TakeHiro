@@ -45,6 +45,7 @@
             label7 = new Label();
             txtLocation = new TextBox();
             linkBtnSignIn = new LinkLabel();
+            btnColse = new FontAwesome.Sharp.IconButton();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -233,11 +234,30 @@
             linkBtnSignIn.VisitedLinkColor = Color.FromArgb(228, 182, 26);
             linkBtnSignIn.LinkClicked += linkBtnSignIn_LinkClicked;
             // 
+            // btnColse
+            // 
+            btnColse.FlatAppearance.BorderSize = 0;
+            btnColse.FlatStyle = FlatStyle.Flat;
+            btnColse.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnColse.ForeColor = Color.White;
+            btnColse.IconChar = FontAwesome.Sharp.IconChar.XmarkCircle;
+            btnColse.IconColor = Color.Black;
+            btnColse.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnColse.IconSize = 30;
+            btnColse.Location = new Point(919, 9);
+            btnColse.Margin = new Padding(0);
+            btnColse.Name = "btnColse";
+            btnColse.Size = new Size(32, 33);
+            btnColse.TabIndex = 24;
+            btnColse.UseVisualStyleBackColor = true;
+            btnColse.Click += btnColse_Click;
+            // 
             // RegisterPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(960, 540);
+            Controls.Add(btnColse);
             Controls.Add(linkBtnSignIn);
             Controls.Add(label7);
             Controls.Add(txtLocation);
@@ -257,6 +277,7 @@
             Name = "RegisterPage";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RegisterPage";
+            Load += RegisterPage_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
@@ -280,5 +301,6 @@
         private Label label7;
         private TextBox txtLocation;
         private LinkLabel linkBtnSignIn;
+        private FontAwesome.Sharp.IconButton btnColse;
     }
 }

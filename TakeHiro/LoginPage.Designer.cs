@@ -39,6 +39,7 @@
             btnSignIn = new Button();
             label4 = new Label();
             linkBtnSignUp = new LinkLabel();
+            btnColse = new FontAwesome.Sharp.IconButton();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -113,11 +114,25 @@
             linkBtnSignUp.VisitedLinkColor = Color.FromArgb(228, 182, 26);
             linkBtnSignUp.LinkClicked += linkBtnSignUp_LinkClicked;
             // 
+            // btnColse
+            // 
+            resources.ApplyResources(btnColse, "btnColse");
+            btnColse.BackColor = Color.White;
+            btnColse.ForeColor = Color.White;
+            btnColse.IconChar = FontAwesome.Sharp.IconChar.XmarkCircle;
+            btnColse.IconColor = Color.Black;
+            btnColse.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnColse.IconSize = 30;
+            btnColse.Name = "btnColse";
+            btnColse.UseVisualStyleBackColor = false;
+            btnColse.Click += btnColse_Click;
+            // 
             // LoginPage
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
+            Controls.Add(btnColse);
             Controls.Add(linkBtnSignUp);
             Controls.Add(label4);
             Controls.Add(btnSignIn);
@@ -148,5 +163,6 @@
         private Button btnSignIn;
         private Label label4;
         private LinkLabel linkBtnSignUp;
+        private FontAwesome.Sharp.IconButton btnColse;
     }
 }

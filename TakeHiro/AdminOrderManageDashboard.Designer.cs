@@ -328,6 +328,7 @@
             btnClose.TabIndex = 8;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
             // 
             // btnLogOut
             // 
@@ -342,6 +343,7 @@
             btnLogOut.TabIndex = 7;
             btnLogOut.Text = "Log Out ";
             btnLogOut.UseVisualStyleBackColor = false;
+            btnLogOut.Click += btnLogOut_Click;
             // 
             // iconButton2
             // 
@@ -363,6 +365,7 @@
             iconButton2.TabIndex = 4;
             iconButton2.Text = "Manage Cars";
             iconButton2.UseVisualStyleBackColor = false;
+            iconButton2.Click += iconButton2_Click;
             // 
             // iconButton1
             // 
@@ -384,6 +387,7 @@
             iconButton1.TabIndex = 3;
             iconButton1.Text = "Manage Drivers";
             iconButton1.UseVisualStyleBackColor = false;
+            iconButton1.Click += iconButton1_Click;
             // 
             // btnManageOrders
             // 
@@ -426,6 +430,7 @@
             btnDashBoard.TabIndex = 1;
             btnDashBoard.Text = "Dashboard";
             btnDashBoard.UseVisualStyleBackColor = false;
+            btnDashBoard.Click += btnDashBoard_Click;
             // 
             // pictureBox1
             // 

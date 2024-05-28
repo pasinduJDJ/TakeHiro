@@ -24,7 +24,7 @@ namespace TakeHiro
 
         private void btnSignUP_Click(object sender, EventArgs e)
         {
-            if(txtFullName.Text==""|| txtConatact.Text==""|| txtLocation.Text==""|| txtUser.Text==""|| txtPwd.Text == "")
+            if (txtFullName.Text == "" || txtConatact.Text == "" || txtLocation.Text == "" || txtUser.Text == "" || txtPwd.Text == "")
             {
                 MessageBox.Show("Please fil all blank fields", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -48,7 +48,7 @@ namespace TakeHiro
                 {
                     MessageBox.Show($"An error occurred: {ex.Message}");
                 }
-            }  
+            }
         }
 
         private void linkBtnSignIn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -56,6 +56,16 @@ namespace TakeHiro
             LoginPage form1 = new LoginPage();
             form1.Show();
             this.Hide();
+        }
+
+        private void RegisterPage_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnColse_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

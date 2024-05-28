@@ -88,6 +88,7 @@
             btnAvailableCar.TabIndex = 8;
             btnAvailableCar.Text = "Available Cars";
             btnAvailableCar.UseVisualStyleBackColor = true;
+            btnAvailableCar.Click += btnAvailableCar_Click;
             // 
             // btnAvailabelDriver
             // 
@@ -131,6 +132,7 @@
             btnBookNow.TabIndex = 2;
             btnBookNow.Text = "Book Now";
             btnBookNow.UseVisualStyleBackColor = true;
+            btnBookNow.Click += btnBookNow_Click;
             // 
             // btnClose
             // 
@@ -145,6 +147,7 @@
             btnClose.TabIndex = 6;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
             // 
             // btnLogOut
             // 
@@ -159,6 +162,7 @@
             btnLogOut.TabIndex = 2;
             btnLogOut.Text = "Log Out ";
             btnLogOut.UseVisualStyleBackColor = false;
+            btnLogOut.Click += btnLogOut_Click;
             // 
             // lblUserID
             // 

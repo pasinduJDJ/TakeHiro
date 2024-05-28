@@ -50,5 +50,10 @@ namespace TakeHiro
             Fomr1.Show();
             this.Hide();
         }
+
+        private void btnColse_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
