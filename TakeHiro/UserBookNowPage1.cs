@@ -19,7 +19,32 @@ namespace TakeHiro
             _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
 
             LoadDriverData();
+
+            // Wire up the CellClick event handler
+            tblAllDrivers.CellClick += new DataGridViewCellEventHandler(dgvCars_CellClick);
+
+            // Wire up the button click event handler
+            btnSubDriver.Click += new EventHandler(btnPassData_Click);
         }
+        private void dgvCars_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = tblAllDrivers.Rows[e.RowIndex];
+                txtDriverID.Text = row.Cells["DriverID"].Value.ToString();
+                txtDriverName.Text = row.Cells["Name"].Value.ToString();
+            }
+        }
+        private void btnPassData_Click(object sender, EventArgs e)
+        {
+            string driverID = txtDriverID.Text;
+            string drivername = txtDriverName.Text;
+
+            UserBookNowPage2 nextForm = new UserBookNowPage2(driverID, drivername);
+            nextForm.Show();
+            this.Hide();
+        }
+
         private void LoadDriverData()
         {
             try

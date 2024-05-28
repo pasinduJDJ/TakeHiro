@@ -12,9 +12,11 @@ namespace TakeHiro
 {
     public partial class UserBookNowPage3 : Form
     {
-        public UserBookNowPage3()
+        public UserBookNowPage3(string carModel, string carNumber, string driverId, string driverName)
         {
             InitializeComponent();
+
+            txt
         }
 
         private void btnBookNow_Click(object sender, EventArgs e)

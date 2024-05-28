@@ -46,7 +46,7 @@
             label1 = new Label();
             panel4 = new Panel();
             btnSubDriver = new Button();
-            txtDriverContact = new TextBox();
+            txtDriverName = new TextBox();
             label5 = new Label();
             txtDriverID = new TextBox();
             label4 = new Label();
@@ -268,7 +268,7 @@
             // 
             panel4.BackColor = Color.White;
             panel4.Controls.Add(btnSubDriver);
-            panel4.Controls.Add(txtDriverContact);
+            panel4.Controls.Add(txtDriverName);
             panel4.Controls.Add(label5);
             panel4.Controls.Add(txtDriverID);
             panel4.Controls.Add(label4);
@@ -294,13 +294,13 @@
             btnSubDriver.Text = "Select Car";
             btnSubDriver.UseVisualStyleBackColor = false;
             // 
-            // txtDriverContact
+            // txtDriverName
             // 
-            txtDriverContact.BorderStyle = BorderStyle.FixedSingle;
-            txtDriverContact.Location = new Point(16, 149);
-            txtDriverContact.Name = "txtDriverContact";
-            txtDriverContact.Size = new Size(222, 27);
-            txtDriverContact.TabIndex = 4;
+            txtDriverName.BorderStyle = BorderStyle.FixedSingle;
+            txtDriverName.Location = new Point(16, 149);
+            txtDriverName.Name = "txtDriverName";
+            txtDriverName.Size = new Size(222, 27);
+            txtDriverName.TabIndex = 4;
             // 
             // label5
             // 
@@ -308,9 +308,9 @@
             label5.Font = new Font("Nirmala UI", 8F);
             label5.Location = new Point(16, 126);
             label5.Name = "label5";
-            label5.Size = new Size(111, 19);
+            label5.Size = new Size(86, 19);
             label5.TabIndex = 3;
-            label5.Text = "Contact Number";
+            label5.Text = "Driver Name";
             // 
             // txtDriverID
             // 
@@ -394,7 +394,7 @@
         private Label label4;
         private Label label3;
         private Button btnSubDriver;
-        private TextBox txtDriverContact;
+        private TextBox txtDriverName;
         private Label label5;
         private TextBox txtDriverID;
     }
