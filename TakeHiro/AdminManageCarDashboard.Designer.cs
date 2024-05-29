@@ -53,7 +53,6 @@
             btnDashBoard = new FontAwesome.Sharp.IconButton();
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
-            label1 = new Label();
             pictureBox2 = new PictureBox();
             panel7 = new Panel();
             lblAvaCars = new Label();
@@ -384,15 +383,6 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(871, 19);
-            label1.Name = "label1";
-            label1.Size = new Size(119, 20);
-            label1.TabIndex = 1;
-            label1.Text = "+94 76 706 6455";
-            // 
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
@@ -439,7 +429,6 @@
             // panel2
             // 
             panel2.BackColor = Color.White;
-            panel2.Controls.Add(label1);
             panel2.Controls.Add(pictureBox2);
             panel2.Location = new Point(278, -1);
             panel2.Name = "panel2";
@@ -512,7 +501,6 @@
         private FontAwesome.Sharp.IconButton btnDashBoard;
         private Panel panel1;
         private PictureBox pictureBox1;
-        private Label label1;
         private PictureBox pictureBox2;
         private Panel panel7;
         private Label lblAvaCars;

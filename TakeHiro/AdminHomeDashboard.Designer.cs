@@ -38,7 +38,6 @@
             btnDashBoard = new FontAwesome.Sharp.IconButton();
             pictureBox1 = new PictureBox();
             panel2 = new Panel();
-            label1 = new Label();
             pictureBox2 = new PictureBox();
             panel3 = new Panel();
             panel6 = new Panel();
@@ -220,21 +219,11 @@
             // panel2
             // 
             panel2.BackColor = Color.White;
-            panel2.Controls.Add(label1);
             panel2.Controls.Add(pictureBox2);
             panel2.Location = new Point(279, -2);
             panel2.Name = "panel2";
             panel2.Size = new Size(1090, 64);
             panel2.TabIndex = 1;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(871, 19);
-            label1.Name = "label1";
-            label1.Size = new Size(136, 23);
-            label1.TabIndex = 1;
-            label1.Text = "+94 76 706 6455";
             // 
             // pictureBox2
             // 
@@ -531,7 +520,6 @@
         private FontAwesome.Sharp.IconButton btnDashBoard;
         private FontAwesome.Sharp.IconButton btnManageOrders;
         private Panel panel2;
-        private Label label1;
         private PictureBox pictureBox2;
         private FontAwesome.Sharp.IconButton iconButton2;
         private FontAwesome.Sharp.IconButton iconButton1;

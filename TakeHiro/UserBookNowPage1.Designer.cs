@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserBookNowPage1));
             panel2 = new Panel();
-            lblUserID = new Label();
             imgUser = new PictureBox();
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
@@ -65,24 +64,12 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(42, 46, 52);
-            panel2.Controls.Add(lblUserID);
             panel2.Controls.Add(imgUser);
             panel2.Controls.Add(pictureBox1);
             panel2.Location = new Point(-1, -2);
             panel2.Name = "panel2";
             panel2.Size = new Size(962, 65);
             panel2.TabIndex = 3;
-            // 
-            // lblUserID
-            // 
-            lblUserID.AutoSize = true;
-            lblUserID.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblUserID.ForeColor = Color.White;
-            lblUserID.Location = new Point(769, 24);
-            lblUserID.Name = "lblUserID";
-            lblUserID.Size = new Size(119, 20);
-            lblUserID.TabIndex = 2;
-            lblUserID.Text = "+94 76 706 6455";
             // 
             // imgUser
             // 
@@ -384,7 +371,6 @@
             Text = "UserBookNowPage1";
             Load += UserBookNowPage1_Load;
             panel2.ResumeLayout(false);
-            panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)imgUser).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
@@ -400,7 +386,6 @@
         #endregion
 
         private Panel panel2;
-        private Label lblUserID;
         private PictureBox imgUser;
         private PictureBox pictureBox1;
         private Panel panel1;

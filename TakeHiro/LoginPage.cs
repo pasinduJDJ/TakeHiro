@@ -2,9 +2,13 @@ namespace TakeHiro
 {
     public partial class LoginPage : Form
     {
+        private DatabaseHelper _dbHelper;
+        private const string AdminUsername = "admin";
+        private const string AdminPassword = "admin123";
         public LoginPage()
         {
             InitializeComponent();
+            _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -34,17 +38,45 @@ namespace TakeHiro
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
-            if (txtName.Text == "Admin")
+            string username = txtName.Text.Trim();
+            string password = txtPwd.Text.Trim();
+
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
-                AdminHomeDashboard form1=new AdminHomeDashboard();
-                form1.Show();
+                MessageBox.Show("Please enter both username and password.", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
+            }
+            if (username == AdminUsername && password == AdminPassword)
+            {
+                // Admin login successful
+                AdminHomeDashboard adminDashboard = new AdminHomeDashboard();
+                adminDashboard.Show();
                 this.Hide();
             }
-            else {
-                UserBookNowPage1 form2=new UserBookNowPage1();
-                form2.Show();
-                this.Hide();
+            else
+            {
+                // Validate customer login
+                int? customerId = _dbHelper.ValidateCustomerLogin(username, password);
+                if (customerId.HasValue)
+                {
+                    // Customer login successful
+                    MessageBox.Show("Customer login successful.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    label4.Text = customerId.Value.ToString();
+                    string customerIDN = label4.Text;
+
+                    // Redirect to customer page with customerIDN and username
+                    UserBookNowPage1 customerPage = new UserBookNowPage1();
+                    customerPage.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    // Login failed
+                    MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
+
         }
 
         private void txtbtnSignUp_Click(object sender, EventArgs e)

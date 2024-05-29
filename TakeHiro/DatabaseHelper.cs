@@ -196,6 +196,42 @@ namespace TakeHiro
             return count;
         }
 
+        // Validate Customers 
+        public bool ValidateCustomerLoginOLD(string username, string password)
+        {
+            using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                string query = "SELECT COUNT(*) FROM Customer WHERE Username = @Username AND Password = @Password";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Username", username);
+                cmd.Parameters.AddWithValue("@Password", password);
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                return count > 0;
+            }
+        }
+        public int? ValidateCustomerLogin(string username, string password)
+        {
+            using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                string query = "SELECT CustomerID FROM Customer WHERE Username = @Username AND Password = @Password";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Username", username);
+                cmd.Parameters.AddWithValue("@Password", password);
+
+                object result = cmd.ExecuteScalar();
+                if (result != null)
+                {
+                    return Convert.ToInt32(result);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
 
 
     }

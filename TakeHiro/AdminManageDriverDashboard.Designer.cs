@@ -38,7 +38,6 @@
             btnManageOrders = new FontAwesome.Sharp.IconButton();
             btnDashBoard = new FontAwesome.Sharp.IconButton();
             panel2 = new Panel();
-            label1 = new Label();
             pictureBox2 = new PictureBox();
             tblAllDrivers = new DataGridView();
             label7 = new Label();
@@ -215,21 +214,11 @@
             // panel2
             // 
             panel2.BackColor = Color.White;
-            panel2.Controls.Add(label1);
             panel2.Controls.Add(pictureBox2);
             panel2.Location = new Point(278, -1);
             panel2.Name = "panel2";
             panel2.Size = new Size(1090, 64);
             panel2.TabIndex = 12;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(871, 19);
-            label1.Name = "label1";
-            label1.Size = new Size(136, 23);
-            label1.TabIndex = 1;
-            label1.Text = "+94 76 706 6455";
             // 
             // pictureBox2
             // 
@@ -488,7 +477,6 @@
         private FontAwesome.Sharp.IconButton btnManageOrders;
         private FontAwesome.Sharp.IconButton btnDashBoard;
         private Panel panel2;
-        private Label label1;
         private PictureBox pictureBox2;
         private DataGridView tblAllDrivers;
         private Label label7;

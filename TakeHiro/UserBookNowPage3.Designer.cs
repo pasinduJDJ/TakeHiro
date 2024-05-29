@@ -38,7 +38,6 @@
             btnClose = new Button();
             panel1 = new Panel();
             btnLogOut = new Button();
-            lblUserID = new Label();
             imgUser = new PictureBox();
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
@@ -215,17 +214,6 @@
             btnLogOut.UseVisualStyleBackColor = false;
             btnLogOut.Click += btnLogOut_Click;
             // 
-            // lblUserID
-            // 
-            lblUserID.AutoSize = true;
-            lblUserID.Font = new Font("Nirmala UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblUserID.ForeColor = Color.White;
-            lblUserID.Location = new Point(769, 24);
-            lblUserID.Name = "lblUserID";
-            lblUserID.Size = new Size(109, 20);
-            lblUserID.TabIndex = 2;
-            lblUserID.Text = "94 76 706 6455";
-            // 
             // imgUser
             // 
             imgUser.Image = (Image)resources.GetObject("imgUser.Image");
@@ -239,7 +227,6 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(42, 46, 52);
-            panel2.Controls.Add(lblUserID);
             panel2.Controls.Add(imgUser);
             panel2.Controls.Add(pictureBox1);
             panel2.Location = new Point(-1, -2);
@@ -451,7 +438,6 @@
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)imgUser).EndInit();
             panel2.ResumeLayout(false);
-            panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
@@ -472,7 +458,6 @@
         private Button btnClose;
         private Panel panel1;
         private Button btnLogOut;
-        private Label lblUserID;
         private PictureBox imgUser;
         private Panel panel2;
         private PictureBox pictureBox1;
