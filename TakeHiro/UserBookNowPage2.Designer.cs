@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserBookNowPage2));
             panel4 = new Panel();
-            lblCarID = new Label();
+            lblNewCarId = new Label();
             lblDriverName = new Label();
-            lblDriverID = new Label();
+            lblDriverTp = new Label();
             label7 = new Label();
             label6 = new Label();
             btnSubCar = new Button();
@@ -68,9 +68,9 @@
             // panel4
             // 
             panel4.BackColor = Color.White;
-            panel4.Controls.Add(lblCarID);
+            panel4.Controls.Add(lblNewCarId);
             panel4.Controls.Add(lblDriverName);
-            panel4.Controls.Add(lblDriverID);
+            panel4.Controls.Add(lblDriverTp);
             panel4.Controls.Add(label7);
             panel4.Controls.Add(label6);
             panel4.Controls.Add(btnSubCar);
@@ -85,15 +85,14 @@
             panel4.Size = new Size(267, 301);
             panel4.TabIndex = 14;
             // 
-            // lblCarID
+            // lblNewCarId
             // 
-            lblCarID.AutoSize = true;
-            lblCarID.Font = new Font("Nirmala UI", 8F);
-            lblCarID.Location = new Point(159, 49);
-            lblCarID.Name = "lblCarID";
-            lblCarID.Size = new Size(41, 19);
-            lblCarID.TabIndex = 10;
-            lblCarID.Text = "0000";
+            lblNewCarId.AutoSize = true;
+            lblNewCarId.Font = new Font("Nirmala UI", 8F);
+            lblNewCarId.Location = new Point(115, 111);
+            lblNewCarId.Name = "lblNewCarId";
+            lblNewCarId.Size = new Size(0, 19);
+            lblNewCarId.TabIndex = 10;
             // 
             // lblDriverName
             // 
@@ -104,15 +103,15 @@
             lblDriverName.Size = new Size(0, 19);
             lblDriverName.TabIndex = 9;
             // 
-            // lblDriverID
+            // lblDriverTp
             // 
-            lblDriverID.AutoSize = true;
-            lblDriverID.Font = new Font("Nirmala UI", 8F);
-            lblDriverID.Location = new Point(92, 49);
-            lblDriverID.Name = "lblDriverID";
-            lblDriverID.Size = new Size(41, 19);
-            lblDriverID.TabIndex = 8;
-            lblDriverID.Text = "0000";
+            lblDriverTp.AutoSize = true;
+            lblDriverTp.Font = new Font("Nirmala UI", 8F);
+            lblDriverTp.Location = new Point(137, 49);
+            lblDriverTp.Name = "lblDriverTp";
+            lblDriverTp.Size = new Size(41, 19);
+            lblDriverTp.TabIndex = 8;
+            lblDriverTp.Text = "0000";
             // 
             // label7
             // 
@@ -130,9 +129,9 @@
             label6.Font = new Font("Nirmala UI", 8F);
             label6.Location = new Point(16, 49);
             label6.Name = "label6";
-            label6.Size = new Size(71, 19);
+            label6.Size = new Size(115, 19);
             label6.TabIndex = 6;
-            label6.Text = "Driver ID :";
+            label6.Text = "Contact Number:";
             // 
             // btnSubCar
             // 
@@ -192,9 +191,9 @@
             label3.Font = new Font("Nirmala UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.Location = new Point(16, 11);
             label3.Name = "label3";
-            label3.Size = new Size(147, 25);
+            label3.Size = new Size(96, 25);
             label3.TabIndex = 0;
-            label3.Text = "Select Car Details";
+            label3.Text = "Car Details";
             // 
             // panel3
             // 
@@ -225,9 +224,9 @@
             label1.ForeColor = Color.Black;
             label1.Location = new Point(3, 0);
             label1.Name = "label1";
-            label1.Size = new Size(116, 23);
+            label1.Size = new Size(43, 23);
             label1.TabIndex = 0;
-            label1.Text = "Availabel Cars";
+            label1.Text = "Cars";
             // 
             // label2
             // 
@@ -235,12 +234,13 @@
             label2.Font = new Font("Nirmala UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(221, 89);
             label2.Name = "label2";
-            label2.Size = new Size(146, 28);
+            label2.Size = new Size(136, 28);
             label2.TabIndex = 12;
-            label2.Text = "Availabel Cars";
+            label2.Text = "Pick Your Car";
             // 
             // tblAllDrivers
             // 
+            tblAllDrivers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tblAllDrivers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             tblAllDrivers.Location = new Point(221, 133);
             tblAllDrivers.Name = "tblAllDrivers";
@@ -280,7 +280,7 @@
             btnAvailableCar.Padding = new Padding(0, 0, 10, 0);
             btnAvailableCar.Size = new Size(206, 54);
             btnAvailableCar.TabIndex = 8;
-            btnAvailableCar.Text = "Available Cars";
+            btnAvailableCar.Text = "Cars";
             btnAvailableCar.UseVisualStyleBackColor = true;
             btnAvailableCar.Click += btnAvailableCar_Click;
             // 
@@ -302,7 +302,7 @@
             btnAvailabelDriver.Padding = new Padding(0, 0, 10, 0);
             btnAvailabelDriver.Size = new Size(206, 54);
             btnAvailabelDriver.TabIndex = 7;
-            btnAvailabelDriver.Text = "Available Drivers";
+            btnAvailabelDriver.Text = "Drivers";
             btnAvailabelDriver.UseVisualStyleBackColor = true;
             btnAvailabelDriver.Click += btnAvailabelDriver_Click;
             // 
@@ -457,9 +457,9 @@
         private PictureBox imgUser;
         private Panel panel2;
         private Label lblDriverName;
-        private Label lblDriverID;
+        private Label lblDriverTp;
         private Label label7;
         private Label label6;
-        private Label lblCarID;
+        private Label lblNewCarId;
     }
 }

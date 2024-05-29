@@ -34,7 +34,17 @@ namespace TakeHiro
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
-
+            if (txtName.Text == "Admin")
+            {
+                AdminHomeDashboard form1=new AdminHomeDashboard();
+                form1.Show();
+                this.Hide();
+            }
+            else {
+                UserBookNowPage1 form2=new UserBookNowPage1();
+                form2.Show();
+                this.Hide();
+            }
         }
 
         private void txtbtnSignUp_Click(object sender, EventArgs e)

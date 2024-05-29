@@ -83,7 +83,7 @@
             btnAvailableCar.Padding = new Padding(0, 0, 10, 0);
             btnAvailableCar.Size = new Size(206, 54);
             btnAvailableCar.TabIndex = 8;
-            btnAvailableCar.Text = "Available Cars";
+            btnAvailableCar.Text = "Cars";
             btnAvailableCar.UseVisualStyleBackColor = true;
             btnAvailableCar.Click += btnAvailableCar_Click;
             // 
@@ -106,7 +106,7 @@
             btnAvailabelDriver.Padding = new Padding(0, 0, 10, 0);
             btnAvailabelDriver.Size = new Size(206, 54);
             btnAvailabelDriver.TabIndex = 7;
-            btnAvailabelDriver.Text = "Available Drivers";
+            btnAvailabelDriver.Text = "Drivers";
             btnAvailabelDriver.UseVisualStyleBackColor = false;
             // 
             // btnBookNow
@@ -207,32 +207,32 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Nirmala UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(228, 81);
+            label2.Location = new Point(240, 200);
             label2.Name = "label2";
-            label2.Size = new Size(174, 28);
+            label2.Size = new Size(211, 28);
             label2.TabIndex = 9;
-            label2.Text = "Availabel Drivers";
+            label2.Text = "TakeHiro Our Drivers";
             // 
             // tblAllDrivers
             // 
             tblAllDrivers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tblAllDrivers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tblAllDrivers.Location = new Point(228, 125);
+            tblAllDrivers.Location = new Point(240, 241);
             tblAllDrivers.Name = "tblAllDrivers";
             tblAllDrivers.RowHeadersWidth = 51;
-            tblAllDrivers.Size = new Size(446, 386);
+            tblAllDrivers.Size = new Size(678, 276);
             tblAllDrivers.TabIndex = 8;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Nirmala UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Nirmala UI", 14F);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(3, 0);
+            label1.Location = new Point(3, 6);
             label1.Name = "label1";
-            label1.Size = new Size(140, 23);
+            label1.Size = new Size(95, 32);
             label1.TabIndex = 0;
-            label1.Text = "Availabel Drivers ";
+            label1.Text = "Drivers ";
             // 
             // panel3
             // 
@@ -240,7 +240,7 @@
             panel3.BorderStyle = BorderStyle.Fixed3D;
             panel3.Controls.Add(lblDriversCount);
             panel3.Controls.Add(label1);
-            panel3.Location = new Point(691, 125);
+            panel3.Location = new Point(240, 94);
             panel3.Name = "panel3";
             panel3.Size = new Size(244, 88);
             panel3.TabIndex = 10;
@@ -248,11 +248,11 @@
             // lblDriversCount
             // 
             lblDriversCount.AutoSize = true;
-            lblDriversCount.Font = new Font("Nirmala UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDriversCount.Font = new Font("Nirmala UI", 22F, FontStyle.Bold);
             lblDriversCount.ForeColor = Color.Black;
-            lblDriversCount.Location = new Point(185, 32);
+            lblDriversCount.Location = new Point(161, 25);
             lblDriversCount.Name = "lblDriversCount";
-            lblDriversCount.Size = new Size(52, 41);
+            lblDriversCount.Size = new Size(64, 50);
             lblDriversCount.TabIndex = 8;
             lblDriversCount.Text = "31";
             // 

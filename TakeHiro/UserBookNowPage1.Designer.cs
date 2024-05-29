@@ -135,7 +135,7 @@
             btnAvailableCar.Padding = new Padding(0, 0, 10, 0);
             btnAvailableCar.Size = new Size(206, 54);
             btnAvailableCar.TabIndex = 8;
-            btnAvailableCar.Text = "Available Cars";
+            btnAvailableCar.Text = "Cars";
             btnAvailableCar.UseVisualStyleBackColor = true;
             btnAvailableCar.Click += btnAvailableCar_Click;
             // 
@@ -157,7 +157,7 @@
             btnAvailabelDriver.Padding = new Padding(0, 0, 10, 0);
             btnAvailabelDriver.Size = new Size(206, 54);
             btnAvailabelDriver.TabIndex = 7;
-            btnAvailabelDriver.Text = "Available Drivers";
+            btnAvailabelDriver.Text = "Drivers";
             btnAvailabelDriver.UseVisualStyleBackColor = true;
             btnAvailabelDriver.Click += btnAvailabelDriver_Click;
             // 
@@ -215,6 +215,7 @@
             // 
             // tblAllDrivers
             // 
+            tblAllDrivers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tblAllDrivers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             tblAllDrivers.Location = new Point(221, 133);
             tblAllDrivers.Name = "tblAllDrivers";
@@ -228,9 +229,9 @@
             label2.Font = new Font("Nirmala UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(221, 89);
             label2.Name = "label2";
-            label2.Size = new Size(174, 28);
+            label2.Size = new Size(164, 28);
             label2.TabIndex = 6;
-            label2.Text = "Availabel Drivers";
+            label2.Text = "Pick Your Driver";
             // 
             // panel3
             // 
@@ -262,9 +263,9 @@
             label1.ForeColor = Color.Black;
             label1.Location = new Point(3, 0);
             label1.Name = "label1";
-            label1.Size = new Size(140, 23);
+            label1.Size = new Size(67, 23);
             label1.TabIndex = 0;
-            label1.Text = "Availabel Drivers ";
+            label1.Text = "Drivers ";
             // 
             // panel4
             // 
@@ -360,9 +361,9 @@
             label3.Font = new Font("Nirmala UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.Location = new Point(16, 18);
             label3.Name = "label3";
-            label3.Size = new Size(168, 25);
+            label3.Size = new Size(117, 25);
             label3.TabIndex = 0;
-            label3.Text = "Select Driver Details";
+            label3.Text = "Driver Details";
             // 
             // UserBookNowPage1
             // 

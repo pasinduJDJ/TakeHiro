@@ -19,13 +19,14 @@ namespace TakeHiro
             _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
 
             LoadDriverData();
+            DisplayAvailableDriverCount();
         }
         private void LoadDriverData()
         {
             try
             {
                 // Retrieve all Driver data from the database
-                DataTable driverData = _dbHelper.GetAllDrivers();
+                DataTable driverData = _dbHelper.GetAvailableDrivers();
 
                 // Bind Driver data to DataGridView
                 tblAllDrivers.DataSource = driverData;
@@ -33,6 +34,19 @@ namespace TakeHiro
             catch (Exception ex)
             {
                 MessageBox.Show($"An error occurred while loading Driver data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void DisplayAvailableDriverCount()
+        {
+            try
+            {
+                int availableDriverCount = _dbHelper.GetAvailableDriverCount();
+                lblDriversCount.Text = $"{availableDriverCount}";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while calculating available drivers: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

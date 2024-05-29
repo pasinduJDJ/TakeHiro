@@ -14,7 +14,8 @@ namespace TakeHiro
     public partial class UserBookNowPage2 : Form
     {
         private DatabaseHelper _dbHelper;
-        private string _driverTp;
+        //private string _driverTp;
+        private string _driverId;
         public UserBookNowPage2(string driverID, string driverName, string drivernumber)
         {
             InitializeComponent();
@@ -22,24 +23,27 @@ namespace TakeHiro
 
             LoadCarData();
 
-            _driverTp = drivernumber;
-            lblDriverID.Text = driverID;
+            //_driverTp = drivernumber;
+            _driverId = driverID;
+            lblDriverTp.Text = drivernumber;
             lblDriverName.Text = driverName;
 
             tblAllDrivers.CellClick += new DataGridViewCellEventHandler(dgvCars_CellClick);
             btnSubCar.Click += new EventHandler(btnPassData_Click);
+
+            DisplayAvailableCarCount();
         }
 
-        public string DriverTp
+        public string DriverId
         {
-            get { return _driverTp; }
+            get { return _driverId; }
         }
 
         private void LoadCarData()
         {
             try
             {
-                DataTable carData = _dbHelper.GetAllCars();
+                DataTable carData = _dbHelper.GetAvailableCars();
                 tblAllDrivers.DataSource = carData;
             }
             catch (Exception ex)
@@ -54,18 +58,35 @@ namespace TakeHiro
                 DataGridViewRow row = tblAllDrivers.Rows[e.RowIndex];
                 txtCarModel.Text = row.Cells["Model"].Value.ToString();
                 txtPlateNumber.Text = row.Cells["PlateNumber"].Value.ToString();
-                lblCarID.Text = row.Cells["CarID"].Value.ToString();
+                lblNewCarId.Text = row.Cells["CarID"].Value.ToString();
+            }
+        }
+        private void DisplayAvailableCarCount()
+        {
+            try
+            {
+                int availableCarCount = _dbHelper.GetAvailabelCarCount();
+                lblDriversCount.Text = $"{availableCarCount}";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while calculating available Cars: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void btnPassData_Click(object sender, EventArgs e)
         {
             string carModel = txtCarModel.Text;
             string carNumber = txtPlateNumber.Text;
-            string driverId = lblDriverID.Text;
+            string driverTp = lblDriverTp.Text;
             string driverName = lblDriverName.Text;
-            string carId = lblCarID.Text;
+            string carId = lblNewCarId.Text;
 
-            UserBookNowPage3 nextForm = new UserBookNowPage3(carModel, carNumber, carId, driverId, driverName, _driverTp);
+            if(string.IsNullOrEmpty(carModel) || string.IsNullOrEmpty(carNumber) || string.IsNullOrEmpty(carId))
+            {
+                MessageBox.Show("Please select car before proceeding.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            UserBookNowPage3 nextForm = new UserBookNowPage3(carModel, carNumber, carId, _driverId, driverName, driverTp);
             nextForm.Show();
             this.Hide();
         }

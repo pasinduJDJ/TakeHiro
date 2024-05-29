@@ -87,7 +87,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Nirmala UI", 8F);
-            label5.Location = new Point(16, 222);
+            label5.Location = new Point(16, 212);
             label5.Name = "label5";
             label5.Size = new Size(91, 19);
             label5.TabIndex = 3;
@@ -98,7 +98,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Nirmala UI", 8F);
-            label4.Location = new Point(16, 192);
+            label4.Location = new Point(16, 182);
             label4.Name = "label4";
             label4.Size = new Size(80, 19);
             label4.TabIndex = 1;
@@ -122,7 +122,7 @@
             btnAvailableCar.Padding = new Padding(0, 0, 10, 0);
             btnAvailableCar.Size = new Size(206, 54);
             btnAvailableCar.TabIndex = 8;
-            btnAvailableCar.Text = "Available Cars";
+            btnAvailableCar.Text = "Cars";
             btnAvailableCar.UseVisualStyleBackColor = true;
             btnAvailableCar.Click += btnAvailableCar_Click;
             // 
@@ -144,7 +144,7 @@
             btnAvailabelDriver.Padding = new Padding(0, 0, 10, 0);
             btnAvailabelDriver.Size = new Size(206, 54);
             btnAvailabelDriver.TabIndex = 7;
-            btnAvailabelDriver.Text = "Available Drivers";
+            btnAvailabelDriver.Text = "Drivers";
             btnAvailabelDriver.UseVisualStyleBackColor = true;
             btnAvailabelDriver.Click += btnAvailabelDriver_Click;
             // 
@@ -271,16 +271,16 @@
             panel3.Controls.Add(label2);
             panel3.Controls.Add(label6);
             panel3.ImeMode = ImeMode.Off;
-            panel3.Location = new Point(238, 69);
+            panel3.Location = new Point(238, 88);
             panel3.Name = "panel3";
-            panel3.Size = new Size(331, 268);
+            panel3.Size = new Size(331, 249);
             panel3.TabIndex = 18;
             // 
             // lblCarNumber
             // 
             lblCarNumber.AutoSize = true;
             lblCarNumber.Font = new Font("Nirmala UI", 8F);
-            lblCarNumber.Location = new Point(108, 222);
+            lblCarNumber.Location = new Point(108, 212);
             lblCarNumber.Name = "lblCarNumber";
             lblCarNumber.Size = new Size(91, 19);
             lblCarNumber.TabIndex = 12;
@@ -290,17 +290,17 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Nirmala UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(16, 151);
+            label3.Location = new Point(16, 141);
             label3.Name = "label3";
-            label3.Size = new Size(147, 25);
+            label3.Size = new Size(96, 25);
             label3.TabIndex = 11;
-            label3.Text = "Select Car Details";
+            label3.Text = "Car Details";
             // 
             // lblCarModel
             // 
             lblCarModel.AutoSize = true;
             lblCarModel.Font = new Font("Nirmala UI", 8F);
-            lblCarModel.Location = new Point(102, 192);
+            lblCarModel.Location = new Point(102, 182);
             lblCarModel.Name = "lblCarModel";
             lblCarModel.Size = new Size(73, 19);
             lblCarModel.TabIndex = 10;
@@ -310,7 +310,7 @@
             // 
             lblContactNumber.AutoSize = true;
             lblContactNumber.Font = new Font("Nirmala UI", 8F);
-            lblContactNumber.Location = new Point(140, 96);
+            lblContactNumber.Location = new Point(140, 95);
             lblContactNumber.Name = "lblContactNumber";
             lblContactNumber.Size = new Size(111, 19);
             lblContactNumber.TabIndex = 8;
@@ -320,7 +320,7 @@
             // 
             lblDriverName.AutoSize = true;
             lblDriverName.Font = new Font("Nirmala UI", 8F);
-            lblDriverName.Location = new Point(113, 62);
+            lblDriverName.Location = new Point(113, 61);
             lblDriverName.Name = "lblDriverName";
             lblDriverName.Size = new Size(86, 19);
             lblDriverName.TabIndex = 7;
@@ -330,7 +330,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Nirmala UI", 8F);
-            label1.Location = new Point(16, 95);
+            label1.Location = new Point(16, 94);
             label1.Name = "label1";
             label1.Size = new Size(118, 19);
             label1.TabIndex = 3;
@@ -340,7 +340,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Nirmala UI", 8F);
-            label2.Location = new Point(16, 62);
+            label2.Location = new Point(16, 61);
             label2.Name = "label2";
             label2.Size = new Size(93, 19);
             label2.TabIndex = 1;
@@ -350,11 +350,11 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Nirmala UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(16, 18);
+            label6.Location = new Point(16, 17);
             label6.Name = "label6";
-            label6.Size = new Size(168, 25);
+            label6.Size = new Size(117, 25);
             label6.TabIndex = 0;
-            label6.Text = "Select Driver Details";
+            label6.Text = "Driver Details";
             // 
             // btnHome
             // 
@@ -399,9 +399,9 @@
             label7.Font = new Font("Nirmala UI", 8F);
             label7.Location = new Point(16, 84);
             label7.Name = "label7";
-            label7.Size = new Size(61, 19);
+            label7.Size = new Size(111, 19);
             label7.TabIndex = 3;
-            label7.Text = "Location";
+            label7.Text = "Pick Up Location";
             // 
             // txtDestination
             // 
@@ -417,9 +417,9 @@
             label8.Font = new Font("Nirmala UI", 8F);
             label8.Location = new Point(16, 24);
             label8.Name = "label8";
-            label8.Size = new Size(116, 19);
+            label8.Size = new Size(134, 19);
             label8.TabIndex = 1;
-            label8.Text = "Input Destination";
+            label8.Text = "Set Your Destination";
             // 
             // pictureBox2
             // 

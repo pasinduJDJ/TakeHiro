@@ -138,6 +138,64 @@ namespace TakeHiro
             }
             return dt;
         }
+        // Retrive Avilabel Drivers 
+        public DataTable GetAvailableDrivers()
+        {
+            DataTable dtD = new DataTable();
+            using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                string query = "SELECT * FROM Driver WHERE Availability = 1"; 
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                da.Fill(dtD);
+            }
+            return dtD;
+        }
+        // Retrive Avilabel Cars 
+        public DataTable GetAvailableCars()
+        {
+            DataTable dtC = new DataTable();
+            using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                string query = "SELECT * FROM Car WHERE Availability = 1";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                da.Fill(dtC);
+            }
+            return dtC;
+        }
+
+        // Count of Avilabel Drivers 
+        public int GetAvailableDriverCount()
+        {
+            int count = 0;
+            using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                string query = "SELECT COUNT(*) FROM Driver WHERE Availability = 1";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                count = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            return count;
+        }
+
+        // Count of Avilabel Cars 
+        public int GetAvailabelCarCount()
+        {
+            int count = 0;
+            using (MySqlConnection conn=GetConnection())
+            {
+                conn.Open();
+                string query = "SELECT COUNT(*) FROM Car WHERE Availability =1";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                count = Convert.ToInt32(cmd.ExecuteScalar());
+
+            }
+            return count;
+        }
+
 
 
     }

@@ -87,9 +87,9 @@ namespace TakeHiro
 
         private void btnPlaceOrder_Click(object sender, EventArgs e)
         {
-            if (txtDestination.Text == "")
+            if (txtDestination.Text == "" || txtLocation.Text=="")
             {
-                MessageBox.Show("Please fill all blank fields", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please enter destination and  location before processing", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {

@@ -19,6 +19,7 @@ namespace TakeHiro
             _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
 
             LoadDriverData();
+            DisplayAvailableDriverCount();
 
             tblAllDrivers.CellClick += new DataGridViewCellEventHandler(dgvCars_CellClick);
             btnSubDriver.Click += new EventHandler(btnPassData_Click);
@@ -33,11 +34,29 @@ namespace TakeHiro
                 txtContactNumber.Text = row.Cells["ContactNumber"].Value.ToString();
             }
         }
+        private void DisplayAvailableDriverCount()
+        {
+            try
+            {
+                int availableDriverCount = _dbHelper.GetAvailableDriverCount();
+                lblDriversCount.Text = $"{availableDriverCount}";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while calculating available drivers: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void btnPassData_Click(object sender, EventArgs e)
         {
             string driverID = txtDriverID.Text;
             string drivername = txtDriverName.Text;
             string drivernumber = txtContactNumber.Text;
+
+            if (string.IsNullOrEmpty(driverID) || string.IsNullOrEmpty(drivername) || string.IsNullOrEmpty(drivernumber))
+            {
+                MessageBox.Show("Please select driver before proceeding.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             UserBookNowPage2 nextForm = new UserBookNowPage2(driverID, drivername, drivernumber);
             nextForm.Show();
@@ -48,7 +67,7 @@ namespace TakeHiro
         {
             try
             {
-                DataTable driverData = _dbHelper.GetAllDrivers();
+                DataTable driverData = _dbHelper.GetAvailableDrivers();
                 tblAllDrivers.DataSource = driverData;
             }
             catch (Exception ex)
@@ -57,10 +76,7 @@ namespace TakeHiro
             }
         }
 
-        private void UserBookNowPage1_Load(object sender, EventArgs e)
-        {
-
-        }
+        private void UserBookNowPage1_Load(object sender, EventArgs e){}
 
         private void lblDriversCount_Click(object sender, EventArgs e)
         {
