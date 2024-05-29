@@ -49,30 +49,21 @@ namespace TakeHiro
             }
             if (username == AdminUsername && password == AdminPassword)
             {
-                // Admin login successful
                 AdminHomeDashboard adminDashboard = new AdminHomeDashboard();
                 adminDashboard.Show();
                 this.Hide();
             }
             else
             {
-                // Validate customer login
                 int? customerId = _dbHelper.ValidateCustomerLogin(username, password);
                 if (customerId.HasValue)
                 {
-                    // Customer login successful
-                    MessageBox.Show("Customer login successful.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    label4.Text = customerId.Value.ToString();
-                    string customerIDN = label4.Text;
-
-                    // Redirect to customer page with customerIDN and username
                     UserBookNowPage1 customerPage = new UserBookNowPage1();
                     customerPage.Show();
                     this.Hide();
                 }
                 else
                 {
-                    // Login failed
                     MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }

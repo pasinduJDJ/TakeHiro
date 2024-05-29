@@ -21,6 +21,10 @@ namespace TakeHiro
             LoadCarData();
             LoadDriverData();
             LoadOrderData();
+
+            DisplayCarCount();
+            DisplayDriverCount();
+            DisplayOrderCount();
         }
 
         private void LoadCarData()
@@ -67,6 +71,47 @@ namespace TakeHiro
             catch (Exception ex)
             {
                 MessageBox.Show($"An error occurred while loading Order data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void DisplayCarCount()
+        {
+            try
+            {
+                int availableCarCount = _dbHelper.GetAvailabelCarCount();
+                lblAvailabelCars.Text = $"{availableCarCount}";
+                int allCarCount = _dbHelper.GetCountAllCars();
+                lblRegisteredCars.Text = $"{allCarCount}";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while calculating available Cars: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void DisplayDriverCount()
+        {
+            try
+            {
+                int availableDriverCount = _dbHelper.GetAvailableDriverCount();
+                lblAvailabelDrivers.Text = $"{availableDriverCount}";
+                int allDriverCount = _dbHelper.GetCountAllDrivers();
+                lblRegisteredDrivers.Text = $"{allDriverCount}";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while calculating available drivers: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void DisplayOrderCount()
+        {
+            try
+            {
+                int orderCount = _dbHelper.GetCountOrders();
+                lblOrderCount.Text = $"{orderCount}";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while calculating available drivers: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

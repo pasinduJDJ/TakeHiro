@@ -36,6 +36,7 @@
             btnSubmitChnages = new Button();
             btnRemoveCar = new Button();
             panel3 = new Panel();
+            lblCarID = new Label();
             txtCarModel = new TextBox();
             cmbAvailability = new ComboBox();
             label4 = new Label();
@@ -59,6 +60,7 @@
             label18 = new Label();
             panel2 = new Panel();
             mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
+            label1 = new Label();
             panel6.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tblAllDrivers).BeginInit();
@@ -126,6 +128,7 @@
             btnSubmitChnages.TabIndex = 29;
             btnSubmitChnages.Text = "Submit Chnages";
             btnSubmitChnages.UseVisualStyleBackColor = false;
+            btnSubmitChnages.Click += btnSubmitChnages_Click;
             // 
             // btnRemoveCar
             // 
@@ -142,6 +145,8 @@
             // panel3
             // 
             panel3.BackColor = Color.White;
+            panel3.Controls.Add(label1);
+            panel3.Controls.Add(lblCarID);
             panel3.Controls.Add(btnAddNewCar);
             panel3.Controls.Add(btnSubmitChnages);
             panel3.Controls.Add(btnRemoveCar);
@@ -157,6 +162,15 @@
             panel3.Size = new Size(728, 338);
             panel3.TabIndex = 22;
             panel3.Paint += panel3_Paint;
+            // 
+            // lblCarID
+            // 
+            lblCarID.AutoSize = true;
+            lblCarID.Location = new Point(217, 67);
+            lblCarID.Name = "lblCarID";
+            lblCarID.Size = new Size(33, 20);
+            lblCarID.TabIndex = 31;
+            lblCarID.Text = "000";
             // 
             // txtCarModel
             // 
@@ -442,6 +456,15 @@
             mySqlCommand1.EnableCaching = false;
             mySqlCommand1.Transaction = null;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(154, 67);
+            label1.Name = "label1";
+            label1.Size = new Size(57, 20);
+            label1.TabIndex = 32;
+            label1.Text = "Car ID :";
+            // 
             // AdminManageCarDashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -507,5 +530,7 @@
         private Label label18;
         private Panel panel2;
         private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
+        private Label lblCarID;
+        private Label label1;
     }
 }

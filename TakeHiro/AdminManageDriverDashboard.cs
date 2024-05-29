@@ -24,6 +24,8 @@ namespace TakeHiro
             cmbAvailability.Items.Add("True");
             cmbAvailability.Items.Add("False");
             cmbAvailability.SelectedIndex = 0;
+
+            DisplayDriverCount();
         }
 
         private void LoadDriverData()
@@ -69,6 +71,21 @@ namespace TakeHiro
             }
         }
 
+        private void DisplayDriverCount()
+        {
+            try
+            {
+                int availableDriverCount = _dbHelper.GetAvailableDriverCount();
+                lblAvgDriver.Text = $"{availableDriverCount}";
+                int allDriverCount = _dbHelper.GetCountAllDrivers();
+                lblRegDriver.Text = $"{allDriverCount}";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while calculating available drivers: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void btnDashBoard_Click(object sender, EventArgs e)
         {
             AdminHomeDashboard form1 = new AdminHomeDashboard();
@@ -104,6 +121,11 @@ namespace TakeHiro
         private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnSubmitChnages_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

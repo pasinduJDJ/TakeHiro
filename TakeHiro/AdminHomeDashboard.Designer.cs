@@ -41,7 +41,7 @@
             pictureBox2 = new PictureBox();
             panel3 = new Panel();
             panel6 = new Panel();
-            label11 = new Label();
+            lblOrderCount = new Label();
             label14 = new Label();
             panel5 = new Panel();
             lblAvailabelCars = new Label();
@@ -250,24 +250,24 @@
             // panel6
             // 
             panel6.BackColor = Color.FromArgb(42, 46, 52);
-            panel6.Controls.Add(label11);
+            panel6.Controls.Add(lblOrderCount);
             panel6.Controls.Add(label14);
             panel6.Location = new Point(645, 54);
             panel6.Name = "panel6";
             panel6.Size = new Size(253, 87);
             panel6.TabIndex = 6;
             // 
-            // label11
+            // lblOrderCount
             // 
-            label11.AutoSize = true;
-            label11.BackColor = Color.Transparent;
-            label11.Font = new Font("Nirmala UI", 14F);
-            label11.ForeColor = Color.White;
-            label11.Location = new Point(190, 41);
-            label11.Name = "label11";
-            label11.Size = new Size(40, 32);
-            label11.TabIndex = 4;
-            label11.Text = "38";
+            lblOrderCount.AutoSize = true;
+            lblOrderCount.BackColor = Color.Transparent;
+            lblOrderCount.Font = new Font("Nirmala UI", 14F);
+            lblOrderCount.ForeColor = Color.White;
+            lblOrderCount.Location = new Point(190, 41);
+            lblOrderCount.Name = "lblOrderCount";
+            lblOrderCount.Size = new Size(40, 32);
+            lblOrderCount.TabIndex = 4;
+            lblOrderCount.Text = "38";
             // 
             // label14
             // 
@@ -484,9 +484,9 @@
             Controls.Add(label6);
             Controls.Add(tblOrder);
             Controls.Add(label5);
-            Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Controls.Add(panel3);
             Font = new Font("Nirmala UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 4, 3, 4);
@@ -533,7 +533,7 @@
         private Label label4;
         private Label label2;
         private Panel panel6;
-        private Label label11;
+        private Label lblOrderCount;
         private Label label14;
         private Panel panel5;
         private Label lblAvailabelCars;

@@ -22,7 +22,10 @@ namespace TakeHiro
         {
             return new MySqlConnection(_connectionString);
         }
-        // Save Customer Details 
+
+
+
+        // Save Database 
         public void SaveCustomer(string customerName, string contactNumber, string location, string username, string password)
         {
             using (MySqlConnection conn = GetConnection())
@@ -38,9 +41,7 @@ namespace TakeHiro
 
                 cmd.ExecuteNonQuery();
             }
-        }
-
-        // Save Driver Details 
+        } 
         public void SaveDriver(string name, string contactNumber, bool availability)
         {
             using (MySqlConnection conn = GetConnection())
@@ -54,9 +55,7 @@ namespace TakeHiro
 
                 cmd.ExecuteNonQuery();
             }
-        }
-
-        // Save Car Details 
+        } 
         public void SaveCar(string model, string plateNumber, bool availability)
         {
             using (MySqlConnection conn = GetConnection())
@@ -71,12 +70,10 @@ namespace TakeHiro
                 cmd.ExecuteNonQuery();
             }
         }
-
         internal void SaveCar()
         {
             throw new NotImplementedException();
         }
-
         public void SaveOrder(string customerName, string driverID, string carID, string destination, string location, string orderDate)
         {
             using (MySqlConnection conn = GetConnection())
@@ -96,7 +93,8 @@ namespace TakeHiro
         }
 
 
-        // Retrieve all car data
+
+        // Retrieve Database all data
         public DataTable GetAllCars()
         {
             DataTable dt = new DataTable();
@@ -110,7 +108,6 @@ namespace TakeHiro
             }
             return dt;
         }
-        // Retrieve all car data
         public DataTable GetAllDrivers()
         {
             DataTable dtD = new DataTable();
@@ -124,7 +121,6 @@ namespace TakeHiro
             }
             return dtD;
         }
-        // Retrieve all Orders data
         public DataTable GetAllOrders()
         {
             DataTable dt = new DataTable();
@@ -138,7 +134,10 @@ namespace TakeHiro
             }
             return dt;
         }
-        // Retrive Avilabel Drivers 
+
+
+
+        // Retrive Avilabel Data
         public DataTable GetAvailableDrivers()
         {
             DataTable dtD = new DataTable();
@@ -151,8 +150,7 @@ namespace TakeHiro
                 da.Fill(dtD);
             }
             return dtD;
-        }
-        // Retrive Avilabel Cars 
+        } 
         public DataTable GetAvailableCars()
         {
             DataTable dtC = new DataTable();
@@ -167,7 +165,9 @@ namespace TakeHiro
             return dtC;
         }
 
-        // Count of Avilabel Drivers 
+
+
+        // Count Availabel Data
         public int GetAvailableDriverCount()
         {
             int count = 0;
@@ -180,8 +180,6 @@ namespace TakeHiro
             }
             return count;
         }
-
-        // Count of Avilabel Cars 
         public int GetAvailabelCarCount()
         {
             int count = 0;
@@ -191,25 +189,54 @@ namespace TakeHiro
                 string query = "SELECT COUNT(*) FROM Car WHERE Availability =1";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 count = Convert.ToInt32(cmd.ExecuteScalar());
-
             }
             return count;
         }
 
-        // Validate Customers 
-        public bool ValidateCustomerLoginOLD(string username, string password)
+
+
+        // Count all Data 
+        public int GetCountAllDrivers()
         {
+            int count = 0;
             using (MySqlConnection conn = GetConnection())
             {
                 conn.Open();
-                string query = "SELECT COUNT(*) FROM Customer WHERE Username = @Username AND Password = @Password";
+                string query = "SELECT COUNT(*) FROM Driver";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@Username", username);
-                cmd.Parameters.AddWithValue("@Password", password);
-                int count = Convert.ToInt32(cmd.ExecuteScalar());
-                return count > 0;
+                count = Convert.ToInt32(cmd.ExecuteScalar());
             }
+            return count;
         }
+        public int GetCountAllCars()
+        {
+            int count = 0;
+            using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                string query = "SELECT COUNT(*) FROM Car";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                count = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            return count;
+        }
+        public int GetCountOrders()
+        {
+            int count = 0;
+            using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                string query = "SELECT COUNT(*) FROM `Order`";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                count = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            return count;
+        }
+
+
+
+
+        // Validate Customers 
         public int? ValidateCustomerLogin(string username, string password)
         {
             using (MySqlConnection conn = GetConnection())
@@ -229,6 +256,41 @@ namespace TakeHiro
                 {
                     return null;
                 }
+            }
+        }
+
+
+
+        //Update Data using ID  
+        public void UpdateCar(int carId, string model, string plateNumber, bool availability)
+        {
+            using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                string query = "UPDATE Car SET Model = @Model, PlateNumber = @PlateNumber, Availability = @Availability WHERE CarID = @CarID";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@CarID", carId);
+                cmd.Parameters.AddWithValue("@Model", model);
+                cmd.Parameters.AddWithValue("@PlateNumber", plateNumber);
+                cmd.Parameters.AddWithValue("@Availability", availability);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+
+
+
+        // Delete Data Using ID 
+        public void DeleteCar(int carId)
+        {
+            using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                string query = "DELETE FROM Car WHERE CarID = @CarID";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@CarID", carId);
+                cmd.ExecuteNonQuery();
             }
         }
 

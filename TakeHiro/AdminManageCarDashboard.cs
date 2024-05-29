@@ -26,15 +26,19 @@ namespace TakeHiro
             cmbAvailability.Items.Add("True");
             cmbAvailability.Items.Add("False");
             cmbAvailability.SelectedIndex = 0;
+
+            tblAllDrivers.CellClick += new DataGridViewCellEventHandler(tblAllDrivers_CellClick);
+            btnSubmitChnages.Click += new EventHandler(btnSubmitChanges_Click);
+            btnRemoveCar.Click += new EventHandler(btnDeleteCar_Click);
+
+            DisplayCarCount();
         }
+
         private void LoadCarData()
         {
             try
             {
-                // Retrieve all car data from the database
                 DataTable carData = _dbHelper.GetAllCars();
-
-                // Bind car data to DataGridView
                 tblAllDrivers.DataSource = carData;
             }
             catch (Exception ex)
@@ -43,7 +47,7 @@ namespace TakeHiro
             }
         }
 
-
+           
         private void btnAddNewCar_Click(object sender, EventArgs e)
         {
             if (txtCarModel.Text == "" || txtCarNumber.Text == "")
@@ -63,6 +67,9 @@ namespace TakeHiro
                     txtCarModel.Clear();
                     txtCarNumber.Clear();
                     cmbAvailability.SelectedIndex = 0;
+                    lblCarID.Text = "000";
+                    LoadCarData();
+                    DisplayCarCount();
                 }
                 catch (Exception ex)
                 {
@@ -70,6 +77,89 @@ namespace TakeHiro
                 }
             }
         }
+        private void tblAllDrivers_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = tblAllDrivers.Rows[e.RowIndex];
+                lblCarID.Text = row.Cells["CarID"].Value.ToString();  
+                txtCarModel.Text = row.Cells["Model"].Value.ToString();
+                txtCarNumber.Text = row.Cells["PlateNumber"].Value.ToString();
+                cmbAvailability.SelectedItem = row.Cells["Availability"].Value.ToString() == "True" ? "True" : "False";
+            }
+        }
+        private void btnSubmitChanges_Click(object sender, EventArgs e)
+        {
+            if (lblCarID.Text == "" || txtCarModel.Text == "" || txtCarNumber.Text == "")
+            {
+                MessageBox.Show("Please fill all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            int carId = int.Parse(lblCarID.Text);
+            string model = txtCarModel.Text;
+            string plateNumber = txtCarNumber.Text;
+            bool availability = cmbAvailability.SelectedItem.ToString() == "True";
+
+            try
+            {
+                _dbHelper.UpdateCar(carId, model, plateNumber, availability);
+                MessageBox.Show("Car details updated successfully.");
+                txtCarModel.Clear();
+                txtCarNumber.Clear();
+                cmbAvailability.SelectedIndex = 0;
+                lblCarID.Text = "000";
+                LoadCarData();
+                DisplayCarCount();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnDeleteCar_Click(object sender, EventArgs e)
+        {
+            if (lblCarID.Text == "")
+            {
+                MessageBox.Show("Please select a car to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            int carId = int.Parse(lblCarID.Text);
+
+            try
+            {
+                _dbHelper.DeleteCar(carId);
+                MessageBox.Show("Car deleted successfully.");
+                txtCarModel.Clear();
+                txtCarNumber.Clear();
+                cmbAvailability.SelectedIndex = 0;
+                lblCarID.Text = "000";
+                LoadCarData();
+                DisplayCarCount();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void DisplayCarCount()
+        {
+            try
+            {
+                int availableCarCount = _dbHelper.GetAvailabelCarCount();
+                lblAvaCars.Text = $"{availableCarCount}";
+                int allCarCount = _dbHelper.GetCountAllCars();
+                lblRegCars.Text = $"{allCarCount}";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while calculating available Cars: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
@@ -112,6 +202,11 @@ namespace TakeHiro
             LoginPage form1 = new LoginPage();
             form1.Show();
             this.Hide();
+        }
+
+        private void btnSubmitChnages_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

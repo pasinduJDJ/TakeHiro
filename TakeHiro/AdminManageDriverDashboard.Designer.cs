@@ -53,10 +53,10 @@
             label8 = new Label();
             label2 = new Label();
             panel6 = new Panel();
-            label11 = new Label();
+            lblRegDriver = new Label();
             label14 = new Label();
             panel7 = new Panel();
-            label15 = new Label();
+            lblAvgDriver = new Label();
             label18 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
@@ -293,6 +293,7 @@
             btnSubmitChnages.TabIndex = 29;
             btnSubmitChnages.Text = "Submit Chnages";
             btnSubmitChnages.UseVisualStyleBackColor = false;
+            btnSubmitChnages.Click += btnSubmitChnages_Click;
             // 
             // btnRemoveDriver
             // 
@@ -370,24 +371,24 @@
             // panel6
             // 
             panel6.BackColor = Color.FromArgb(42, 46, 52);
-            panel6.Controls.Add(label11);
+            panel6.Controls.Add(lblRegDriver);
             panel6.Controls.Add(label14);
             panel6.Location = new Point(1106, 404);
             panel6.Name = "panel6";
             panel6.Size = new Size(201, 87);
             panel6.TabIndex = 16;
             // 
-            // label11
+            // lblRegDriver
             // 
-            label11.AutoSize = true;
-            label11.BackColor = Color.Transparent;
-            label11.Font = new Font("Nirmala UI", 14F);
-            label11.ForeColor = Color.White;
-            label11.Location = new Point(138, 41);
-            label11.Name = "label11";
-            label11.Size = new Size(40, 32);
-            label11.TabIndex = 4;
-            label11.Text = "38";
+            lblRegDriver.AutoSize = true;
+            lblRegDriver.BackColor = Color.Transparent;
+            lblRegDriver.Font = new Font("Nirmala UI", 14F);
+            lblRegDriver.ForeColor = Color.White;
+            lblRegDriver.Location = new Point(138, 41);
+            lblRegDriver.Name = "lblRegDriver";
+            lblRegDriver.Size = new Size(40, 32);
+            lblRegDriver.TabIndex = 4;
+            lblRegDriver.Text = "38";
             // 
             // label14
             // 
@@ -403,24 +404,24 @@
             // panel7
             // 
             panel7.BackColor = Color.FromArgb(228, 182, 26);
-            panel7.Controls.Add(label15);
+            panel7.Controls.Add(lblAvgDriver);
             panel7.Controls.Add(label18);
             panel7.Location = new Point(1106, 517);
             panel7.Name = "panel7";
             panel7.Size = new Size(201, 87);
             panel7.TabIndex = 17;
             // 
-            // label15
+            // lblAvgDriver
             // 
-            label15.AutoSize = true;
-            label15.BackColor = Color.Transparent;
-            label15.Font = new Font("Nirmala UI", 14F);
-            label15.ForeColor = Color.Black;
-            label15.Location = new Point(133, 41);
-            label15.Name = "label15";
-            label15.Size = new Size(40, 32);
-            label15.TabIndex = 4;
-            label15.Text = "12";
+            lblAvgDriver.AutoSize = true;
+            lblAvgDriver.BackColor = Color.Transparent;
+            lblAvgDriver.Font = new Font("Nirmala UI", 14F);
+            lblAvgDriver.ForeColor = Color.Black;
+            lblAvgDriver.Location = new Point(133, 41);
+            lblAvgDriver.Name = "lblAvgDriver";
+            lblAvgDriver.Size = new Size(40, 32);
+            lblAvgDriver.TabIndex = 4;
+            lblAvgDriver.Text = "12";
             // 
             // label18
             // 
@@ -483,10 +484,10 @@
         private Panel panel3;
         private Label label2;
         private Panel panel6;
-        private Label label11;
+        private Label lblRegDriver;
         private Label label14;
         private Panel panel7;
-        private Label label15;
+        private Label lblAvgDriver;
         private Label label18;
         private TextBox txtDriverName;
         private ComboBox cmbAvailability;
