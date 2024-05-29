@@ -14,7 +14,6 @@ namespace TakeHiro
 {
     public partial class RegisterPage : Form
     {
-
         private DatabaseHelper _dbHelper;
         public RegisterPage()
         {
@@ -35,7 +34,6 @@ namespace TakeHiro
                 string location = txtLocation.Text;
                 string username = txtUser.Text;
                 string password = txtPwd.Text;
-
                 try
                 {
                     _dbHelper.SaveCustomer(customerName, contactNumber, location, username, password);
@@ -50,19 +48,13 @@ namespace TakeHiro
                 }
             }
         }
-
         private void linkBtnSignIn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             LoginPage form1 = new LoginPage();
             form1.Show();
             this.Hide();
         }
-
-        private void RegisterPage_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        private void RegisterPage_Load(object sender, EventArgs e){}
         private void btnColse_Click(object sender, EventArgs e)
         {
             Application.Exit();

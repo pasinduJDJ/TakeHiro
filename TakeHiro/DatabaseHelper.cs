@@ -86,7 +86,7 @@ namespace TakeHiro
                 cmd.Parameters.AddWithValue("@CarID", carID);
                 cmd.Parameters.AddWithValue("@Destination", destination);
                 cmd.Parameters.AddWithValue("@Location", location);
-                cmd.Parameters.AddWithValue("@OrderDate", orderDate); // Add this parameter
+                cmd.Parameters.AddWithValue("@OrderDate", orderDate); 
 
                 cmd.ExecuteNonQuery();
             }
@@ -277,6 +277,49 @@ namespace TakeHiro
                 cmd.ExecuteNonQuery();
             }
         }
+        public void UpdateCarAvailability(int carId, bool availability)
+        {
+            using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                string query = "UPDATE Car SET Availability = @Availability WHERE CarID = @CarID";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@CarID", carId);
+                cmd.Parameters.AddWithValue("@Availability", availability);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+        public void UpdateDriver(int driverId, string name, string contactNumber, bool availability)
+        {
+            using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                string query = "UPDATE Driver SET Name = @Name, ContactNumber = @ContactNumber, Availability = @Availability WHERE DriverID = @DriverID";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@DriverID", driverId);
+                cmd.Parameters.AddWithValue("@Name", name);
+                cmd.Parameters.AddWithValue("@ContactNumber", contactNumber);
+                cmd.Parameters.AddWithValue("@Availability", availability);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+        public void UpdateDriverAvailability(int driverId, bool availability)
+        {
+            using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                string query = "UPDATE Driver SET Availability = @Availability WHERE DriverID = @DriverID";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@DriverID", driverId);
+                cmd.Parameters.AddWithValue("@Availability", availability);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+
 
 
 
@@ -290,6 +333,17 @@ namespace TakeHiro
                 string query = "DELETE FROM Car WHERE CarID = @CarID";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@CarID", carId);
+                cmd.ExecuteNonQuery();
+            }
+        }
+        public void DeleteDriver(int driverId)
+        {
+            using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                string query = "DELETE FROM Driver WHERE DriverID = @DriverID";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@DriverID", driverId);
                 cmd.ExecuteNonQuery();
             }
         }

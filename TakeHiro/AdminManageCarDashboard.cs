@@ -18,11 +18,10 @@ namespace TakeHiro
         public AdminManageCarDashboard()
         {
             InitializeComponent();
+
             _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
 
-            LoadCarData();
 
-            // Initialize ComboBox items
             cmbAvailability.Items.Add("True");
             cmbAvailability.Items.Add("False");
             cmbAvailability.SelectedIndex = 0;
@@ -31,6 +30,7 @@ namespace TakeHiro
             btnSubmitChnages.Click += new EventHandler(btnSubmitChanges_Click);
             btnRemoveCar.Click += new EventHandler(btnDeleteCar_Click);
 
+            LoadCarData();
             DisplayCarCount();
         }
 
@@ -47,7 +47,7 @@ namespace TakeHiro
             }
         }
 
-           
+
         private void btnAddNewCar_Click(object sender, EventArgs e)
         {
             if (txtCarModel.Text == "" || txtCarNumber.Text == "")
@@ -82,7 +82,7 @@ namespace TakeHiro
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = tblAllDrivers.Rows[e.RowIndex];
-                lblCarID.Text = row.Cells["CarID"].Value.ToString();  
+                lblCarID.Text = row.Cells["CarID"].Value.ToString();
                 txtCarModel.Text = row.Cells["Model"].Value.ToString();
                 txtCarNumber.Text = row.Cells["PlateNumber"].Value.ToString();
                 cmbAvailability.SelectedItem = row.Cells["Availability"].Value.ToString() == "True" ? "True" : "False";
@@ -161,15 +161,9 @@ namespace TakeHiro
         }
 
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
+        private void panel3_Paint(object sender, PaintEventArgs e){}
 
-        }
-
-        private void tblAllDrivers_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        private void tblAllDrivers_CellContentClick(object sender, DataGridViewCellEventArgs e){}
 
         private void btnDashBoard_Click(object sender, EventArgs e)
         {
@@ -204,9 +198,14 @@ namespace TakeHiro
             this.Hide();
         }
 
-        private void btnSubmitChnages_Click(object sender, EventArgs e)
-        {
+        private void btnSubmitChnages_Click(object sender, EventArgs e){}
 
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtCarModel.Clear();
+            txtCarNumber.Clear();
+            cmbAvailability.SelectedIndex = 0;
+            lblCarID.Text = "000";
         }
     }
 }

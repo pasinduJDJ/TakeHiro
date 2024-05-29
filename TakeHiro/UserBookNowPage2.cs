@@ -14,16 +14,13 @@ namespace TakeHiro
     public partial class UserBookNowPage2 : Form
     {
         private DatabaseHelper _dbHelper;
-        //private string _driverTp;
         private string _driverId;
         public UserBookNowPage2(string driverID, string driverName, string drivernumber)
         {
             InitializeComponent();
+
             _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
 
-            LoadCarData();
-
-            //_driverTp = drivernumber;
             _driverId = driverID;
             lblDriverTp.Text = drivernumber;
             lblDriverName.Text = driverName;
@@ -31,6 +28,7 @@ namespace TakeHiro
             tblAllDrivers.CellClick += new DataGridViewCellEventHandler(dgvCars_CellClick);
             btnSubCar.Click += new EventHandler(btnPassData_Click);
 
+            LoadCarData();
             DisplayAvailableCarCount();
         }
 
@@ -126,14 +124,8 @@ namespace TakeHiro
 
 
 
-        private void tblAllDrivers_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+        private void tblAllDrivers_CellContentClick(object sender, DataGridViewCellEventArgs e){}
 
-        }
-
-        private void btnSubCar_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void btnSubCar_Click(object sender, EventArgs e){}
     }
 }

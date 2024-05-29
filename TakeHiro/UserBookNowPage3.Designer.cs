@@ -57,6 +57,7 @@
             txtDestination = new TextBox();
             label8 = new Label();
             pictureBox2 = new PictureBox();
+            lbldate = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)imgUser).BeginInit();
             panel2.SuspendLayout();
@@ -227,6 +228,7 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(42, 46, 52);
+            panel2.Controls.Add(lbldate);
             panel2.Controls.Add(imgUser);
             panel2.Controls.Add(pictureBox1);
             panel2.Location = new Point(-1, -2);
@@ -418,6 +420,17 @@
             pictureBox2.TabIndex = 3;
             pictureBox2.TabStop = false;
             // 
+            // lbldate
+            // 
+            lbldate.AutoSize = true;
+            lbldate.Font = new Font("Nirmala UI", 8F);
+            lbldate.ForeColor = Color.White;
+            lbldate.Location = new Point(774, 25);
+            lbldate.Name = "lbldate";
+            lbldate.Size = new Size(86, 19);
+            lbldate.TabIndex = 13;
+            lbldate.Text = "Driver Name";
+            // 
             // UserBookNowPage3
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -438,6 +451,7 @@
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)imgUser).EndInit();
             panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
@@ -477,5 +491,6 @@
         private PictureBox pictureBox2;
         private TextBox txtLocation;
         private Label label7;
+        private Label lbldate;
     }
 }

@@ -36,6 +36,7 @@
             btnSubmitChnages = new Button();
             btnRemoveCar = new Button();
             panel3 = new Panel();
+            label1 = new Label();
             lblCarID = new Label();
             txtCarModel = new TextBox();
             cmbAvailability = new ComboBox();
@@ -60,7 +61,7 @@
             label18 = new Label();
             panel2 = new Panel();
             mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
-            label1 = new Label();
+            btnClear = new Button();
             panel6.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tblAllDrivers).BeginInit();
@@ -145,6 +146,7 @@
             // panel3
             // 
             panel3.BackColor = Color.White;
+            panel3.Controls.Add(btnClear);
             panel3.Controls.Add(label1);
             panel3.Controls.Add(lblCarID);
             panel3.Controls.Add(btnAddNewCar);
@@ -162,6 +164,15 @@
             panel3.Size = new Size(728, 338);
             panel3.TabIndex = 22;
             panel3.Paint += panel3_Paint;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(154, 67);
+            label1.Name = "label1";
+            label1.Size = new Size(57, 20);
+            label1.TabIndex = 32;
+            label1.Text = "Car ID :";
             // 
             // lblCarID
             // 
@@ -456,14 +467,18 @@
             mySqlCommand1.EnableCaching = false;
             mySqlCommand1.Transaction = null;
             // 
-            // label1
+            // btnClear
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(154, 67);
-            label1.Name = "label1";
-            label1.Size = new Size(57, 20);
-            label1.TabIndex = 32;
-            label1.Text = "Car ID :";
+            btnClear.BackColor = Color.FromArgb(42, 46, 52);
+            btnClear.FlatStyle = FlatStyle.Flat;
+            btnClear.ForeColor = Color.White;
+            btnClear.Location = new Point(398, 144);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(302, 40);
+            btnClear.TabIndex = 33;
+            btnClear.Text = "Clear Text Box";
+            btnClear.UseVisualStyleBackColor = false;
+            btnClear.Click += btnClear_Click;
             // 
             // AdminManageCarDashboard
             // 
@@ -532,5 +547,6 @@
         private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
         private Label lblCarID;
         private Label label1;
+        private Button btnClear;
     }
 }

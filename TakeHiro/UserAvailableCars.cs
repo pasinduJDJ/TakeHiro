@@ -16,6 +16,7 @@ namespace TakeHiro
         public UserAvailableCars()
         {
             InitializeComponent();
+
             _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
 
             LoadCarData();
@@ -26,10 +27,7 @@ namespace TakeHiro
         {
             try
             {
-                // Retrieve all car data from the database
                 DataTable carData = _dbHelper.GetAvailableCars();
-
-                // Bind car data to DataGridView
                 tblCompleteOrder.DataSource = carData;
             }
             catch (Exception ex)
@@ -37,6 +35,7 @@ namespace TakeHiro
                 MessageBox.Show($"An error occurred while loading car data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void DisplayAvailableCarCount()
         {
             try
@@ -50,15 +49,8 @@ namespace TakeHiro
             }
         }
 
-        private void UserAvailableCars_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblDriversCount_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void UserAvailableCars_Load(object sender, EventArgs e){}
+        private void lblDriversCount_Click(object sender, EventArgs e){}
 
         private void btnAvailabelDriver_Click(object sender, EventArgs e)
         {

@@ -16,6 +16,7 @@ namespace TakeHiro
         public UserAvailableDrivers()
         {
             InitializeComponent();
+
             _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
 
             LoadDriverData();
@@ -25,10 +26,7 @@ namespace TakeHiro
         {
             try
             {
-                // Retrieve all Driver data from the database
                 DataTable driverData = _dbHelper.GetAvailableDrivers();
-
-                // Bind Driver data to DataGridView
                 tblAllDrivers.DataSource = driverData;
             }
             catch (Exception ex)

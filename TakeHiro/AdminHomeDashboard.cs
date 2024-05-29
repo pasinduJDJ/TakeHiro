@@ -16,6 +16,7 @@ namespace TakeHiro
         public AdminHomeDashboard()
         {
             InitializeComponent();
+
             _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
 
             LoadCarData();
@@ -31,10 +32,7 @@ namespace TakeHiro
         {
             try
             {
-                // Retrieve all car data from the database
                 DataTable carData = _dbHelper.GetAllCars();
-
-                // Bind car data to DataGridView
                 tblCompleteOrder.DataSource = carData;
             }
             catch (Exception ex)
@@ -47,10 +45,7 @@ namespace TakeHiro
         {
             try
             {
-                // Retrieve all Driver data from the database
                 DataTable driverData = _dbHelper.GetAllDrivers();
-
-                // Bind Driver data to DataGridView
                 tblAllDrivers.DataSource = driverData;
             }
             catch (Exception ex)
@@ -62,10 +57,7 @@ namespace TakeHiro
         {
             try
             {
-                // Retrieve all Driver data from the database
                 DataTable orderdata = _dbHelper.GetAllOrders();
-
-                // Bind Driver data to DataGridView
                 tblOrder.DataSource = orderdata;
             }
             catch (Exception ex)
@@ -73,7 +65,6 @@ namespace TakeHiro
                 MessageBox.Show($"An error occurred while loading Order data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void DisplayCarCount()
         {
             try
@@ -115,20 +106,11 @@ namespace TakeHiro
             }
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
+        private void label5_Click(object sender, EventArgs e){}
 
-        }
+        private void label6_Click(object sender, EventArgs e){}
 
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnDashBoard_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void btnDashBoard_Click(object sender, EventArgs e){}
 
         private void btnManageOrders_Click(object sender, EventArgs e)
         {
@@ -163,9 +145,6 @@ namespace TakeHiro
             this.Hide();
         }
 
-        private void tblCompleteOrder_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        private void tblCompleteOrder_CellContentClick(object sender, DataGridViewCellEventArgs e){}
     }
 }

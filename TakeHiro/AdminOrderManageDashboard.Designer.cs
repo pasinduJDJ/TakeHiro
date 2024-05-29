@@ -32,7 +32,7 @@
             tblOrder = new DataGridView();
             label5 = new Label();
             panel7 = new Panel();
-            label15 = new Label();
+            lblOrderCount = new Label();
             label18 = new Label();
             label11 = new Label();
             label14 = new Label();
@@ -65,6 +65,11 @@
             txtCarID = new TextBox();
             label10 = new Label();
             label12 = new Label();
+            panel6 = new Panel();
+            lblAvailabelCars = new Label();
+            lblRegisteredCars = new Label();
+            label1 = new Label();
+            label6 = new Label();
             ((System.ComponentModel.ISupportInitialize)tblOrder).BeginInit();
             panel7.SuspendLayout();
             panel4.SuspendLayout();
@@ -74,16 +79,17 @@
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             panel5.SuspendLayout();
+            panel6.SuspendLayout();
             SuspendLayout();
             // 
             // tblOrder
             // 
             tblOrder.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tblOrder.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tblOrder.Location = new Point(332, 267);
+            tblOrder.Location = new Point(332, 218);
             tblOrder.Name = "tblOrder";
             tblOrder.RowHeadersWidth = 51;
-            tblOrder.Size = new Size(613, 236);
+            tblOrder.Size = new Size(940, 253);
             tblOrder.StandardTab = true;
             tblOrder.TabIndex = 12;
             // 
@@ -91,7 +97,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(321, 218);
+            label5.Location = new Point(332, 189);
             label5.Name = "label5";
             label5.Size = new Size(82, 23);
             label5.TabIndex = 11;
@@ -101,33 +107,33 @@
             // panel7
             // 
             panel7.BackColor = Color.FromArgb(228, 182, 26);
-            panel7.Controls.Add(label15);
+            panel7.Controls.Add(lblOrderCount);
             panel7.Controls.Add(label18);
             panel7.Location = new Point(674, 82);
             panel7.Name = "panel7";
             panel7.Size = new Size(260, 87);
             panel7.TabIndex = 16;
             // 
-            // label15
+            // lblOrderCount
             // 
-            label15.AutoSize = true;
-            label15.BackColor = Color.Transparent;
-            label15.Font = new Font("Nirmala UI", 14F);
-            label15.ForeColor = Color.Black;
-            label15.Location = new Point(204, 41);
-            label15.Name = "label15";
-            label15.Size = new Size(40, 32);
-            label15.TabIndex = 4;
-            label15.Text = "12";
+            lblOrderCount.AutoSize = true;
+            lblOrderCount.BackColor = Color.Transparent;
+            lblOrderCount.Font = new Font("Nirmala UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblOrderCount.ForeColor = Color.Black;
+            lblOrderCount.Location = new Point(184, 26);
+            lblOrderCount.Name = "lblOrderCount";
+            lblOrderCount.Size = new Size(64, 50);
+            lblOrderCount.TabIndex = 4;
+            lblOrderCount.Text = "12";
             // 
             // label18
             // 
             label18.AutoSize = true;
-            label18.Font = new Font("Nirmala UI", 10F);
+            label18.Font = new Font("Nirmala UI", 14F);
             label18.ForeColor = Color.Black;
             label18.Location = new Point(14, 13);
             label18.Name = "label18";
-            label18.Size = new Size(61, 23);
+            label18.Size = new Size(85, 32);
             label18.TabIndex = 0;
             label18.Text = "Orders";
             // 
@@ -173,7 +179,7 @@
             lblAvailabelDrivers.BackColor = Color.Transparent;
             lblAvailabelDrivers.Font = new Font("Nirmala UI", 9F);
             lblAvailabelDrivers.ForeColor = Color.White;
-            lblAvailabelDrivers.Location = new Point(135, 50);
+            lblAvailabelDrivers.Location = new Point(173, 50);
             lblAvailabelDrivers.Name = "lblAvailabelDrivers";
             lblAvailabelDrivers.Size = new Size(25, 20);
             lblAvailabelDrivers.TabIndex = 4;
@@ -185,7 +191,7 @@
             lblRegisteredDrivers.BackColor = Color.Transparent;
             lblRegisteredDrivers.Font = new Font("Nirmala UI", 9F);
             lblRegisteredDrivers.ForeColor = Color.White;
-            lblRegisteredDrivers.Location = new Point(135, 17);
+            lblRegisteredDrivers.Location = new Point(173, 17);
             lblRegisteredDrivers.Name = "lblRegisteredDrivers";
             lblRegisteredDrivers.Size = new Size(25, 20);
             lblRegisteredDrivers.TabIndex = 3;
@@ -196,7 +202,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Nirmala UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(15, 50);
+            label4.Location = new Point(34, 50);
             label4.Name = "label4";
             label4.Size = new Size(119, 17);
             label4.TabIndex = 1;
@@ -207,7 +213,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Nirmala UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(15, 17);
+            label2.Location = new Point(34, 17);
             label2.Name = "label2";
             label2.Size = new Size(123, 17);
             label2.TabIndex = 0;
@@ -383,9 +389,9 @@
             panel3.Controls.Add(txtDriverID);
             panel3.Controls.Add(label7);
             panel3.Controls.Add(label3);
-            panel3.Location = new Point(989, 207);
+            panel3.Location = new Point(332, 495);
             panel3.Name = "panel3";
-            panel3.Size = new Size(351, 265);
+            panel3.Size = new Size(417, 244);
             panel3.TabIndex = 17;
             // 
             // btnDriverAva
@@ -393,25 +399,26 @@
             btnDriverAva.BackColor = Color.FromArgb(42, 46, 52);
             btnDriverAva.FlatStyle = FlatStyle.Flat;
             btnDriverAva.ForeColor = Color.White;
-            btnDriverAva.Location = new Point(17, 204);
+            btnDriverAva.Location = new Point(16, 188);
             btnDriverAva.Name = "btnDriverAva";
-            btnDriverAva.Size = new Size(302, 40);
+            btnDriverAva.Size = new Size(356, 40);
             btnDriverAva.TabIndex = 6;
             btnDriverAva.Text = "Submit Chnages";
             btnDriverAva.UseVisualStyleBackColor = false;
+            btnDriverAva.Click += btnDriverAva_Click;
             // 
             // cmdDriverAva
             // 
             cmdDriverAva.FormattingEnabled = true;
-            cmdDriverAva.Location = new Point(17, 146);
+            cmdDriverAva.Location = new Point(16, 142);
             cmdDriverAva.Name = "cmdDriverAva";
-            cmdDriverAva.Size = new Size(302, 28);
+            cmdDriverAva.Size = new Size(356, 28);
             cmdDriverAva.TabIndex = 5;
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(17, 121);
+            label8.Location = new Point(16, 117);
             label8.Name = "label8";
             label8.Size = new Size(127, 20);
             label8.TabIndex = 3;
@@ -420,15 +427,15 @@
             // txtDriverID
             // 
             txtDriverID.BorderStyle = BorderStyle.FixedSingle;
-            txtDriverID.Location = new Point(17, 75);
+            txtDriverID.Location = new Point(16, 71);
             txtDriverID.Name = "txtDriverID";
-            txtDriverID.Size = new Size(302, 27);
+            txtDriverID.Size = new Size(356, 27);
             txtDriverID.TabIndex = 2;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(17, 49);
+            label7.Location = new Point(16, 45);
             label7.Name = "label7";
             label7.Size = new Size(68, 20);
             label7.TabIndex = 1;
@@ -438,7 +445,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(17, 15);
+            label3.Location = new Point(16, 11);
             label3.Name = "label3";
             label3.Size = new Size(156, 23);
             label3.TabIndex = 0;
@@ -453,9 +460,9 @@
             panel5.Controls.Add(txtCarID);
             panel5.Controls.Add(label10);
             panel5.Controls.Add(label12);
-            panel5.Location = new Point(989, 489);
+            panel5.Location = new Point(808, 495);
             panel5.Name = "panel5";
-            panel5.Size = new Size(351, 265);
+            panel5.Size = new Size(417, 244);
             panel5.TabIndex = 18;
             // 
             // btnCarAva
@@ -463,25 +470,26 @@
             btnCarAva.BackColor = Color.FromArgb(42, 46, 52);
             btnCarAva.FlatStyle = FlatStyle.Flat;
             btnCarAva.ForeColor = Color.White;
-            btnCarAva.Location = new Point(17, 204);
+            btnCarAva.Location = new Point(17, 188);
             btnCarAva.Name = "btnCarAva";
-            btnCarAva.Size = new Size(302, 40);
+            btnCarAva.Size = new Size(356, 40);
             btnCarAva.TabIndex = 6;
             btnCarAva.Text = "Submit Chnages";
             btnCarAva.UseVisualStyleBackColor = false;
+            btnCarAva.Click += btnCarAva_Click;
             // 
             // cmdCarAva
             // 
             cmdCarAva.FormattingEnabled = true;
-            cmdCarAva.Location = new Point(17, 146);
+            cmdCarAva.Location = new Point(17, 142);
             cmdCarAva.Name = "cmdCarAva";
-            cmdCarAva.Size = new Size(302, 28);
+            cmdCarAva.Size = new Size(356, 28);
             cmdCarAva.TabIndex = 5;
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(17, 121);
+            label9.Location = new Point(17, 117);
             label9.Name = "label9";
             label9.Size = new Size(109, 20);
             label9.TabIndex = 3;
@@ -490,15 +498,15 @@
             // txtCarID
             // 
             txtCarID.BorderStyle = BorderStyle.FixedSingle;
-            txtCarID.Location = new Point(17, 75);
+            txtCarID.Location = new Point(17, 71);
             txtCarID.Name = "txtCarID";
-            txtCarID.Size = new Size(302, 27);
+            txtCarID.Size = new Size(356, 27);
             txtCarID.TabIndex = 2;
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(17, 49);
+            label10.Location = new Point(17, 45);
             label10.Name = "label10";
             label10.Size = new Size(50, 20);
             label10.TabIndex = 1;
@@ -508,17 +516,77 @@
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label12.Location = new Point(17, 15);
+            label12.Location = new Point(17, 11);
             label12.Name = "label12";
             label12.Size = new Size(133, 23);
             label12.TabIndex = 0;
             label12.Text = "Car Availability";
+            // 
+            // panel6
+            // 
+            panel6.BackColor = Color.FromArgb(42, 46, 52);
+            panel6.Controls.Add(lblAvailabelCars);
+            panel6.Controls.Add(lblRegisteredCars);
+            panel6.Controls.Add(label1);
+            panel6.Controls.Add(label6);
+            panel6.ForeColor = Color.White;
+            panel6.Location = new Point(1006, 82);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(253, 87);
+            panel6.TabIndex = 19;
+            // 
+            // lblAvailabelCars
+            // 
+            lblAvailabelCars.AutoSize = true;
+            lblAvailabelCars.BackColor = Color.Transparent;
+            lblAvailabelCars.Font = new Font("Nirmala UI", 9F);
+            lblAvailabelCars.ForeColor = Color.White;
+            lblAvailabelCars.Location = new Point(151, 50);
+            lblAvailabelCars.Name = "lblAvailabelCars";
+            lblAvailabelCars.Size = new Size(25, 20);
+            lblAvailabelCars.TabIndex = 4;
+            lblAvailabelCars.Text = "38";
+            // 
+            // lblRegisteredCars
+            // 
+            lblRegisteredCars.AutoSize = true;
+            lblRegisteredCars.BackColor = Color.Transparent;
+            lblRegisteredCars.Font = new Font("Nirmala UI", 9F);
+            lblRegisteredCars.ForeColor = Color.White;
+            lblRegisteredCars.Location = new Point(151, 17);
+            lblRegisteredCars.Name = "lblRegisteredCars";
+            lblRegisteredCars.Size = new Size(25, 20);
+            lblRegisteredCars.TabIndex = 3;
+            lblRegisteredCars.Text = "76";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Nirmala UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(31, 50);
+            label1.Name = "label1";
+            label1.Size = new Size(104, 17);
+            label1.TabIndex = 1;
+            label1.Text = "Availabale Cars :";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Nirmala UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.White;
+            label6.Location = new Point(31, 17);
+            label6.Name = "label6";
+            label6.Size = new Size(108, 17);
+            label6.TabIndex = 0;
+            label6.Text = "Registered Cars :";
             // 
             // AdminOrderManageDashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1366, 768);
+            Controls.Add(panel6);
             Controls.Add(panel5);
             Controls.Add(panel3);
             Controls.Add(tblOrder);
@@ -546,6 +614,8 @@
             panel3.PerformLayout();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -554,7 +624,7 @@
         private DataGridView tblOrder;
         private Label label5;
         private Panel panel7;
-        private Label label15;
+        private Label lblOrderCount;
         private Label label18;
         private Label label11;
         private Label label14;
@@ -587,5 +657,10 @@
         private TextBox txtCarID;
         private Label label10;
         private Label label12;
+        private Panel panel6;
+        private Label lblAvailabelCars;
+        private Label lblRegisteredCars;
+        private Label label1;
+        private Label label6;
     }
 }

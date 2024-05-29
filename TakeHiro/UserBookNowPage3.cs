@@ -13,7 +13,6 @@ namespace TakeHiro
     public partial class UserBookNowPage3 : Form
     {
         private DatabaseHelper _dbHelper;
-
         private string _carId;
         private string _driverId;
         public UserBookNowPage3(string carModel, string carNumber, string carId, string driverId, string driverName, string driverTp)
@@ -59,9 +58,7 @@ namespace TakeHiro
             this.Hide();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-        }
+        private void panel1_Paint(object sender, PaintEventArgs e){}
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
@@ -75,15 +72,9 @@ namespace TakeHiro
             Application.Exit();
         }
 
-        private void label10_Click(object sender, EventArgs e)
-        {
+        private void label10_Click(object sender, EventArgs e){}
 
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void label5_Click(object sender, EventArgs e){}
 
         private void btnPlaceOrder_Click(object sender, EventArgs e)
         {
@@ -93,12 +84,12 @@ namespace TakeHiro
             }
             else
             {
-                string customerName = "3"; // Hardcoded customer name or ID?
+                string customerName = "3"; 
                 string driverID = _driverId;
                 string carID = _carId;
                 string destination = txtDestination.Text;
                 string location = txtLocation.Text;
-                string orderDate = DateTime.Now.ToString("yyyy-MM-dd"); // Correct date format
+                string orderDate = DateTime.Now.ToString("yyyy-MM-dd"); 
 
                 try
                 {

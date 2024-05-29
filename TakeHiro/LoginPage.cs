@@ -2,6 +2,7 @@ namespace TakeHiro
 {
     public partial class LoginPage : Form
     {
+        
         private DatabaseHelper _dbHelper;
         private const string AdminUsername = "admin";
         private const string AdminPassword = "admin123";
@@ -11,30 +12,15 @@ namespace TakeHiro
             _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
+        private void label1_Click(object sender, EventArgs e){}
 
-        }
+        private void label1_Click_1(object sender, EventArgs e){}
 
-        private void label1_Click_1(object sender, EventArgs e)
-        {
+        private void textBox1_TextChanged(object sender, EventArgs e){}
 
-        }
+        private void LoginPage_Load(object sender, EventArgs e){}
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LoginPage_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPwd_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        private void txtPwd_TextChanged(object sender, EventArgs e){}
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
@@ -45,7 +31,6 @@ namespace TakeHiro
             {
                 MessageBox.Show("Please enter both username and password.", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-
             }
             if (username == AdminUsername && password == AdminPassword)
             {
@@ -67,7 +52,6 @@ namespace TakeHiro
                     MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
         }
 
         private void txtbtnSignUp_Click(object sender, EventArgs e)

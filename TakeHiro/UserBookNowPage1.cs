@@ -16,6 +16,7 @@ namespace TakeHiro
         public UserBookNowPage1()
         {
             InitializeComponent();
+
             _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
 
             LoadDriverData();
@@ -58,7 +59,6 @@ namespace TakeHiro
                 MessageBox.Show("Please select driver before proceeding.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
             UserBookNowPage2 nextForm = new UserBookNowPage2(driverID, drivername, drivernumber);
             nextForm.Show();
             this.Hide();
@@ -79,15 +79,9 @@ namespace TakeHiro
 
         private void UserBookNowPage1_Load(object sender, EventArgs e){}
 
-        private void lblDriversCount_Click(object sender, EventArgs e)
-        {
+        private void lblDriversCount_Click(object sender, EventArgs e){}
 
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void label4_Click(object sender, EventArgs e){}
 
         private void btnAvailableCar_Click(object sender, EventArgs e)
         {
@@ -115,9 +109,6 @@ namespace TakeHiro
             this.Hide();
         }
 
-        private void btnSubDriver_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void btnSubDriver_Click(object sender, EventArgs e){}
     }
 }

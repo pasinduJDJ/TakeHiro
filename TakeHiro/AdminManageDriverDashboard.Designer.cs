@@ -42,6 +42,7 @@
             tblAllDrivers = new DataGridView();
             label7 = new Label();
             panel3 = new Panel();
+            lblDriverID = new Label();
             btnAddNewDriver = new Button();
             btnSubmitChnages = new Button();
             btnRemoveDriver = new Button();
@@ -58,6 +59,7 @@
             panel7 = new Panel();
             lblAvgDriver = new Label();
             label18 = new Label();
+            btnClear = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -254,6 +256,8 @@
             // panel3
             // 
             panel3.BackColor = Color.White;
+            panel3.Controls.Add(btnClear);
+            panel3.Controls.Add(lblDriverID);
             panel3.Controls.Add(btnAddNewDriver);
             panel3.Controls.Add(btnSubmitChnages);
             panel3.Controls.Add(btnRemoveDriver);
@@ -268,6 +272,15 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(728, 338);
             panel3.TabIndex = 15;
+            // 
+            // lblDriverID
+            // 
+            lblDriverID.AutoSize = true;
+            lblDriverID.Location = new Point(212, 64);
+            lblDriverID.Name = "lblDriverID";
+            lblDriverID.Size = new Size(37, 23);
+            lblDriverID.TabIndex = 31;
+            lblDriverID.Text = "000";
             // 
             // btnAddNewDriver
             // 
@@ -434,6 +447,19 @@
             label18.TabIndex = 0;
             label18.Text = "Availabel Drivers";
             // 
+            // btnClear
+            // 
+            btnClear.BackColor = Color.FromArgb(42, 46, 52);
+            btnClear.FlatStyle = FlatStyle.Flat;
+            btnClear.ForeColor = Color.White;
+            btnClear.Location = new Point(398, 144);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(302, 40);
+            btnClear.TabIndex = 32;
+            btnClear.Text = "Clear Text Box";
+            btnClear.UseVisualStyleBackColor = false;
+            btnClear.Click += btnClear_Click;
+            // 
             // AdminManageDriverDashboard
             // 
             AutoScaleDimensions = new SizeF(9F, 23F);
@@ -498,5 +524,7 @@
         private Button btnAddNewDriver;
         private Button btnSubmitChnages;
         private Button btnRemoveDriver;
+        private Label lblDriverID;
+        private Button btnClear;
     }
 }
