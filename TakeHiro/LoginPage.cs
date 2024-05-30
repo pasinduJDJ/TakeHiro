@@ -2,13 +2,18 @@ namespace TakeHiro
 {
     public partial class LoginPage : Form
     {
-        
-        private DatabaseHelper _dbHelper;
+        // DatabaseHelper object to interact with the database.
+        private readonly DatabaseHelper _dbHelper;
+
         private const string AdminUsername = "admin";
         private const string AdminPassword = "admin123";
+
+        // Constructor for LoginPage class.
         public LoginPage()
         {
             InitializeComponent();
+
+            // Initializing DatabaseHelper with connection string.
             _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
         }
 
@@ -24,14 +29,17 @@ namespace TakeHiro
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
+            // Retrieve username and password from text boxes.
             string username = txtName.Text.Trim();
             string password = txtPwd.Text.Trim();
 
+            // Check if both username and password are entered.
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
                 MessageBox.Show("Please enter both username and password.", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            // Check if admin credentials are entered.
             if (username == AdminUsername && password == AdminPassword)
             {
                 AdminHomeDashboard adminDashboard = new AdminHomeDashboard();
@@ -40,6 +48,7 @@ namespace TakeHiro
             }
             else
             {
+                // Validate customer login if not admin.
                 int? customerId = _dbHelper.ValidateCustomerLogin(username, password);
                 if (customerId.HasValue)
                 {

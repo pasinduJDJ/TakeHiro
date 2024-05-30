@@ -14,15 +14,21 @@ namespace TakeHiro
 {
     public partial class RegisterPage : Form
     {
-        private DatabaseHelper _dbHelper;
+        // DatabaseHelper object to interact with the database.
+        private readonly DatabaseHelper _dbHelper;
+
+        // Constructor for RegisterPage class.
         public RegisterPage()
         {
             InitializeComponent();
+
+            // Initializing DatabaseHelper with connection string.
             _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
         }
 
         private void btnSignUP_Click(object sender, EventArgs e)
         {
+            // Check if all required fields are filled.
             if (txtFullName.Text == "" || txtConatact.Text == "" || txtLocation.Text == "" || txtUser.Text == "" || txtPwd.Text == "")
             {
                 MessageBox.Show("Please fil all blank fields", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);

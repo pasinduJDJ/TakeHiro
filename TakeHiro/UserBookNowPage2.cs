@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.DirectoryServices.ActiveDirectory;
 using System.Drawing;
 using System.Linq;
 using System.Security.RightsManagement;
@@ -13,21 +14,19 @@ namespace TakeHiro
 {
     public partial class UserBookNowPage2 : Form
     {
-        private DatabaseHelper _dbHelper;
-        private string _driverId;
+        private readonly DatabaseHelper _dbHelper;
+        private readonly string _driverId;
         public UserBookNowPage2(string driverID, string driverName, string drivernumber)
         {
             InitializeComponent();
 
             _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
-
             _driverId = driverID;
 
             lblDriverTp.Text = drivernumber;
             lblDriverName.Text = driverName;
 
-            tblAllDrivers.CellClick += new DataGridViewCellEventHandler(dgvCars_CellClick);
-            btnSubCar.Click += new EventHandler(btnPassData_Click);
+            InitializeEventHandlers();
 
             LoadCarData();
             DisplayAvailableCarCount();
@@ -59,6 +58,11 @@ namespace TakeHiro
                 txtPlateNumber.Text = row.Cells["PlateNumber"].Value.ToString();
                 lblNewCarId.Text = row.Cells["CarID"].Value.ToString();
             }
+        }
+        private void InitializeEventHandlers()
+        {
+            tblAllDrivers.CellClick += dgvCars_CellClick;
+            btnSubCar.Click += btnPassData_Click;
         }
         private void DisplayAvailableCarCount()
         {

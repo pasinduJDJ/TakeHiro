@@ -19,11 +19,14 @@ namespace TakeHiro
 
             _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
 
+            InitializeComponents();
+        }
+
+        private void InitializeComponents()
+        {
             LoadDriverData();
             DisplayAvailableDriverCount();
-
-            tblAllDrivers.CellClick += new DataGridViewCellEventHandler(dgvCars_CellClick);
-            btnSubDriver.Click += new EventHandler(btnPassData_Click);
+            InitializeEventHandlers();
         }
 
         private void dgvCars_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -47,6 +50,11 @@ namespace TakeHiro
             {
                 MessageBox.Show($"An error occurred while calculating available drivers: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private void InitializeEventHandlers()
+        {
+            tblAllDrivers.CellClick += dgvCars_CellClick;
+            btnSubDriver.Click += btnPassData_Click;
         }
         private void btnPassData_Click(object sender, EventArgs e)
         {

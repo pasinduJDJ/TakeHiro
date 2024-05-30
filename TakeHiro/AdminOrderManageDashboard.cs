@@ -20,59 +20,48 @@ namespace TakeHiro
 
             _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
 
-            cmdDriverAva.Items.Add("True");
-            cmdDriverAva.Items.Add("False");
+            InitializeComponents();
+        }
+
+        private void InitializeComponents()
+        {
+            cmdDriverAva.Items.AddRange(new[] { "True", "False" });
             cmdDriverAva.SelectedIndex = 0;
-            
-            cmdCarAva.Items.Add("True");
-            cmdCarAva.Items.Add("False");
+
+            cmdCarAva.Items.AddRange(new[] { "True", "False" });
             cmdCarAva.SelectedIndex = 0;
 
+            tblOrder.CellClick += tblOrders_CellClick;
+
             LoadOrderData();
-            DisplayCarCount();
-            DisplayDriverCount();
-            DisplayOrderCount();
+            DisplayCounts();
         }
-        private void DisplayCarCount()
+
+        private void tblOrders_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = tblOrder.Rows[e.RowIndex];
+                txtCarID.Text = row.Cells["CarID"].Value.ToString();
+                txtDriverID.Text = row.Cells["DriverID"].Value.ToString();
+            }
+        }
+        private void DisplayCounts()
         {
             try
             {
-                int availableCarCount = _dbHelper.GetAvailabelCarCount();
-                lblAvailabelCars.Text = $"{availableCarCount}";
-                int allCarCount = _dbHelper.GetCountAllCars();
-                lblRegisteredCars.Text = $"{allCarCount}";
+                lblAvailabelCars.Text = $"{_dbHelper.GetAvailabelCarCount()}";
+                lblRegisteredCars.Text = $"{_dbHelper.GetCountAllCars()}";
+                lblAvailabelDrivers.Text = $"{_dbHelper.GetAvailableDriverCount()}";
+                lblRegisteredDrivers.Text = $"{_dbHelper.GetCountAllDrivers()}";
+                lblOrderCount.Text = $"{_dbHelper.GetCountOrders()}";
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred while calculating available Cars: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"An error occurred while calculating counts: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void DisplayDriverCount()
-        {
-            try
-            {
-                int availableDriverCount = _dbHelper.GetAvailableDriverCount();
-                lblAvailabelDrivers.Text = $"{availableDriverCount}";
-                int allDriverCount = _dbHelper.GetCountAllDrivers();
-                lblRegisteredDrivers.Text = $"{allDriverCount}";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred while calculating available drivers: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        private void DisplayOrderCount()
-        {
-            try
-            {
-                int orderCount = _dbHelper.GetCountOrders();
-                lblOrderCount.Text = $"{orderCount}";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred while calculating available drivers: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        
         private void LoadOrderData()
         {
             try

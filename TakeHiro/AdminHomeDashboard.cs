@@ -12,20 +12,31 @@ namespace TakeHiro
 {
     public partial class AdminHomeDashboard : Form
     {
-        private DatabaseHelper _dbHelper;
+        private readonly DatabaseHelper _dbHelper;
         public AdminHomeDashboard()
         {
             InitializeComponent();
 
             _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
 
-            LoadCarData();
-            LoadDriverData();
-            LoadOrderData();
+            LoadDataAndDisplayCounts();
+        }
 
-            DisplayCarCount();
-            DisplayDriverCount();
-            DisplayOrderCount();
+        private void LoadDataAndDisplayCounts()
+        {
+            try
+            {
+                LoadCarData();
+                LoadDriverData();
+                LoadOrderData();
+                DisplayCarCount();
+                DisplayDriverCount();
+                DisplayOrderCount();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void LoadCarData()

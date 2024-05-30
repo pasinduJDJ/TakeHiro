@@ -22,17 +22,28 @@ namespace TakeHiro
             _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
 
 
-            cmbAvailability.Items.Add("True");
-            cmbAvailability.Items.Add("False");
-            cmbAvailability.SelectedIndex = 0;
-
-            tblAllDrivers.CellClick += new DataGridViewCellEventHandler(tblAllDrivers_CellClick);
-            btnSubmitChnages.Click += new EventHandler(btnSubmitChanges_Click);
-            btnRemoveCar.Click += new EventHandler(btnDeleteCar_Click);
-
+            InitializeComponents();
             LoadCarData();
             DisplayCarCount();
         }
+        private void InitializeComponents()
+        {
+            cmbAvailability.Items.AddRange(new object[] { true, false });
+            cmbAvailability.SelectedIndex = 0;
+
+            tblAllDrivers.CellClick += tblAllDrivers_CellClick;
+            btnSubmitChnages.Click += btnSubmitChanges_Click;
+            btnRemoveCar.Click += btnDeleteCar_Click;
+        }
+
+        private void ClearInputs()
+        {
+            txtCarModel.Clear();
+            txtCarNumber.Clear();
+            cmbAvailability.SelectedIndex = 0;
+            lblCarID.Text = "000";
+        }
+
 
         private void LoadCarData()
         {
@@ -64,10 +75,7 @@ namespace TakeHiro
                 {
                     _dbHelper.SaveCar(model, plateNumber, availability);
                     MessageBox.Show("Car Added successfully.");
-                    txtCarModel.Clear();
-                    txtCarNumber.Clear();
-                    cmbAvailability.SelectedIndex = 0;
-                    lblCarID.Text = "000";
+                    ClearInputs();
                     LoadCarData();
                     DisplayCarCount();
                 }
@@ -105,10 +113,7 @@ namespace TakeHiro
             {
                 _dbHelper.UpdateCar(carId, model, plateNumber, availability);
                 MessageBox.Show("Car details updated successfully.");
-                txtCarModel.Clear();
-                txtCarNumber.Clear();
-                cmbAvailability.SelectedIndex = 0;
-                lblCarID.Text = "000";
+                ClearInputs();
                 LoadCarData();
                 DisplayCarCount();
             }
@@ -132,10 +137,7 @@ namespace TakeHiro
             {
                 _dbHelper.DeleteCar(carId);
                 MessageBox.Show("Car deleted successfully.");
-                txtCarModel.Clear();
-                txtCarNumber.Clear();
-                cmbAvailability.SelectedIndex = 0;
-                lblCarID.Text = "000";
+                ClearInputs();
                 LoadCarData();
                 DisplayCarCount();
             }
@@ -202,10 +204,7 @@ namespace TakeHiro
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            txtCarModel.Clear();
-            txtCarNumber.Clear();
-            cmbAvailability.SelectedIndex = 0;
-            lblCarID.Text = "000";
+            ClearInputs();
         }
     }
 }

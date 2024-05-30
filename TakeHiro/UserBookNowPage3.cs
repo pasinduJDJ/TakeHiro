@@ -12,10 +12,10 @@ namespace TakeHiro
 {
     public partial class UserBookNowPage3 : Form
     {
-        private DatabaseHelper _dbHelper;
+        private readonly DatabaseHelper _dbHelper;
 
-        private string _carId;
-        private string _driverId;
+        private readonly string _carId;
+        private readonly string _driverId;
         public UserBookNowPage3(string carModel, string carNumber, string carId, string driverId, string driverName, string driverTp)
         {
             InitializeComponent();
@@ -25,10 +25,7 @@ namespace TakeHiro
             _carId = carId;
             _driverId = driverId;
 
-            lblCarModel.Text = carModel;
-            lblCarNumber.Text = carNumber;
-            lblDriverName.Text = driverName;
-            lblContactNumber.Text = driverTp;
+            SetDataInLabel(carModel, carNumber, driverName, driverTp);
         }
         public string CarId
         {
@@ -37,6 +34,13 @@ namespace TakeHiro
         public string DriverId
         {
             get { return _driverId; }
+        }
+        private void SetDataInLabel(string carModel, string carNumber, string driverName, string driverTp)
+        {
+            lblCarModel.Text = carModel;
+            lblCarNumber.Text = carNumber;
+            lblDriverName.Text = driverName;
+            lblContactNumber.Text = driverTp;
         }
         private void btnBookNow_Click(object sender, EventArgs e)
         {

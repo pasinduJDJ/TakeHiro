@@ -19,16 +19,19 @@ namespace TakeHiro
 
             _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
 
-            cmbAvailability.Items.Add("True");
-            cmbAvailability.Items.Add("False");
-            cmbAvailability.SelectedIndex = 0;
-
-            tblAllDrivers.CellClick += new DataGridViewCellEventHandler(tblAllDrivers_CellClick);
-            btnSubmitChnages.Click += new EventHandler(btnSubmitChanges_Click);
-            btnRemoveDriver.Click += new EventHandler(btnDeleteCar_Click);
-
+            InitializeComponents();
             LoadDriverData();
             DisplayDriverCount();
+        }
+
+        private void InitializeComponents()
+        {
+            cmbAvailability.Items.AddRange(new object[] { true, false });
+            cmbAvailability.SelectedIndex = 0;
+
+            tblAllDrivers.CellClick += tblAllDrivers_CellClick;
+            btnSubmitChnages.Click += btnSubmitChanges_Click;
+            btnRemoveDriver.Click += btnDeleteDriver_Click;
         }
 
         private void LoadDriverData()
@@ -60,10 +63,7 @@ namespace TakeHiro
                 {
                     _dbHelper.SaveDriver(name, contactNumber, availability);
                     MessageBox.Show("Car Added successfully.");
-                    txtDriverName.Clear();
-                    txtContactNumber.Clear();
-                    cmbAvailability.SelectedIndex = 0;
-                    lblDriverID.Text = "000";
+                    ClearInputs();
                     LoadDriverData();
                     DisplayDriverCount();
                 }
@@ -116,10 +116,7 @@ namespace TakeHiro
             {
                 _dbHelper.UpdateDriver(driverId, name, contactNumber, availability);
                 MessageBox.Show("Car details updated successfully.");
-                txtDriverName.Clear();
-                txtContactNumber.Clear();
-                cmbAvailability.SelectedIndex = 0;
-                lblDriverID.Text = "000";
+                ClearInputs();
                 LoadDriverData();
                 DisplayDriverCount();
             }
@@ -128,11 +125,11 @@ namespace TakeHiro
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void btnDeleteCar_Click(object sender, EventArgs e)
+        private void btnDeleteDriver_Click(object sender, EventArgs e)
         {
             if (lblDriverID.Text == "")
             {
-                MessageBox.Show("Please select a car to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please select a driver to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -142,10 +139,7 @@ namespace TakeHiro
             {
                 _dbHelper.DeleteDriver(driverId);
                 MessageBox.Show("Car deleted successfully.");
-                txtDriverName.Clear();
-                txtContactNumber.Clear();
-                cmbAvailability.SelectedIndex = 0;
-                lblDriverID.Text = "000";
+                ClearInputs();
                 LoadDriverData();
                 DisplayDriverCount();
             }
@@ -193,6 +187,10 @@ namespace TakeHiro
         private void btnSubmitChnages_Click(object sender, EventArgs e){}
 
         private void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearInputs();
+        }
+        private void ClearInputs()
         {
             txtDriverName.Clear();
             txtContactNumber.Clear();
