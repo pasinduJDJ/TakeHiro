@@ -22,6 +22,7 @@ namespace TakeHiro
             _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
 
             _driverId = driverID;
+
             lblDriverTp.Text = drivernumber;
             lblDriverName.Text = driverName;
 

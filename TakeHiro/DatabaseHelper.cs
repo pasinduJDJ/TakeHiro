@@ -277,7 +277,7 @@ namespace TakeHiro
                 cmd.ExecuteNonQuery();
             }
         }
-        public void UpdateCarAvailability(int carId, bool availability)
+        public void UpdateCar(int carId, bool availability)
         {
             using (MySqlConnection conn = GetConnection())
             {
@@ -305,7 +305,7 @@ namespace TakeHiro
                 cmd.ExecuteNonQuery();
             }
         }
-        public void UpdateDriverAvailability(int driverId, bool availability)
+        public void UpdateDriver(int driverId, bool availability)
         {
             using (MySqlConnection conn = GetConnection())
             {

@@ -136,7 +136,7 @@ namespace TakeHiro
 
             try
             {
-                _dbHelper.UpdateDriverAvailability(driverID, availability);
+                _dbHelper.UpdateDriver(driverID, availability);
                 MessageBox.Show("Driver Availability updated successfully.");
                 txtDriverID.Clear();
                 cmdDriverAva.SelectedIndex = 0;
@@ -159,7 +159,7 @@ namespace TakeHiro
 
             try
             {
-                _dbHelper.UpdateDriverAvailability(carID, availability);
+                _dbHelper.UpdateCar(carID, availability);
                 MessageBox.Show("Driver Availability updated successfully.");
                 txtCarID.Clear();
                 cmdCarAva.SelectedIndex = 0;
