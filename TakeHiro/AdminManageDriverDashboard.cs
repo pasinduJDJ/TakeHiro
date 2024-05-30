@@ -13,11 +13,13 @@ namespace TakeHiro
 {
     public partial class AdminManageDriverDashboard : Form
     {
+        // DatabaseHelper object to interact with the database.
         private DatabaseHelper _dbHelper;
+
         public AdminManageDriverDashboard()
         {
             InitializeComponent();
-
+            // Initializing DatabaseHelper with connection string.
             _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
 
             InitializeComponents();
@@ -27,9 +29,10 @@ namespace TakeHiro
 
         private void InitializeComponents()
         {
+            // Adding items to availability combo box and setting default selection.
             cmbAvailability.Items.AddRange(new object[] { true, false });
             cmbAvailability.SelectedIndex = 0;
-
+            // Setting up event handlers for data grid cell click and button clicks.
             tblAllDrivers.CellClick += tblAllDrivers_CellClick;
             btnSubmitChnages.Click += btnSubmitChanges_Click;
             btnRemoveDriver.Click += btnDeleteDriver_Click;
@@ -39,6 +42,7 @@ namespace TakeHiro
         {
             try
             {
+                // Retrieve all driver data from the database and bind to the data grid.
                 DataTable driverData = _dbHelper.GetAllDrivers();
                 tblAllDrivers.DataSource = driverData;
             }
@@ -48,6 +52,7 @@ namespace TakeHiro
             }
         }
 
+        // Event handler for adding a new driver.
         private void btnAddNewDriver_Click(object sender, EventArgs e)
         {
             if (txtContactNumber.Text == "" || txtDriverName.Text == "")
@@ -59,20 +64,21 @@ namespace TakeHiro
                 string name = txtDriverName.Text;
                 string contactNumber = txtContactNumber.Text;
 
-                // Regular expression for validating mobile number (e.g., 10-digit number starting with a digit 7-9)
+                // Regular expression for validating mobile number 
                 string pattern = @"^[7-9]\d{9}$";
                 bool isValidMobile = Regex.IsMatch(contactNumber, pattern);
 
                 if (!isValidMobile)
                 {
                     MessageBox.Show("Please enter a valid mobile number", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return; // Exit the method if the mobile number is invalid
+                    return; 
                 }
 
                 bool availability = cmbAvailability.SelectedItem.ToString() == "True";
 
                 try
                 {
+                    // Save the new driver to the database.
                     _dbHelper.SaveDriver(name, contactNumber, availability);
                     MessageBox.Show("Car Added successfully.");
                     ClearInputs();
@@ -85,11 +91,12 @@ namespace TakeHiro
                 }
             }
         }
-
+        // Method to display driver count statistics.
         private void DisplayDriverCount()
         {
             try
             {
+                // Retrieve and display the count of available and all drivers.
                 int availableDriverCount = _dbHelper.GetAvailableDriverCount();
                 lblAvgDriver.Text = $"{availableDriverCount}";
                 int allDriverCount = _dbHelper.GetCountAllDrivers();
@@ -100,10 +107,12 @@ namespace TakeHiro
                 MessageBox.Show($"An error occurred while calculating available drivers: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        // Event handler for data grid cell click.
         private void tblAllDrivers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
+                // Load the selected driver's details into the input fields.
                 DataGridViewRow row = tblAllDrivers.Rows[e.RowIndex];
                 lblDriverID.Text = row.Cells["DriverID"].Value.ToString();
                 txtDriverName.Text = row.Cells["Name"].Value.ToString();
@@ -111,6 +120,7 @@ namespace TakeHiro
                 cmbAvailability.SelectedItem = row.Cells["Availability"].Value.ToString() == "True" ? "True" : "False";
             }
         }
+        // Event handler for submitting changes to a driver.
         private void btnSubmitChanges_Click(object sender, EventArgs e)
         {
             if (lblDriverID.Text == "" || txtDriverName.Text == "" || txtContactNumber.Text == "")
@@ -126,6 +136,7 @@ namespace TakeHiro
 
             try
             {
+                // Update the driver details in the database.
                 _dbHelper.UpdateDriver(driverId, name, contactNumber, availability);
                 MessageBox.Show("Car details updated successfully.");
                 ClearInputs();
@@ -137,6 +148,7 @@ namespace TakeHiro
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        // Event handler for deleting a driver.
         private void btnDeleteDriver_Click(object sender, EventArgs e)
         {
             if (lblDriverID.Text == "")

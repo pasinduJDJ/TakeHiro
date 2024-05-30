@@ -13,11 +13,12 @@ namespace TakeHiro
 {
     public partial class AdminOrderManageDashboard : Form
     {
+        // DatabaseHelper object to interact with the database.
         private DatabaseHelper _dbHelper;
         public AdminOrderManageDashboard()
         {
             InitializeComponent();
-
+            // Initializing DatabaseHelper with connection string.
             _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
 
             InitializeComponents();
@@ -25,18 +26,20 @@ namespace TakeHiro
 
         private void InitializeComponents()
         {
+            // Adding items to combo boxes and setting default selection.
             cmdDriverAva.Items.AddRange(new[] { "True", "False" });
             cmdDriverAva.SelectedIndex = 0;
 
             cmdCarAva.Items.AddRange(new[] { "True", "False" });
             cmdCarAva.SelectedIndex = 0;
 
+            // Setting up event handler for data grid cell click.
             tblOrder.CellClick += tblOrders_CellClick;
-
+            // Loading order data and displaying counts.
             LoadOrderData();
             DisplayCounts();
         }
-
+        // Event handler for data grid cell click.
         private void tblOrders_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -46,10 +49,12 @@ namespace TakeHiro
                 txtDriverID.Text = row.Cells["DriverID"].Value.ToString();
             }
         }
+        // Method to display counts of cars, drivers, and orders.
         private void DisplayCounts()
         {
             try
             {
+                // Retrieve and display counts.
                 lblAvailabelCars.Text = $"{_dbHelper.GetAvailabelCarCount()}";
                 lblRegisteredCars.Text = $"{_dbHelper.GetCountAllCars()}";
                 lblAvailabelDrivers.Text = $"{_dbHelper.GetAvailableDriverCount()}";
@@ -61,11 +66,12 @@ namespace TakeHiro
                 MessageBox.Show($"An error occurred while calculating counts: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+        // Method to load order data from the database.
         private void LoadOrderData()
         {
             try
             {
+                // Retrieve all order data from the database and bind to the data grid.
                 DataTable orderdata = _dbHelper.GetAllOrders();
                 tblOrder.DataSource = orderdata;
             }
@@ -112,8 +118,10 @@ namespace TakeHiro
             this.Hide();
         }
 
+        // Event handler for updating driver availability.
         private void btnDriverAva_Click(object sender, EventArgs e)
         {
+            // Validation and updating driver availability.
             if (txtDriverID.Text == "")
             {
                 MessageBox.Show("Please fill all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -135,9 +143,10 @@ namespace TakeHiro
                 MessageBox.Show($"An error occurred: {ex.Message}");
             }
         }
-
+        // Event handler for updating car availability.
         private void btnCarAva_Click(object sender, EventArgs e)
         {
+            // Validation and updating car availability.
             if (txtCarID.Text == "")
             {
                 MessageBox.Show("Please fill all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

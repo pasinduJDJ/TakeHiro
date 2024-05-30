@@ -15,13 +15,14 @@ namespace TakeHiro
 {
     public partial class AdminManageCarDashboard : Form
     {
+        // DatabaseHelper object to interact with the database.
         private DatabaseHelper _dbHelper;
         public AdminManageCarDashboard()
         {
             InitializeComponent();
 
+            // Initializing DatabaseHelper with connection string.
             _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
-
 
             InitializeComponents();
             LoadCarData();
@@ -29,27 +30,21 @@ namespace TakeHiro
         }
         private void InitializeComponents()
         {
+            // Adding items to availability combo box and setting default selection.
             cmbAvailability.Items.AddRange(new object[] { true, false });
             cmbAvailability.SelectedIndex = 0;
-
+            // Setting up event handlers for data grid cell click and button clicks.
             tblAllDrivers.CellClick += tblAllDrivers_CellClick;
             btnSubmitChnages.Click += btnSubmitChanges_Click;
             btnRemoveCar.Click += btnDeleteCar_Click;
         }
 
-        private void ClearInputs()
-        {
-            txtCarModel.Clear();
-            txtCarNumber.Clear();
-            cmbAvailability.SelectedIndex = 0;
-            lblCarID.Text = "000";
-        }
-
-
+        // Method to load car data from the database.
         private void LoadCarData()
         {
             try
             {
+                // Retrieve all car data from the database and bind to the data grid.
                 DataTable carData = _dbHelper.GetAllCars();
                 tblAllDrivers.DataSource = carData;
             }
@@ -59,7 +54,7 @@ namespace TakeHiro
             }
         }
 
-
+        // Event handler for adding a new car.
         private void btnAddNewCar_Click(object sender, EventArgs e)
         {
             if (txtCarModel.Text == "" || txtCarNumber.Text == "")
@@ -97,6 +92,7 @@ namespace TakeHiro
                 }
             }
         }
+        // Event handler for data grid cell click.
         private void tblAllDrivers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -108,6 +104,7 @@ namespace TakeHiro
                 cmbAvailability.SelectedItem = row.Cells["Availability"].Value.ToString() == "True" ? "True" : "False";
             }
         }
+        // Event handler for submitting changes to a car.
         private void btnSubmitChanges_Click(object sender, EventArgs e)
         {
             if (lblCarID.Text == "" || txtCarModel.Text == "" || txtCarNumber.Text == "")
@@ -123,6 +120,7 @@ namespace TakeHiro
 
             try
             {
+                // Update the car details in the database.
                 _dbHelper.UpdateCar(carId, model, plateNumber, availability);
                 MessageBox.Show("Car details updated successfully.");
                 ClearInputs();
@@ -147,6 +145,7 @@ namespace TakeHiro
 
             try
             {
+                // Delete the car from the database.
                 _dbHelper.DeleteCar(carId);
                 MessageBox.Show("Car deleted successfully.");
                 ClearInputs();
@@ -159,6 +158,7 @@ namespace TakeHiro
             }
         }
 
+        // Retrieve and display the count of available and all cars.
         private void DisplayCarCount()
         {
             try
@@ -217,6 +217,14 @@ namespace TakeHiro
         private void btnClear_Click(object sender, EventArgs e)
         {
             ClearInputs();
+        }
+        // Method to clear input fields.
+        private void ClearInputs()
+        {
+            txtCarModel.Clear();
+            txtCarNumber.Clear();
+            cmbAvailability.SelectedIndex = 0;
+            lblCarID.Text = "000";
         }
     }
 }

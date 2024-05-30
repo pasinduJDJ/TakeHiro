@@ -60,8 +60,8 @@
             lblAvaCars = new Label();
             label18 = new Label();
             panel2 = new Panel();
-            mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
             label3 = new Label();
+            mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
             panel6.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tblAllDrivers).BeginInit();
@@ -464,13 +464,6 @@
             panel2.Size = new Size(1090, 64);
             panel2.TabIndex = 19;
             // 
-            // mySqlCommand1
-            // 
-            mySqlCommand1.CacheAge = 0;
-            mySqlCommand1.Connection = null;
-            mySqlCommand1.EnableCaching = false;
-            mySqlCommand1.Transaction = null;
-            // 
             // label3
             // 
             label3.AutoSize = true;
@@ -480,6 +473,13 @@
             label3.Size = new Size(236, 32);
             label3.TabIndex = 8;
             label3.Text = "Manage Car Details";
+            // 
+            // mySqlCommand1
+            // 
+            mySqlCommand1.CacheAge = 0;
+            mySqlCommand1.Connection = null;
+            mySqlCommand1.EnableCaching = false;
+            mySqlCommand1.Transaction = null;
             // 
             // AdminManageCarDashboard
             // 

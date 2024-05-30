@@ -12,16 +12,21 @@ namespace TakeHiro
 {
     public partial class AdminHomeDashboard : Form
     {
+        // DatabaseHelper object to interact with the database.
         private readonly DatabaseHelper _dbHelper;
+
+        // Constructor for AdminHomeDashboard class.
         public AdminHomeDashboard()
         {
             InitializeComponent();
 
+            // Initializing DatabaseHelper with connection string.
             _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
 
             LoadDataAndDisplayCounts();
         }
 
+        // Method to load data and display counts of cars, drivers, and orders.
         private void LoadDataAndDisplayCounts()
         {
             try
@@ -43,6 +48,7 @@ namespace TakeHiro
         {
             try
             {
+                // Retrieve all car data from the database and bind to the data grid.
                 DataTable carData = _dbHelper.GetAllCars();
                 tblCompleteOrder.DataSource = carData;
             }
@@ -56,6 +62,7 @@ namespace TakeHiro
         {
             try
             {
+                // Retrieve all driver data from the database and bind to the data grid.
                 DataTable driverData = _dbHelper.GetAllDrivers();
                 tblAllDrivers.DataSource = driverData;
             }
@@ -68,6 +75,7 @@ namespace TakeHiro
         {
             try
             {
+                // Retrieve all order data from the database and bind to the data grid.
                 DataTable orderdata = _dbHelper.GetAllOrders();
                 tblOrder.DataSource = orderdata;
             }
@@ -76,6 +84,7 @@ namespace TakeHiro
                 MessageBox.Show($"An error occurred while loading Order data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        // Method to display car count statistics.
         private void DisplayCarCount()
         {
             try
@@ -90,6 +99,7 @@ namespace TakeHiro
                 MessageBox.Show($"An error occurred while calculating available Cars: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        // Method to display driver count statistics.
         private void DisplayDriverCount()
         {
             try
@@ -104,6 +114,7 @@ namespace TakeHiro
                 MessageBox.Show($"An error occurred while calculating available drivers: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        // Method to display order count statistics.
         private void DisplayOrderCount()
         {
             try
