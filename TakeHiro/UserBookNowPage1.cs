@@ -12,11 +12,15 @@ namespace TakeHiro
 {
     public partial class UserBookNowPage1 : Form
     {
+        // DatabaseHelper object to interact with the database.
         private DatabaseHelper _dbHelper;
+
+        // Constructor for UserBookNowPage1 class.
         public UserBookNowPage1()
         {
             InitializeComponent();
 
+            // Initializing DatabaseHelper with connection string.
             _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
 
             InitializeComponents();
@@ -29,6 +33,7 @@ namespace TakeHiro
             InitializeEventHandlers();
         }
 
+        // Event handler for cell click in the DataGridView.
         private void dgvCars_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -39,6 +44,8 @@ namespace TakeHiro
                 txtContactNumber.Text = row.Cells["ContactNumber"].Value.ToString();
             }
         }
+
+        // Method to display the count of available drivers.
         private void DisplayAvailableDriverCount()
         {
             try
@@ -56,12 +63,15 @@ namespace TakeHiro
             tblAllDrivers.CellClick += dgvCars_CellClick;
             btnSubDriver.Click += btnPassData_Click;
         }
+
+        // Event handler for passing selected driver data to the next form.
         private void btnPassData_Click(object sender, EventArgs e)
         {
             string driverID = txtDriverID.Text;
             string drivername = txtDriverName.Text;
             string drivernumber = txtContactNumber.Text;
 
+            // Check if driver details are selected before proceeding.
             if (string.IsNullOrEmpty(driverID) || string.IsNullOrEmpty(drivername) || string.IsNullOrEmpty(drivernumber))
             {
                 MessageBox.Show("Please select driver before proceeding.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -76,6 +86,7 @@ namespace TakeHiro
         {
             try
             {
+                // Retrieve available driver data from the database and bind it to the DataGridView.
                 DataTable driverData = _dbHelper.GetAvailableDrivers();
                 tblAllDrivers.DataSource = driverData;
             }

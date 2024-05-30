@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -57,6 +58,17 @@ namespace TakeHiro
             {
                 string name = txtDriverName.Text;
                 string contactNumber = txtContactNumber.Text;
+
+                // Regular expression for validating mobile number (e.g., 10-digit number starting with a digit 7-9)
+                string pattern = @"^[7-9]\d{9}$";
+                bool isValidMobile = Regex.IsMatch(contactNumber, pattern);
+
+                if (!isValidMobile)
+                {
+                    MessageBox.Show("Please enter a valid mobile number", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return; // Exit the method if the mobile number is invalid
+                }
+
                 bool availability = cmbAvailability.SelectedItem.ToString() == "True";
 
                 try

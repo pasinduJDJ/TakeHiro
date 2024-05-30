@@ -40,8 +40,8 @@
             panel2 = new Panel();
             pictureBox2 = new PictureBox();
             tblAllDrivers = new DataGridView();
-            label7 = new Label();
             panel3 = new Panel();
+            btnClear = new Button();
             lblDriverID = new Label();
             btnAddNewDriver = new Button();
             btnSubmitChnages = new Button();
@@ -59,7 +59,7 @@
             panel7 = new Panel();
             lblAvgDriver = new Label();
             label18 = new Label();
-            btnClear = new Button();
+            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -216,6 +216,7 @@
             // panel2
             // 
             panel2.BackColor = Color.White;
+            panel2.Controls.Add(label3);
             panel2.Controls.Add(pictureBox2);
             panel2.Location = new Point(278, -1);
             panel2.Name = "panel2";
@@ -236,22 +237,12 @@
             // 
             tblAllDrivers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tblAllDrivers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tblAllDrivers.Location = new Point(353, 122);
+            tblAllDrivers.Location = new Point(333, 97);
             tblAllDrivers.Name = "tblAllDrivers";
             tblAllDrivers.RowHeadersWidth = 51;
             tblAllDrivers.Size = new Size(954, 250);
             tblAllDrivers.StandardTab = true;
             tblAllDrivers.TabIndex = 14;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(353, 82);
-            label7.Name = "label7";
-            label7.Size = new Size(94, 23);
-            label7.TabIndex = 13;
-            label7.Text = "All Drivers";
             // 
             // panel3
             // 
@@ -268,10 +259,23 @@
             panel3.Controls.Add(label5);
             panel3.Controls.Add(label8);
             panel3.Controls.Add(label2);
-            panel3.Location = new Point(353, 404);
+            panel3.Location = new Point(333, 379);
             panel3.Name = "panel3";
             panel3.Size = new Size(728, 338);
             panel3.TabIndex = 15;
+            // 
+            // btnClear
+            // 
+            btnClear.BackColor = Color.FromArgb(42, 46, 52);
+            btnClear.FlatStyle = FlatStyle.Flat;
+            btnClear.ForeColor = Color.White;
+            btnClear.Location = new Point(398, 144);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(302, 40);
+            btnClear.TabIndex = 32;
+            btnClear.Text = "Clear Text Box";
+            btnClear.UseVisualStyleBackColor = false;
+            btnClear.Click += btnClear_Click;
             // 
             // lblDriverID
             // 
@@ -386,7 +390,7 @@
             panel6.BackColor = Color.FromArgb(42, 46, 52);
             panel6.Controls.Add(lblRegDriver);
             panel6.Controls.Add(label14);
-            panel6.Location = new Point(1106, 404);
+            panel6.Location = new Point(1086, 379);
             panel6.Name = "panel6";
             panel6.Size = new Size(201, 87);
             panel6.TabIndex = 16;
@@ -419,7 +423,7 @@
             panel7.BackColor = Color.FromArgb(228, 182, 26);
             panel7.Controls.Add(lblAvgDriver);
             panel7.Controls.Add(label18);
-            panel7.Location = new Point(1106, 517);
+            panel7.Location = new Point(1086, 492);
             panel7.Name = "panel7";
             panel7.Size = new Size(201, 87);
             panel7.TabIndex = 17;
@@ -447,18 +451,15 @@
             label18.TabIndex = 0;
             label18.Text = "Availabel Drivers";
             // 
-            // btnClear
+            // label3
             // 
-            btnClear.BackColor = Color.FromArgb(42, 46, 52);
-            btnClear.FlatStyle = FlatStyle.Flat;
-            btnClear.ForeColor = Color.White;
-            btnClear.Location = new Point(398, 144);
-            btnClear.Name = "btnClear";
-            btnClear.Size = new Size(302, 40);
-            btnClear.TabIndex = 32;
-            btnClear.Text = "Clear Text Box";
-            btnClear.UseVisualStyleBackColor = false;
-            btnClear.Click += btnClear_Click;
+            label3.AutoSize = true;
+            label3.Font = new Font("Nirmala UI", 14F, FontStyle.Bold);
+            label3.Location = new Point(43, 12);
+            label3.Name = "label3";
+            label3.Size = new Size(269, 32);
+            label3.TabIndex = 9;
+            label3.Text = "Manage Driver Details";
             // 
             // AdminManageDriverDashboard
             // 
@@ -469,7 +470,6 @@
             Controls.Add(panel7);
             Controls.Add(panel3);
             Controls.Add(tblAllDrivers);
-            Controls.Add(label7);
             Controls.Add(panel1);
             Controls.Add(panel2);
             Font = new Font("Nirmala UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -490,7 +490,6 @@
             panel7.ResumeLayout(false);
             panel7.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -506,7 +505,6 @@
         private Panel panel2;
         private PictureBox pictureBox2;
         private DataGridView tblAllDrivers;
-        private Label label7;
         private Panel panel3;
         private Label label2;
         private Panel panel6;
@@ -526,5 +524,6 @@
         private Button btnRemoveDriver;
         private Label lblDriverID;
         private Button btnClear;
+        private Label label3;
     }
 }

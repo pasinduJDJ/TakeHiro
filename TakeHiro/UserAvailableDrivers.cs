@@ -12,12 +12,15 @@ namespace TakeHiro
 {
     public partial class UserAvailableDrivers : Form
     {
-
+        // DatabaseHelper object to interact with the database.
         private DatabaseHelper _dbHelper;
+
+        // Constructor for UserAvailableDrivers class.
         public UserAvailableDrivers()
         {
             InitializeComponent();
 
+            // Initializing DatabaseHelper with connection string
             _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
 
             LoadDriverData();
@@ -27,6 +30,7 @@ namespace TakeHiro
         {
             try
             {
+                // Retrieve available driver data from the database and bind it to the DataGridView.
                 DataTable driverData = _dbHelper.GetAvailableDrivers();
                 tblAllDrivers.DataSource = driverData;
             }
@@ -40,6 +44,7 @@ namespace TakeHiro
         {
             try
             {
+                // Retrieve and display the count of available drivers.
                 int availableDriverCount = _dbHelper.GetAvailableDriverCount();
                 lblDriversCount.Text = $"{availableDriverCount}";
             }

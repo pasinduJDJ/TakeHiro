@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Google.Protobuf.Reflection.SourceCodeInfo.Types;
@@ -69,6 +70,17 @@ namespace TakeHiro
             {
                 string model = txtCarModel.Text;
                 string plateNumber = txtCarNumber.Text;
+
+                // Regular expression for validating vehicle number plates with the format: ABC 1234
+                string pattern = @"^[A-Z]{3} \d{4}$";
+                bool isValidPlateNumber = Regex.IsMatch(plateNumber, pattern);
+
+                if (!isValidPlateNumber)
+                {
+                    MessageBox.Show("Please enter a valid vehicle number plate (format: ABC 1234)", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return; // Exit the method if the vehicle number plate is invalid
+                }
+
                 bool availability = cmbAvailability.SelectedItem.ToString() == "True";
 
                 try

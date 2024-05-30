@@ -36,6 +36,7 @@
             btnSubmitChnages = new Button();
             btnRemoveCar = new Button();
             panel3 = new Panel();
+            btnClear = new Button();
             label1 = new Label();
             lblCarID = new Label();
             txtCarModel = new TextBox();
@@ -46,7 +47,6 @@
             label8 = new Label();
             label2 = new Label();
             tblAllDrivers = new DataGridView();
-            label7 = new Label();
             btnClose = new Button();
             btnLogOut = new Button();
             iconButton2 = new FontAwesome.Sharp.IconButton();
@@ -61,7 +61,7 @@
             label18 = new Label();
             panel2 = new Panel();
             mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
-            btnClear = new Button();
+            label3 = new Label();
             panel6.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tblAllDrivers).BeginInit();
@@ -77,7 +77,7 @@
             panel6.BackColor = Color.FromArgb(42, 46, 52);
             panel6.Controls.Add(lblRegCars);
             panel6.Controls.Add(label14);
-            panel6.Location = new Point(1106, 404);
+            panel6.Location = new Point(1090, 379);
             panel6.Name = "panel6";
             panel6.Size = new Size(201, 87);
             panel6.TabIndex = 23;
@@ -159,11 +159,24 @@
             panel3.Controls.Add(label5);
             panel3.Controls.Add(label8);
             panel3.Controls.Add(label2);
-            panel3.Location = new Point(353, 404);
+            panel3.Location = new Point(337, 379);
             panel3.Name = "panel3";
             panel3.Size = new Size(728, 338);
             panel3.TabIndex = 22;
             panel3.Paint += panel3_Paint;
+            // 
+            // btnClear
+            // 
+            btnClear.BackColor = Color.FromArgb(42, 46, 52);
+            btnClear.FlatStyle = FlatStyle.Flat;
+            btnClear.ForeColor = Color.White;
+            btnClear.Location = new Point(398, 144);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(302, 40);
+            btnClear.TabIndex = 33;
+            btnClear.Text = "Clear Text Box";
+            btnClear.UseVisualStyleBackColor = false;
+            btnClear.Click += btnClear_Click;
             // 
             // label1
             // 
@@ -248,23 +261,13 @@
             // 
             tblAllDrivers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tblAllDrivers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tblAllDrivers.Location = new Point(353, 122);
+            tblAllDrivers.Location = new Point(337, 97);
             tblAllDrivers.Name = "tblAllDrivers";
             tblAllDrivers.RowHeadersWidth = 51;
             tblAllDrivers.Size = new Size(954, 250);
             tblAllDrivers.StandardTab = true;
             tblAllDrivers.TabIndex = 21;
             tblAllDrivers.CellContentClick += tblAllDrivers_CellContentClick;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(353, 82);
-            label7.Name = "label7";
-            label7.Size = new Size(71, 23);
-            label7.TabIndex = 20;
-            label7.Text = "All Cars";
             // 
             // btnClose
             // 
@@ -423,7 +426,7 @@
             panel7.BackColor = Color.FromArgb(228, 182, 26);
             panel7.Controls.Add(lblAvaCars);
             panel7.Controls.Add(label18);
-            panel7.Location = new Point(1106, 517);
+            panel7.Location = new Point(1090, 492);
             panel7.Name = "panel7";
             panel7.Size = new Size(201, 87);
             panel7.TabIndex = 24;
@@ -454,6 +457,7 @@
             // panel2
             // 
             panel2.BackColor = Color.White;
+            panel2.Controls.Add(label3);
             panel2.Controls.Add(pictureBox2);
             panel2.Location = new Point(278, -1);
             panel2.Name = "panel2";
@@ -467,18 +471,15 @@
             mySqlCommand1.EnableCaching = false;
             mySqlCommand1.Transaction = null;
             // 
-            // btnClear
+            // label3
             // 
-            btnClear.BackColor = Color.FromArgb(42, 46, 52);
-            btnClear.FlatStyle = FlatStyle.Flat;
-            btnClear.ForeColor = Color.White;
-            btnClear.Location = new Point(398, 144);
-            btnClear.Name = "btnClear";
-            btnClear.Size = new Size(302, 40);
-            btnClear.TabIndex = 33;
-            btnClear.Text = "Clear Text Box";
-            btnClear.UseVisualStyleBackColor = false;
-            btnClear.Click += btnClear_Click;
+            label3.AutoSize = true;
+            label3.Font = new Font("Nirmala UI", 14F, FontStyle.Bold);
+            label3.Location = new Point(37, 12);
+            label3.Name = "label3";
+            label3.Size = new Size(236, 32);
+            label3.TabIndex = 8;
+            label3.Text = "Manage Car Details";
             // 
             // AdminManageCarDashboard
             // 
@@ -489,7 +490,6 @@
             Controls.Add(panel6);
             Controls.Add(panel3);
             Controls.Add(tblAllDrivers);
-            Controls.Add(label7);
             Controls.Add(panel1);
             Controls.Add(panel7);
             Controls.Add(panel2);
@@ -510,7 +510,6 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -530,7 +529,6 @@
         private Label label8;
         private Label label2;
         private DataGridView tblAllDrivers;
-        private Label label7;
         private Button btnClose;
         private Button btnLogOut;
         private FontAwesome.Sharp.IconButton iconButton2;
@@ -548,5 +546,6 @@
         private Label lblCarID;
         private Label label1;
         private Button btnClear;
+        private Label label3;
     }
 }

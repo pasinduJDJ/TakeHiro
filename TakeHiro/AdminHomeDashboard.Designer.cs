@@ -38,6 +38,7 @@
             btnDashBoard = new FontAwesome.Sharp.IconButton();
             pictureBox1 = new PictureBox();
             panel2 = new Panel();
+            label1 = new Label();
             pictureBox2 = new PictureBox();
             panel3 = new Panel();
             panel6 = new Panel();
@@ -219,11 +220,22 @@
             // panel2
             // 
             panel2.BackColor = Color.White;
+            panel2.Controls.Add(label1);
             panel2.Controls.Add(pictureBox2);
             panel2.Location = new Point(279, -2);
             panel2.Name = "panel2";
             panel2.Size = new Size(1090, 64);
             panel2.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Nirmala UI", 14F, FontStyle.Bold);
+            label1.Location = new Point(23, 12);
+            label1.Name = "label1";
+            label1.Size = new Size(245, 32);
+            label1.TabIndex = 7;
+            label1.Text = "Statistics Dashboard";
             // 
             // pictureBox2
             // 
@@ -411,7 +423,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(338, 289);
+            label5.Location = new Point(338, 279);
             label5.Name = "label5";
             label5.Size = new Size(82, 23);
             label5.TabIndex = 3;
@@ -421,10 +433,10 @@
             // 
             tblOrder.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tblOrder.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tblOrder.Location = new Point(338, 315);
+            tblOrder.Location = new Point(336, 305);
             tblOrder.Name = "tblOrder";
             tblOrder.RowHeadersWidth = 51;
-            tblOrder.Size = new Size(948, 201);
+            tblOrder.Size = new Size(972, 201);
             tblOrder.StandardTab = true;
             tblOrder.TabIndex = 4;
             // 
@@ -432,7 +444,7 @@
             // 
             tblCompleteOrder.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tblCompleteOrder.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tblCompleteOrder.Location = new Point(355, 580);
+            tblCompleteOrder.Location = new Point(338, 544);
             tblCompleteOrder.Name = "tblCompleteOrder";
             tblCompleteOrder.RowHeadersWidth = 51;
             tblCompleteOrder.Size = new Size(450, 158);
@@ -444,7 +456,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(355, 554);
+            label6.Location = new Point(338, 518);
             label6.Name = "label6";
             label6.Size = new Size(68, 23);
             label6.TabIndex = 5;
@@ -455,7 +467,7 @@
             // 
             tblAllDrivers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tblAllDrivers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tblAllDrivers.Location = new Point(853, 580);
+            tblAllDrivers.Location = new Point(858, 544);
             tblAllDrivers.Name = "tblAllDrivers";
             tblAllDrivers.RowHeadersWidth = 51;
             tblAllDrivers.Size = new Size(450, 158);
@@ -466,7 +478,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(853, 554);
+            label7.Location = new Point(858, 518);
             label7.Name = "label7";
             label7.Size = new Size(94, 23);
             label7.TabIndex = 7;
@@ -546,5 +558,6 @@
         private Label label6;
         private DataGridView tblAllDrivers;
         private Label label7;
+        private Label label1;
     }
 }

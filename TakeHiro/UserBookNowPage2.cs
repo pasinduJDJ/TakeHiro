@@ -14,15 +14,21 @@ namespace TakeHiro
 {
     public partial class UserBookNowPage2 : Form
     {
+        // DatabaseHelper object to interact with the database.
         private readonly DatabaseHelper _dbHelper;
+
+        // Stores the selected driver's ID.
         private readonly string _driverId;
+
         public UserBookNowPage2(string driverID, string driverName, string drivernumber)
         {
             InitializeComponent();
 
+            // Initializing DatabaseHelper with connection string.
             _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
             _driverId = driverID;
 
+            // Display driver information on the labels.
             lblDriverTp.Text = drivernumber;
             lblDriverName.Text = driverName;
 
@@ -32,15 +38,18 @@ namespace TakeHiro
             DisplayAvailableCarCount();
         }
 
+        // Property to get the Driver ID.
         public string DriverId
         {
             get { return _driverId; }
         }
 
+        // Method to load available car data from the database.
         private void LoadCarData()
         {
             try
             {
+                // Retrieve available car data from the database and bind it to the DataGridView.
                 DataTable carData = _dbHelper.GetAvailableCars();
                 tblAllDrivers.DataSource = carData;
             }
@@ -49,6 +58,8 @@ namespace TakeHiro
                 MessageBox.Show($"An error occurred while loading car data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        // Event handler for cell click in the DataGridView.
         private void dgvCars_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -64,6 +75,8 @@ namespace TakeHiro
             tblAllDrivers.CellClick += dgvCars_CellClick;
             btnSubCar.Click += btnPassData_Click;
         }
+
+        // Method to display the count of available cars.
         private void DisplayAvailableCarCount()
         {
             try
@@ -76,6 +89,8 @@ namespace TakeHiro
                 MessageBox.Show($"An error occurred while calculating available Cars: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        // Event handler for passing selected car data to the next form.
         private void btnPassData_Click(object sender, EventArgs e)
         {
             string carModel = txtCarModel.Text;
@@ -84,7 +99,8 @@ namespace TakeHiro
             string driverName = lblDriverName.Text;
             string carId = lblNewCarId.Text;
 
-            if(string.IsNullOrEmpty(carModel) || string.IsNullOrEmpty(carNumber) || string.IsNullOrEmpty(carId))
+            // Check if car details are selected before proceeding.
+            if (string.IsNullOrEmpty(carModel) || string.IsNullOrEmpty(carNumber) || string.IsNullOrEmpty(carId))
             {
                 MessageBox.Show("Please select car before proceeding.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;

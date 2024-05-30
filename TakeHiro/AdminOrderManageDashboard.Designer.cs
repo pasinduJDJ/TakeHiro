@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminOrderManageDashboard));
             tblOrder = new DataGridView();
-            label5 = new Label();
             panel7 = new Panel();
             lblOrderCount = new Label();
             label18 = new Label();
@@ -70,6 +69,7 @@
             lblRegisteredCars = new Label();
             label1 = new Label();
             label6 = new Label();
+            label13 = new Label();
             ((System.ComponentModel.ISupportInitialize)tblOrder).BeginInit();
             panel7.SuspendLayout();
             panel4.SuspendLayout();
@@ -86,23 +86,12 @@
             // 
             tblOrder.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tblOrder.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tblOrder.Location = new Point(332, 218);
+            tblOrder.Location = new Point(348, 192);
             tblOrder.Name = "tblOrder";
             tblOrder.RowHeadersWidth = 51;
-            tblOrder.Size = new Size(940, 253);
+            tblOrder.Size = new Size(911, 253);
             tblOrder.StandardTab = true;
             tblOrder.TabIndex = 12;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Nirmala UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(332, 189);
-            label5.Name = "label5";
-            label5.Size = new Size(82, 23);
-            label5.TabIndex = 11;
-            label5.Text = "All Ordrs";
-            label5.Click += label5_Click;
             // 
             // panel7
             // 
@@ -232,6 +221,7 @@
             // panel2
             // 
             panel2.BackColor = Color.White;
+            panel2.Controls.Add(label13);
             panel2.Controls.Add(pictureBox2);
             panel2.Location = new Point(278, -1);
             panel2.Name = "panel2";
@@ -389,9 +379,9 @@
             panel3.Controls.Add(txtDriverID);
             panel3.Controls.Add(label7);
             panel3.Controls.Add(label3);
-            panel3.Location = new Point(332, 495);
+            panel3.Location = new Point(348, 479);
             panel3.Name = "panel3";
-            panel3.Size = new Size(417, 244);
+            panel3.Size = new Size(417, 253);
             panel3.TabIndex = 17;
             // 
             // btnDriverAva
@@ -460,9 +450,9 @@
             panel5.Controls.Add(txtCarID);
             panel5.Controls.Add(label10);
             panel5.Controls.Add(label12);
-            panel5.Location = new Point(808, 495);
+            panel5.Location = new Point(842, 479);
             panel5.Name = "panel5";
-            panel5.Size = new Size(417, 244);
+            panel5.Size = new Size(417, 253);
             panel5.TabIndex = 18;
             // 
             // btnCarAva
@@ -581,6 +571,16 @@
             label6.TabIndex = 0;
             label6.Text = "Registered Cars :";
             // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Nirmala UI", 14F, FontStyle.Bold);
+            label13.Location = new Point(30, 12);
+            label13.Name = "label13";
+            label13.Size = new Size(264, 32);
+            label13.TabIndex = 10;
+            label13.Text = "Manage Order Details";
+            // 
             // AdminOrderManageDashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -590,7 +590,6 @@
             Controls.Add(panel5);
             Controls.Add(panel3);
             Controls.Add(tblOrder);
-            Controls.Add(label5);
             Controls.Add(panel7);
             Controls.Add(panel4);
             Controls.Add(panel2);
@@ -617,12 +616,10 @@
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
         private DataGridView tblOrder;
-        private Label label5;
         private Panel panel7;
         private Label lblOrderCount;
         private Label label18;
@@ -662,5 +659,6 @@
         private Label lblRegisteredCars;
         private Label label1;
         private Label label6;
+        private Label label13;
     }
 }
