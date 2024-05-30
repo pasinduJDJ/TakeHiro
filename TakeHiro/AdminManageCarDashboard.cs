@@ -73,7 +73,7 @@ namespace TakeHiro
                 if (!isValidPlateNumber)
                 {
                     MessageBox.Show("Please enter a valid vehicle number plate (format: ABC 1234)", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return; // Exit the method if the vehicle number plate is invalid
+                    return; 
                 }
 
                 bool availability = cmbAvailability.SelectedItem.ToString() == "True";
@@ -116,6 +116,15 @@ namespace TakeHiro
             int carId = int.Parse(lblCarID.Text);
             string model = txtCarModel.Text;
             string plateNumber = txtCarNumber.Text;
+            // Regular expression for validating vehicle number plates with the format: ABC 1234
+            string pattern = @"^[A-Z]{3} \d{4}$";
+            bool isValidPlateNumber = Regex.IsMatch(plateNumber, pattern);
+
+            if (!isValidPlateNumber)
+            {
+                MessageBox.Show("Please enter a valid vehicle number plate (format: ABC 1234)", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             bool availability = cmbAvailability.SelectedItem.ToString() == "True";
 
             try

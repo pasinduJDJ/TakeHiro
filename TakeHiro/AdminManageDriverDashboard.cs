@@ -132,6 +132,15 @@ namespace TakeHiro
             int driverId = int.Parse(lblDriverID.Text);
             string name = txtDriverName.Text;
             string contactNumber = txtContactNumber.Text;
+            // Regular expression for validating mobile number 
+            string pattern = @"^[7-9]\d{9}$";
+            bool isValidMobile = Regex.IsMatch(contactNumber, pattern);
+
+            if (!isValidMobile)
+            {
+                MessageBox.Show("Please enter a valid mobile number", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             bool availability = cmbAvailability.SelectedItem.ToString() == "True";
 
             try
