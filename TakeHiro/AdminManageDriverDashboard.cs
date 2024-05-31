@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+﻿using System.Data;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace TakeHiro
 {
@@ -65,7 +57,7 @@ namespace TakeHiro
                 string contactNumber = txtContactNumber.Text;
 
                 // Regular expression for validating mobile number 
-                string pattern = @"^[7-9]\d{9}$";
+                string pattern = @"^(?:7|0|(?:\+94))[0-9]{9,10}$"; ;
                 bool isValidMobile = Regex.IsMatch(contactNumber, pattern);
 
                 if (!isValidMobile)
@@ -80,7 +72,7 @@ namespace TakeHiro
                 {
                     // Save the new driver to the database.
                     _dbHelper.SaveDriver(name, contactNumber, availability);
-                    MessageBox.Show("Car Added successfully.");
+                    MessageBox.Show("Driver Added successfully.");
                     ClearInputs();
                     LoadDriverData();
                     DisplayDriverCount();
@@ -133,7 +125,7 @@ namespace TakeHiro
             string name = txtDriverName.Text;
             string contactNumber = txtContactNumber.Text;
             // Regular expression for validating mobile number 
-            string pattern = @"^[7-9]\d{9}$";
+            string pattern = @"^(?:7|0|(?:\+94))[0-9]{9,10}$"; ;
             bool isValidMobile = Regex.IsMatch(contactNumber, pattern);
 
             if (!isValidMobile)
@@ -147,7 +139,7 @@ namespace TakeHiro
             {
                 // Update the driver details in the database.
                 _dbHelper.UpdateDriver(driverId, name, contactNumber, availability);
-                MessageBox.Show("Car details updated successfully.");
+                MessageBox.Show("Driver details updated successfully.");
                 ClearInputs();
                 LoadDriverData();
                 DisplayDriverCount();
@@ -171,7 +163,7 @@ namespace TakeHiro
             try
             {
                 _dbHelper.DeleteDriver(driverId);
-                MessageBox.Show("Car deleted successfully.");
+                MessageBox.Show("Driver deleted successfully.");
                 ClearInputs();
                 LoadDriverData();
                 DisplayDriverCount();
