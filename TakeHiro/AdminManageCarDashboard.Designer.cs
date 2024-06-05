@@ -129,7 +129,6 @@
             btnSubmitChnages.TabIndex = 29;
             btnSubmitChnages.Text = "Submit Chnages";
             btnSubmitChnages.UseVisualStyleBackColor = false;
-            btnSubmitChnages.Click += btnSubmitChnages_Click;
             // 
             // btnRemoveCar
             // 
@@ -163,7 +162,6 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(728, 338);
             panel3.TabIndex = 22;
-            panel3.Paint += panel3_Paint;
             // 
             // btnClear
             // 
@@ -267,7 +265,6 @@
             tblAllDrivers.Size = new Size(954, 250);
             tblAllDrivers.StandardTab = true;
             tblAllDrivers.TabIndex = 21;
-            tblAllDrivers.CellContentClick += tblAllDrivers_CellContentClick;
             // 
             // btnClose
             // 
