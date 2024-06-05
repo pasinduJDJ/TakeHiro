@@ -6,13 +6,13 @@ namespace TakeHiro
     public partial class AdminManageDriverDashboard : Form
     {
         // DatabaseHelper object to interact with the database.
-        private DatabaseHelper _dbHelper;
+        private Driver _driverHelp;
 
         public AdminManageDriverDashboard()
         {
             InitializeComponent();
             // Initializing DatabaseHelper with connection string.
-            _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
+            _driverHelp = new Driver("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
 
             InitializeComponents();
             LoadDriverData();
@@ -35,7 +35,7 @@ namespace TakeHiro
             try
             {
                 // Retrieve all driver data from the database and bind to the data grid.
-                DataTable driverData = _dbHelper.GetAllDrivers();
+                DataTable driverData = _driverHelp.GetAllDrivers();
                 tblAllDrivers.DataSource = driverData;
             }
             catch (Exception ex)
@@ -51,36 +51,40 @@ namespace TakeHiro
             {
                 MessageBox.Show("Please fil all blank fields", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
+
+            
+            string contactNumber = txtContactNumber.Text;
+
+            // Regular expression for validating mobile number 
+            string pattern = @"^(?:7|0|(?:\+94))[0-9]{9,10}$"; ;
+            bool isValidMobile = Regex.IsMatch(contactNumber, pattern);
+
+            if (!isValidMobile)
             {
-                string name = txtDriverName.Text;
-                string contactNumber = txtContactNumber.Text;
+                MessageBox.Show("Please enter a valid mobile number", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-                // Regular expression for validating mobile number 
-                string pattern = @"^(?:7|0|(?:\+94))[0-9]{9,10}$"; ;
-                bool isValidMobile = Regex.IsMatch(contactNumber, pattern);
+            bool availability = cmbAvailability.SelectedItem.ToString() == "True";
 
-                if (!isValidMobile)
-                {
-                    MessageBox.Show("Please enter a valid mobile number", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return; 
-                }
-
-                bool availability = cmbAvailability.SelectedItem.ToString() == "True";
-
-                try
-                {
-                    // Save the new driver to the database.
-                    _dbHelper.SaveDriver(name, contactNumber, availability);
-                    MessageBox.Show("Driver Added successfully.");
-                    ClearInputs();
-                    LoadDriverData();
-                    DisplayDriverCount();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"An error occurred: {ex.Message}");
-                }
+            Driver newDriver = new Driver(_driverHelp.GetConnection().ConnectionString)
+            {
+                Name = txtDriverName.Text,
+                ContactNumber = contactNumber,
+                Availability = availability
+            };
+            try
+            {
+                // Save the new driver to the database.
+                newDriver.SaveDriver();
+                MessageBox.Show("Driver Added successfully.");
+                ClearInputs();
+                LoadDriverData();
+                DisplayDriverCount();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
             }
         }
         // Method to display driver count statistics.
@@ -89,9 +93,9 @@ namespace TakeHiro
             try
             {
                 // Retrieve and display the count of available and all drivers.
-                int availableDriverCount = _dbHelper.GetAvailableDriverCount();
+                int availableDriverCount = _driverHelp.GetAvailableDriverCount();
                 lblAvgDriver.Text = $"{availableDriverCount}";
-                int allDriverCount = _dbHelper.GetCountAllDrivers();
+                int allDriverCount = _driverHelp.GetCountAllDrivers();
                 lblRegDriver.Text = $"{allDriverCount}";
             }
             catch (Exception ex)
@@ -135,10 +139,18 @@ namespace TakeHiro
             }
             bool availability = cmbAvailability.SelectedItem.ToString() == "True";
 
+            Driver newDriver = new Driver(_driverHelp.GetConnection().ConnectionString)
+            {
+                DriverID= driverId,
+                Name = txtDriverName.Text,
+                ContactNumber = contactNumber,
+                Availability = availability
+            };
+
             try
             {
                 // Update the driver details in the database.
-                _dbHelper.UpdateDriver(driverId, name, contactNumber, availability);
+                newDriver.UpdateDriver();
                 MessageBox.Show("Driver details updated successfully.");
                 ClearInputs();
                 LoadDriverData();
@@ -162,7 +174,7 @@ namespace TakeHiro
 
             try
             {
-                _dbHelper.DeleteDriver(driverId);
+                _driverHelp.DeleteDriver(driverId);
                 MessageBox.Show("Driver deleted successfully.");
                 ClearInputs();
                 LoadDriverData();

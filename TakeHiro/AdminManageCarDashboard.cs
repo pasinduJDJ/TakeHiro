@@ -7,11 +7,13 @@ namespace TakeHiro
 {
     public partial class AdminManageCarDashboard : Form
     {
+        // DatabaseHelper object to interact with the database.
         private Car _carHelper;
 
         public AdminManageCarDashboard()
         {
             InitializeComponent();
+            // Initializing DatabaseHelper with connection string.
             _carHelper = new Car("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
             InitializeComponents();
             LoadCarData();
@@ -20,8 +22,10 @@ namespace TakeHiro
 
         private void InitializeComponents()
         {
+            // Adding items to availability combo box and setting default selection.
             cmbAvailability.Items.AddRange(new object[] { "True", "False" });
             cmbAvailability.SelectedIndex = 0;
+            // Setting up event handlers for data grid cell click and button clicks.
             tblAllDrivers.CellClick += tblAllDrivers_CellClick;
             btnSubmitChnages.Click += btnSubmitChanges_Click;
             btnRemoveCar.Click += btnDeleteCar_Click;
@@ -39,6 +43,7 @@ namespace TakeHiro
 
             try
             {
+                // Retrieve all Car data from the database and bind to the data grid.
                 DataTable carData = _carHelper.GetAllCars();
                 tblAllDrivers.DataSource = carData;
             }
@@ -48,6 +53,7 @@ namespace TakeHiro
             }
         }
 
+        // Event handler for adding a new Car.
         private void btnAddNewCar_Click(object? sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtCarModel.Text) || string.IsNullOrWhiteSpace(txtCarNumber.Text))
@@ -77,6 +83,7 @@ namespace TakeHiro
 
             try
             {
+                // Save the new driver to the database.
                 newCar.SaveCar();
                 MessageBox.Show("New car added successfully.");
                 ClearInputs();
@@ -122,10 +129,16 @@ namespace TakeHiro
             }
 
             bool availability = cmbAvailability.SelectedItem.ToString() == "True";
-
+            Car newCar = new Car(_carHelper.GetConnection().ConnectionString)
+            {
+                CarID = carId,
+                Model = txtCarModel.Text,
+                PlateNumber = plateNumber,
+                Availability = availability
+            };
             try
             {
-                _carHelper.UpdateCar(carId, model, plateNumber, availability);
+                newCar.UpdateCar();
                 MessageBox.Show("Car details updated successfully.");
                 ClearInputs();
                 LoadCarData();
@@ -160,7 +173,7 @@ namespace TakeHiro
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        // Method to display Car count statistics.
         private void DisplayCarCount()
         {
             try

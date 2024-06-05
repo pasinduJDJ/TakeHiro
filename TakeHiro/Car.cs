@@ -73,17 +73,31 @@ public class Car
         return count;
     }
 
-    public void UpdateCar(int carId, string model, string plateNumber, bool availability)
+    public void UpdateCar()
     {
         using (MySqlConnection conn = GetConnection())
         {
             conn.Open();
             string query = "UPDATE Car SET Model = @Model, PlateNumber = @PlateNumber, Availability = @Availability WHERE CarID = @CarID";
             MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@CarID", CarID);
+            cmd.Parameters.AddWithValue("@Model", Model);
+            cmd.Parameters.AddWithValue("@PlateNumber", PlateNumber);
+            cmd.Parameters.AddWithValue("@Availability", Availability);
+            cmd.ExecuteNonQuery();
+        }
+    }
+
+    public void UpdateCar(int carId, bool availability)
+    {
+        using (MySqlConnection conn = GetConnection())
+        {
+            conn.Open();
+            string query = "UPDATE Car SET Availability = @Availability WHERE CarID = @CarID";
+            MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@CarID", carId);
-            cmd.Parameters.AddWithValue("@Model", model);
-            cmd.Parameters.AddWithValue("@PlateNumber", plateNumber);
             cmd.Parameters.AddWithValue("@Availability", availability);
+
             cmd.ExecuteNonQuery();
         }
     }
