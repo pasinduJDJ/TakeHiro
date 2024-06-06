@@ -3,13 +3,16 @@ using System.Data;
 
 public class Car
 {
+    // Properties representing the car's attributes
     public int CarID { get; set; }
     public string Model { get; set; } = string.Empty;
     public string PlateNumber { get; set; } = string.Empty;
     public bool Availability { get; set; }
 
+    // Connection string to connect to the MySQL database
     private string _connectionString;
 
+    // Constructor to initialize the connection string
     public Car(string connectionString)
     {
         _connectionString = connectionString;
@@ -19,7 +22,7 @@ public class Car
     {
         return new MySqlConnection(_connectionString);
     }
-
+    // Method to save a new car to the database
     public void SaveCar()
     {
         using (MySqlConnection conn = GetConnection())
@@ -33,7 +36,7 @@ public class Car
             cmd.ExecuteNonQuery();
         }
     }
-
+    // Method to get all cars from the database
     public DataTable GetAllCars()
     {
         DataTable dt = new DataTable();
@@ -46,7 +49,7 @@ public class Car
         }
         return dt;
     }
-
+    // Method to get all available cars from the database
     public DataTable GetAvailableCars()
     {
         DataTable dtC = new DataTable();
@@ -60,7 +63,7 @@ public class Car
         }
         return dtC;
     }
-
+    // Method to get the count of available cars in the database
     public int GetAvailabelCarCount()
     {
         int count = 0;
@@ -73,7 +76,7 @@ public class Car
         }
         return count;
     }
-
+    // Method to get the total count of cars in the database
     public int GetCountAllCars()
     {
         int count = 0;
@@ -86,7 +89,7 @@ public class Car
         }
         return count;
     }
-
+    // Method to update car details in the database
     public void UpdateCar()
     {
         using (MySqlConnection conn = GetConnection())
@@ -101,7 +104,7 @@ public class Car
             cmd.ExecuteNonQuery();
         }
     }
-
+    // Overloaded method to update car availability in the database
     public void UpdateCar(int carId, bool availability)
     {
         using (MySqlConnection conn = GetConnection())
@@ -115,7 +118,7 @@ public class Car
             cmd.ExecuteNonQuery();
         }
     }
-
+    // Method to delete a car from the database
     public void DeleteCar(int carId)
     {
         using (MySqlConnection conn = GetConnection())

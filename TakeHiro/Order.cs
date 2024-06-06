@@ -10,6 +10,7 @@ namespace TakeHiro
 {
     internal class Order
     {
+        // Properties representing the order's attributes
         public int OrderID { get; set; }
         public int CustomerID { get; set; }
         public int DriverID { get; set; } 
@@ -18,7 +19,7 @@ namespace TakeHiro
         public string Location { get; set; } = string.Empty;
         public DateTime OrderDate { get; set; }
 
-
+        // Connection string to connect to the MySQL database
         private string _connectionString;
 
         public Order(string connectionString)
@@ -30,7 +31,7 @@ namespace TakeHiro
         {
             return new MySqlConnection(_connectionString);
         }
-
+        // Method to save a new order to the database
         public void SaveOrder()
         {
             using (MySqlConnection conn = GetConnection())
@@ -48,7 +49,7 @@ namespace TakeHiro
                 cmd.ExecuteNonQuery();
             }
         }
-
+        // Method to get all orders from the database
         public DataTable GetAllOrders()
         {
             DataTable dt = new DataTable();
@@ -62,8 +63,7 @@ namespace TakeHiro
             return dt;
         }
 
-
-
+        // Method to get the count of orders in the database
         public int GetCountOrders()
         {
             int count = 0;

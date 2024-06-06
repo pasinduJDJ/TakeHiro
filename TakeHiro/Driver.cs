@@ -6,11 +6,12 @@ namespace TakeHiro
 {
     internal class Driver
     {
+        // Properties representing the driver's attributes
         public int DriverID { get; set; }
         public string Name { get; set; } = string.Empty;
         public string ContactNumber { get; set; } = string.Empty;
         public bool Availability { get; set; }
-
+        // Connection string to connect to the MySQL database
         private string _connectionString;
 
         public Driver(string connectionString)
@@ -22,7 +23,7 @@ namespace TakeHiro
         {
             return new MySqlConnection(_connectionString);
         }
-
+        // Method to save a new driver to the database
         public void SaveDriver()
         {
             using (var conn = GetConnection())
@@ -38,7 +39,7 @@ namespace TakeHiro
                 }
             }
         }
-
+        // Method to get all drivers from the database
         public DataTable GetAllDrivers()
         {
             var dtD = new DataTable();
@@ -54,7 +55,7 @@ namespace TakeHiro
             }
             return dtD;
         }
-
+        // Method to get all available drivers from the database
         public DataTable GetAvailableDrivers()
         {
             var dtD = new DataTable();
@@ -70,7 +71,7 @@ namespace TakeHiro
             }
             return dtD;
         }
-
+        // Method to get the count of available drivers in the database
         public int GetAvailableDriverCount()
         {
             using (var conn = GetConnection())
@@ -83,7 +84,7 @@ namespace TakeHiro
                 }
             }
         }
-
+        // Method to get the total count of drivers in the database
         public int GetCountAllDrivers()
         {
             using (var conn = GetConnection())
@@ -96,7 +97,7 @@ namespace TakeHiro
                 }
             }
         }
-
+        // Method to update driver details in the database
         public void UpdateDriver()
         {
             using (var conn = GetConnection())
@@ -113,7 +114,7 @@ namespace TakeHiro
                 }
             }
         }
-
+        // Overloaded method to update driver availability in the database
         public void UpdateDriver(int driverId, bool availability)
         {
             using (var conn = GetConnection())
@@ -128,7 +129,7 @@ namespace TakeHiro
                 }
             }
         }
-
+        // Method to delete a driver from the database
         public void DeleteDriver(int driverId)
         {
             using (var conn = GetConnection())

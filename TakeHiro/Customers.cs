@@ -9,6 +9,7 @@ namespace TakeHiro
 {
     internal class Customers
     {
+        // Properties representing the customer's attributes
         public int CustomerID { get; set; }
         public string CustomerName { get; set; } = string.Empty;
         public string CustomerNumber  { get; set; } = string.Empty;
@@ -16,6 +17,7 @@ namespace TakeHiro
         public string Username { get; set; } = string.Empty;
         public string password { get; set; } = string.Empty;
 
+        // Connection string to connect to the MySQL database
         private string _connectionString;
 
         public Customers(string connectionString)
@@ -27,7 +29,7 @@ namespace TakeHiro
         {
             return new MySqlConnection(_connectionString);
         }
-
+        // Method to save a new customer to the database
         public void SaveCustomer()
         {
             using (MySqlConnection conn = GetConnection())
@@ -45,8 +47,8 @@ namespace TakeHiro
             }
         }
 
-
-        // Validate Customers 
+        // Method to validate customer login credentials
+        // Returns the CustomerID if the credentials are valid, otherwise returns null
         public int? ValidateCustomerLogin(string username, string password)
         {
             using (MySqlConnection conn = GetConnection())
