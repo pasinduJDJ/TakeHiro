@@ -6,13 +6,21 @@ namespace TakeHiro
     {
         // DatabaseHelper object to interact with the database.
         private DatabaseHelper _dbHelper;
+        private Order _orderHelp;
+        private Driver _driverHelp;
+        private Car _carHelp;
         public AdminOrderManageDashboard()
         {
             InitializeComponent();
+            InitializeComponents();
             // Initializing DatabaseHelper with connection string.
             _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
-
-            InitializeComponents();
+            _orderHelp = new Order("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
+            _carHelp = new Car("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
+            _driverHelp = new Driver("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
+            // Loading order data and displaying counts.
+            LoadOrderData();
+            DisplayCounts();
         }
 
         private void InitializeComponents()
@@ -26,9 +34,7 @@ namespace TakeHiro
 
             // Setting up event handler for data grid cell click.
             tblOrder.CellClick += tblOrders_CellClick;
-            // Loading order data and displaying counts.
-            LoadOrderData();
-            DisplayCounts();
+            
         }
         // Event handler for data grid cell click.
         private void tblOrders_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -46,11 +52,11 @@ namespace TakeHiro
             try
             {
                 // Retrieve and display counts.
-                lblAvailabelCars.Text = $"{_dbHelper.GetAvailabelCarCount()}";
-                lblRegisteredCars.Text = $"{_dbHelper.GetCountAllCars()}";
-                lblAvailabelDrivers.Text = $"{_dbHelper.GetAvailableDriverCount()}";
-                lblRegisteredDrivers.Text = $"{_dbHelper.GetCountAllDrivers()}";
-                lblOrderCount.Text = $"{_dbHelper.GetCountOrders()}";
+                lblAvailabelCars.Text = $"{_carHelp.GetAvailabelCarCount()}";
+                lblRegisteredCars.Text = $"{_carHelp.GetCountAllCars()}";
+                lblAvailabelDrivers.Text = $"{_driverHelp.GetAvailableDriverCount()}";
+                lblRegisteredDrivers.Text = $"{_driverHelp.GetCountAllDrivers()}";
+                lblOrderCount.Text = $"{_orderHelp.GetCountOrders()}";
             }
             catch (Exception ex)
             {
@@ -58,19 +64,22 @@ namespace TakeHiro
             }
         }
         // Method to load order data from the database.
+
         private void LoadOrderData()
         {
+
             try
             {
-                // Retrieve all order data from the database and bind to the data grid.
-                DataTable orderdata = _dbHelper.GetAllOrders();
-                tblOrder.DataSource = orderdata;
+                // Retrieve all Order data from the database and bind to the data grid.
+                DataTable orderData = _orderHelp.GetAllOrders();
+                tblOrder.DataSource = orderData;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred while loading Order data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"An error occurred while loading car data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void label5_Click(object sender, EventArgs e){}
 
@@ -124,7 +133,7 @@ namespace TakeHiro
 
             try
             {
-                _dbHelper.UpdateDriver(driverID, availability);
+                _driverHelp.UpdateDriver(driverID, availability);
                 MessageBox.Show("Driver Availability updated successfully.");
                 txtDriverID.Clear();
                 cmdDriverAva.SelectedIndex = 0;
@@ -148,7 +157,7 @@ namespace TakeHiro
 
             try
             {
-                _dbHelper.UpdateCar(carID, availability);
+                _carHelp.UpdateCar(carID, availability);
                 MessageBox.Show("Driver Availability updated successfully.");
                 txtCarID.Clear();
                 cmdCarAva.SelectedIndex = 0;

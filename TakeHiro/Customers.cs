@@ -8,5 +8,6 @@ namespace TakeHiro
 {
     internal class Customers
     {
+
     }
 }
