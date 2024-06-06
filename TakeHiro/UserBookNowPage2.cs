@@ -5,7 +5,7 @@ namespace TakeHiro
     public partial class UserBookNowPage2 : Form
     {
         // DatabaseHelper object to interact with the database.
-        private readonly DatabaseHelper _dbHelper;
+        private readonly Car _carHelp;
 
         // Stores the selected driver's ID.
         private readonly string _driverId;
@@ -15,7 +15,7 @@ namespace TakeHiro
             InitializeComponent();
 
             // Initializing DatabaseHelper with connection string.
-            _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
+            _carHelp = new Car("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
             _driverId = driverID;
 
             // Display driver information on the labels.
@@ -40,7 +40,7 @@ namespace TakeHiro
             try
             {
                 // Retrieve available car data from the database and bind it to the DataGridView.
-                DataTable carData = _dbHelper.GetAvailableCars();
+                DataTable carData = _carHelp.GetAvailableCars();
                 tblAllDrivers.DataSource = carData;
             }
             catch (Exception ex)
@@ -71,7 +71,7 @@ namespace TakeHiro
         {
             try
             {
-                int availableCarCount = _dbHelper.GetAvailabelCarCount();
+                int availableCarCount = _carHelp.GetAvailabelCarCount();
                 lblDriversCount.Text = $"{availableCarCount}";
             }
             catch (Exception ex)

@@ -5,7 +5,7 @@ namespace TakeHiro
     public partial class UserAvailableCars : Form
     {
         // DatabaseHelper object to interact with the database.
-        private DatabaseHelper _dbHelper;
+        private Car _carHelper;
 
         // Constructor for UserAvailableCars class.
         public UserAvailableCars()
@@ -13,7 +13,7 @@ namespace TakeHiro
             InitializeComponent();
 
             // Initializing DatabaseHelper with connection string.
-            _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
+            _carHelper = new Car("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
 
             LoadCarData();
             DisplayAvailableCarCount();
@@ -24,7 +24,7 @@ namespace TakeHiro
             try
             {
                 // Retrieve available car data from the database and bind it to the DataGridView.
-                DataTable carData = _dbHelper.GetAvailableCars();
+                DataTable carData = _carHelper.GetAvailableCars();
                 tblCompleteOrder.DataSource = carData;
             }
             catch (Exception ex)
@@ -38,7 +38,7 @@ namespace TakeHiro
             try
             {
                 // Retrieve and display the count of available cars.
-                int availableCarCount = _dbHelper.GetAvailabelCarCount();
+                int availableCarCount = _carHelper.GetAvailabelCarCount();
                 lblDriversCount.Text = $"{availableCarCount}";
             }
             catch (Exception ex)

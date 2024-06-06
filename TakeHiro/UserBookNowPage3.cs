@@ -3,7 +3,7 @@
     public partial class UserBookNowPage3 : Form
     {
         // DatabaseHelper object to interact with the database.
-        private readonly DatabaseHelper _dbHelper;
+        private Order _orderHelp;
 
         // Stores the selected car and driver IDs.
         private readonly string _carId;
@@ -13,7 +13,7 @@
             InitializeComponent();
 
             // Initializing DatabaseHelper with connection string
-            _dbHelper = new DatabaseHelper("Server=localhost;Database=CabManagementDB;User ID=root;Password=root;SslMode=none;");
+            _orderHelp = new Order("Server=localhost;Database=CabManagementDB;User ID=root;Password=root;SslMode=none;");
 
             _carId = carId;
             _driverId = driverId;
@@ -85,28 +85,34 @@
             {
                 MessageBox.Show("Please enter destination and  location before processing", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
+            int customerName = 3;
+            string driverID = _driverId;
+            string carID = _carId;
+            string destination = txtDestination.Text;
+            string location = txtLocation.Text;
+            DateTime orderDate = DateTime.Now;
+            Order newOrder = new Order(_orderHelp.GetConnection().ConnectionString)
             {
-                string customerName = "3"; 
-                string driverID = _driverId;
-                string carID = _carId;
-                string destination = txtDestination.Text;
-                string location = txtLocation.Text;
-                string orderDate = DateTime.Now.ToString("yyyy-MM-dd"); 
+                CustomerID = customerName,
+                DriverID=int.Parse(driverID),
+                CarID=int.Parse(carID),
+                Destination=destination,
+                Location=location,
+                OrderDate=orderDate
+            };
 
-                try
-                {
-                    // Save order to the database.
-                    _dbHelper.SaveOrder(customerName, driverID, carID, destination, location, orderDate);
-                    MessageBox.Show("Order signed up successfully.");
-                    UserBookNowPage1 form1 = new UserBookNowPage1();
-                    form1.Show();
-                    this.Hide();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"An error occurred: {ex.Message}");
-                }
+            try
+            {
+                // Save order to the database.
+                newOrder.SaveOrder();
+                MessageBox.Show("Order signed up successfully.");
+                UserBookNowPage1 form1 = new UserBookNowPage1();
+                form1.Show();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
             }
         }
 

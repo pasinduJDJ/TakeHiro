@@ -47,6 +47,20 @@ public class Car
         return dt;
     }
 
+    public DataTable GetAvailableCars()
+    {
+        DataTable dtC = new DataTable();
+        using (MySqlConnection conn = GetConnection())
+        {
+            conn.Open();
+            string query = "SELECT * FROM Car WHERE Availability = 1";
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+            da.Fill(dtC);
+        }
+        return dtC;
+    }
+
     public int GetAvailabelCarCount()
     {
         int count = 0;

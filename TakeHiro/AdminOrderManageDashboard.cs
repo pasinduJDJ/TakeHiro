@@ -5,7 +5,6 @@ namespace TakeHiro
     public partial class AdminOrderManageDashboard : Form
     {
         // DatabaseHelper object to interact with the database.
-        private DatabaseHelper _dbHelper;
         private Order _orderHelp;
         private Driver _driverHelp;
         private Car _carHelp;
@@ -14,7 +13,6 @@ namespace TakeHiro
             InitializeComponent();
             InitializeComponents();
             // Initializing DatabaseHelper with connection string.
-            _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
             _orderHelp = new Order("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
             _carHelp = new Car("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
             _driverHelp = new Driver("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
