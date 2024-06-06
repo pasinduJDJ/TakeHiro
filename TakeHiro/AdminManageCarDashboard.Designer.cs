@@ -484,9 +484,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(233, 234, 236);
             ClientSize = new Size(1366, 768);
+            Controls.Add(tblAllDrivers);
             Controls.Add(panel6);
             Controls.Add(panel3);
-            Controls.Add(tblAllDrivers);
             Controls.Add(panel1);
             Controls.Add(panel7);
             Controls.Add(panel2);

@@ -3,7 +3,7 @@ namespace TakeHiro
     public partial class LoginPage : Form
     {
         // DatabaseHelper object to interact with the database.
-        private readonly DatabaseHelper _dbHelper;
+        private Customers _customerHelp;
 
         private const string AdminUsername = "admin";
         private const string AdminPassword = "admin123";
@@ -14,7 +14,7 @@ namespace TakeHiro
             InitializeComponent();
 
             // Initializing DatabaseHelper with connection string.
-            _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
+            _customerHelp = new Customers("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
         }
 
         private void label1_Click(object sender, EventArgs e){}
@@ -49,7 +49,7 @@ namespace TakeHiro
             else
             {
                 // Validate customer login if not admin.
-                int? customerId = _dbHelper.ValidateCustomerLogin(username, password);
+                int? customerId = _customerHelp.ValidateCustomerLogin(username, password);
                 if (customerId.HasValue)
                 {
                     UserBookNowPage1 customerPage = new UserBookNowPage1();

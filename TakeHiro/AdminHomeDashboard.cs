@@ -1,11 +1,14 @@
-﻿using System.Data;
+﻿
+using System.Data;
 
 namespace TakeHiro
 {
     public partial class AdminHomeDashboard : Form
     {
         // DatabaseHelper object to interact with the database.
-        private readonly DatabaseHelper _dbHelper;
+        private Order _orderHelp;
+        private Car _carHelp;
+        private Driver _driverHelp;
 
         // Constructor for AdminHomeDashboard class.
         public AdminHomeDashboard()
@@ -13,7 +16,10 @@ namespace TakeHiro
             InitializeComponent();
 
             // Initializing DatabaseHelper with connection string.
-            _dbHelper = new DatabaseHelper("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
+            _driverHelp = new Driver("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
+            _carHelp = new Car("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
+            _orderHelp = new Order("Server=localhost;Database=cabManagementdb;User ID=root;Password=root;SslMode=none;");
+
 
             LoadDataAndDisplayCounts();
         }
@@ -41,7 +47,7 @@ namespace TakeHiro
             try
             {
                 // Retrieve all car data from the database and bind to the data grid.
-                DataTable carData = _dbHelper.GetAllCars();
+                DataTable carData = _carHelp.GetAllCars();
                 tblCompleteOrder.DataSource = carData;
             }
             catch (Exception ex)
@@ -55,7 +61,7 @@ namespace TakeHiro
             try
             {
                 // Retrieve all driver data from the database and bind to the data grid.
-                DataTable driverData = _dbHelper.GetAllDrivers();
+                DataTable driverData = _driverHelp.GetAllDrivers();
                 tblAllDrivers.DataSource = driverData;
             }
             catch (Exception ex)
@@ -68,7 +74,7 @@ namespace TakeHiro
             try
             {
                 // Retrieve all order data from the database and bind to the data grid.
-                DataTable orderdata = _dbHelper.GetAllOrders();
+                DataTable orderdata = _orderHelp.GetAllOrders();
                 tblOrder.DataSource = orderdata;
             }
             catch (Exception ex)
@@ -81,9 +87,9 @@ namespace TakeHiro
         {
             try
             {
-                int availableCarCount = _dbHelper.GetAvailabelCarCount();
+                int availableCarCount = _carHelp.GetAvailabelCarCount();
                 lblAvailabelCars.Text = $"{availableCarCount}";
-                int allCarCount = _dbHelper.GetCountAllCars();
+                int allCarCount = _carHelp.GetCountAllCars();
                 lblRegisteredCars.Text = $"{allCarCount}";
             }
             catch (Exception ex)
@@ -96,9 +102,9 @@ namespace TakeHiro
         {
             try
             {
-                int availableDriverCount = _dbHelper.GetAvailableDriverCount();
+                int availableDriverCount = _driverHelp.GetAvailableDriverCount();
                 lblAvailabelDrivers.Text = $"{availableDriverCount}";
-                int allDriverCount = _dbHelper.GetCountAllDrivers();
+                int allDriverCount = _driverHelp.GetCountAllDrivers();
                 lblRegisteredDrivers.Text = $"{allDriverCount}";
             }
             catch (Exception ex)
@@ -111,7 +117,7 @@ namespace TakeHiro
         {
             try
             {
-                int orderCount = _dbHelper.GetCountOrders();
+                int orderCount = _orderHelp.GetCountOrders();
                 lblOrderCount.Text = $"{orderCount}";
             }
             catch (Exception ex)
